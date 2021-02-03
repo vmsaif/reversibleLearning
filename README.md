@@ -5,6 +5,7 @@
 <p>Leonardo Warsito</p>
 <p>Chowdhury Abdul Mumin Ishmam</p>
 <p>Saif Mahmud</p>
+<p>Yelizaveta Yashin</p>
 
 # Vision Statement
 <p>Our group plans to create a mobile application that anyone can use to write questions and answers to flashcards. Eventually, users can use their flashcards for various purposes, such as studying while they are in their schooling years, or when their scholastic years are behind them but are interested in brushing up their knowledge. By storing personal questions on the app, we can create a place to archive the knowledge individuals have acquired throughout their entire life.</p>
