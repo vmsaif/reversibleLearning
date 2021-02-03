@@ -1,2 +1,2 @@
-# Our awesome group 5
+# COMP 3350 2021 Group 5
 
