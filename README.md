@@ -20,3 +20,6 @@
 <p>Everyone learns throughout their schooling career; some people need extra help to finish schooling, while others desire to learn well after school. Physical notes can take up a lot of space, but with an app like the one we have in mind, it will be easy to keep track of your learning throughout your entire schooling career. With this easy storage for all a person’s notes and flashcards, it will be easier than ever to brush up the knowledge learned in school while providing a comfortable environment to continue learning late into life, taking learning with them the entire way.</p>
 
 <p>Our Project will be considered successful based on three criteria. First, we will conduct an optional poll to measure the increase in our user's scholarly grades by individual report. Secondly, if we are getting any of our post-graduated users, determined again by user poll, we will know our app has appeal for lifelong learning. Finally, if thirty percent of our users return to the app at least once a day, we will consider our app a success.</p>
+
+#Branching Strategy
+<p>GitHub Branching Strategy</p>
