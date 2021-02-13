@@ -21,5 +21,5 @@
 
 <p>Our Project will be considered successful based on three criteria. First, we will conduct an optional poll to measure the increase in our user's scholarly grades by individual report. Secondly, if we are getting any of our post-graduated users, determined again by user poll, we will know our app has appeal for lifelong learning. Finally, if thirty percent of our users return to the app at least once a day, we will consider our app a success.</p>
 
-#Branching Strategy
+# Branching Strategy
 <p>GitHub Branching Strategy</p>
