@@ -6,8 +6,8 @@ Logic Tier, Data Tier. In addition to that we also have a Objects package and an
 ## Application
 <p> Is the place which is used to launch the application.<br> 
 This package includes:<br>
-1. MainActivity: 
-    * For now just shows the initial interface when the app launches, with the applications name on top.
+1. MainActivity: <br>
+    * For now just shows the initial interface when the app launches, with the applications name on top.<br>
 </p>
 
 ## Presentation Tier
@@ -31,8 +31,8 @@ This package includes:<br>
 ## Objects
 <p> This package contains the information of the various objects to be used by the rest of the project.<br>
 This package includes:<br>
-1. CardSide class
-    * Represents a side of a flashcard. Contains question/answer depending on what side it is.
-2. Flsahcard class:
-    *Will hold 2 CardSide objects representing the front and back side of a card.
+1. CardSide class<br>
+    * Represents a side of a flashcard. Contains question/answer depending on what side it is.<br>
+2. Flsahcard class:<br>
+    *Will hold 2 CardSide objects representing the front and back side of a card.<br>
 </p>
