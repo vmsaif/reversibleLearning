@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/drawable_button_gradient"
+    android:visibility="visible"
+    tools:visibility="visible">
+
+    <Button
+        android:id="@+id/button_make_flashcard"
+        android:layout_width="166dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="88dp"
+        android:backgroundTint="@color/light_peach"
+        android:text="@string/make_flashcard"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_create_quiz"
+        app:layout_constraintEnd_toStartOf="@+id/button_folders"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_folders"
+        android:layout_width="166dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="88dp"
+        android:backgroundTint="@color/light_peach"
+        android:text="@string/folders"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_create_test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_make_flashcard"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_create_quiz"
+        android:layout_width="166dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="261dp"
+        android:backgroundTint="@color/light_peach"
+        android:text="@string/create_quiz"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_create_test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_make_flashcard" />
+
+    <Button
+        android:id="@+id/button_create_test"
+        android:layout_width="166dp"
+        android:layout_height="77dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="261dp"
+        android:backgroundTint="@color/light_peach"
+        android:text="@string/create_test"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_create_quiz"
+        app:layout_constraintTop_toBottomOf="@+id/button_folders" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
