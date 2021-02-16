@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Flashcard Study</string>
+    <string name="make_flashcard">Make Flashcard</string>
+    <string name="make_question">Enter Question</string>
+    <string name="flashcard_img">Create Flashcard</string>
+    <string name="folders">Folders</string>
+    <string name="create_quiz">Create Quiz</string>
+    <string name="create_test">Create Test</string>
+
 </resources>

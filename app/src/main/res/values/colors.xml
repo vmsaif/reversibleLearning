@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="red">#BA0404</color>
+    <color name="light_peach">#E1BC91</color>
+    <color name="dark_ocean_blue">#0058AB</color>
+    <color name="light_ocean_blue">#0178BD</color>
+    <color name="light_blue">#368DC5</color>
 </resources>
