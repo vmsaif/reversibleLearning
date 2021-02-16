@@ -20,13 +20,13 @@ public class FlashcardActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
 
-        Button button = (Button)findViewById(R.id.my_button);
-        button.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                makeFlashcard();
-            }//onClick
-        });
+//        Button button = (Button)findViewById(R.id.my_button);
+//        button.setOnClickListener(new OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                makeFlashcard();
+//            }//onClick
+//        });
     }//onCreate
 
 

@@ -6,5 +6,7 @@
     <string name="folders">Folders</string>
     <string name="create_quiz">Create Quiz</string>
     <string name="create_test">Create Test</string>
+    <string name="Guest">Guest</string>
+    <string name="Login">Login</string>
 
 </resources>
