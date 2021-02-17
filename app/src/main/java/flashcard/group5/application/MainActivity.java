@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import flashcard.group5.application.data.LoginRepository;
+import flashcard.group5.application.ui.login.LoginActivity;
 import presentation.OptionsActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
@@ -36,10 +37,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (view.getId() == R.id.button_guestLogin) {
             intent = new Intent(getApplicationContext(), OptionsActivity.class);
         } else if(view.getId() == R.id.button_login) {
-            intent = new Intent(MainActivity.this, LoginRepository.class);
+            intent = new Intent(MainActivity.this, LoginActivity.class);
         } else {
             //shouldn't have come here.....still in case
-            Toast.makeText(this,"opps check button", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"opps check buttons", Toast.LENGTH_SHORT).show();
         }
         if(intent != null) {
             startActivity(intent);
