@@ -24,9 +24,15 @@
 # Branching Strategy
 <p>GitHub Branching Strategy</p>
 1. Pull 'master' to your computer to get the newest version
+
 2. Make a new branch, from master with the name of the new feature you are working on.
+
 3. Once done, push your branch and open a pull request
+
 4. Get 1-2 teammate to approve/ reject and discuss the code
+
 5. Make changes as necessary 
+
 6. After teammates approve, open a merge request to master
+
 7. At this point your local branch can be deleted and you can pull master again.
