@@ -28,6 +28,11 @@ public class CardSideTest {
         objFront.addText("What's the capital of Canada?");
         String output = objFront.getText();
         assertEquals("Front text of card should be equal to expected.",expectedString,output);
+        // change the text
+        String expectedString2 = "What's the capital of France?";
+        objFront.addText("What's the capital of France?");
+        String output2 = objFront.getText();
+        assertEquals("Front text of card should be equal to expected.",expectedString2,output2);
 
     }
     /*@Test

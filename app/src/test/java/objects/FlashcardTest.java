@@ -21,7 +21,9 @@ public class FlashcardTest {
         Flashcard expected = new Flashcard();
         expected.modifyQuestion("This is the question");
         FrontFlash.modifyQuestion("This is the question");
-        assertTrue("Modified and returned question should be same",expected.returnQuestion().equals(BackFlash.returnQuestion()));
+        assertTrue("Modified and returned question should be same",expected.returnQuestion().equals(BackFlash.returnQuestion()));//Modify the question again and test it
+        expected.modifyAnswer("That is the question");
+        assertFalse("Modified and returned question shouldn't be same",expected.returnQuestion().equals(FrontFlash.returnQuestion()));
 
     }
 
@@ -32,6 +34,9 @@ public class FlashcardTest {
         expected.modifyAnswer("This is the answer");
         BackFlash.modifyAnswer("This is the answer");
         assertTrue("Modified and returned answer should be same",expected.returnAnswer().equals(BackFlash.returnAnswer()));
+        //Modify the answer again and test it
+        expected.modifyAnswer("That is the answer");
+        assertFalse("Modified and returned answer shouldn't be same",expected.returnAnswer().equals(BackFlash.returnAnswer()));
     }
 
     /*@Test
