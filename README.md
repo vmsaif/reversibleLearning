@@ -23,9 +23,10 @@
 
 # Branching Strategy
 <p>GitHub Branching Strategy</p>
+
 1. Pull 'master' to your computer to get the newest version
 
-2. Make a new branch, from master with the name of the new feature you are working on.
+2. Make a new branch, from master with the name of the new feature you are working on
 
 3. Once done, push your branch and open a pull request
 
