@@ -1,4 +1,4 @@
-package flashcard.group5.application.ui.login;
+package presentation;
 
 import androidx.annotation.Nullable;
 

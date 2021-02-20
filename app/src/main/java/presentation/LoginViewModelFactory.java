@@ -1,11 +1,12 @@
-package flashcard.group5.application.ui.login;
+package presentation;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 
-import flashcard.group5.application.data.LoginDataSource;
-import flashcard.group5.application.data.LoginRepository;
+import data.LoginDataSource;
+import data.LoginRepository;
+import presentation.LoginViewModel;
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

@@ -1,6 +1,6 @@
-package flashcard.group5.application.data;
+package data;
 
-import flashcard.group5.application.data.model.LoggedInUser;
+import data.model.LoggedInUser;
 
 import java.io.IOException;
 

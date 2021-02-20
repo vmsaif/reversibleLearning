@@ -1,4 +1,4 @@
-package flashcard.group5.application.data.model;
+package data.model;
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository

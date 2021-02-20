@@ -1,6 +1,6 @@
-package flashcard.group5.application.data;
+package data;
 
-import flashcard.group5.application.data.model.LoggedInUser;
+import data.model.LoggedInUser;
 
 /**
  * Class that requests authentication and user information from the remote data source and

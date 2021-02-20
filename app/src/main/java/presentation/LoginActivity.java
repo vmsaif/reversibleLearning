@@ -1,4 +1,4 @@
-package flashcard.group5.application.ui.login;
+package presentation;
 
 import android.app.Activity;
 
@@ -23,8 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import flashcard.group5.application.R;
-import flashcard.group5.application.ui.login.LoginViewModel;
-import flashcard.group5.application.ui.login.LoginViewModelFactory;
+import presentation.LoginFormState;
+import presentation.LoginResult;
 
 public class LoginActivity extends AppCompatActivity {
 

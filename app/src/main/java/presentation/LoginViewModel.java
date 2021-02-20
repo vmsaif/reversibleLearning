@@ -1,4 +1,4 @@
-package flashcard.group5.application.ui.login;
+package presentation;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -6,10 +6,13 @@ import androidx.lifecycle.ViewModel;
 
 import android.util.Patterns;
 
-import flashcard.group5.application.data.LoginRepository;
-import flashcard.group5.application.data.Result;
-import flashcard.group5.application.data.model.LoggedInUser;
+import data.LoginRepository;
+import data.Result;
+import data.model.LoggedInUser;
 import flashcard.group5.application.R;
+import presentation.LoggedInUserView;
+import presentation.LoginFormState;
+import presentation.LoginResult;
 
 public class LoginViewModel extends ViewModel {
 

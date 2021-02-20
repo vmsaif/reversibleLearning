@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import flashcard.group5.application.data.LoginRepository;
-import flashcard.group5.application.ui.login.LoginActivity;
+import presentation.LoginActivity;
 import presentation.OptionsActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{

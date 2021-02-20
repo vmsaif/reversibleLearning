@@ -13,6 +13,6 @@
         android:layout_height="156dp"
         android:text="Implement createting flashcard java on this page"
         android:textSize="33sp"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="46dp" />
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="179dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

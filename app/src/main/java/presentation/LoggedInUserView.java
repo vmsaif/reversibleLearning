@@ -1,4 +1,4 @@
-package flashcard.group5.application.ui.login;
+package presentation;
 
 /**
  * Class exposing authenticated user details to the UI.
