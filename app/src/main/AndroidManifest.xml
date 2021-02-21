@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Group5">
+        <activity android:name="presentation.CardviewActivity"></activity>
         <activity
             android:name="presentation.LoginActivity"
-            android:label="@string/title_activity_login">
-        </activity>
+            android:label="@string/title_activity_login" />
         <activity android:name="presentation.OptionsActivity" />
         <activity android:name="presentation.FlashcardActivity" />
         <activity android:name=".MainActivity">
