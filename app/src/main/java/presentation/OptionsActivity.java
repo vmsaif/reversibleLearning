@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import flashcard.group5.application.R;
 
@@ -14,10 +13,12 @@ public class OptionsActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
-        Button flashcardButton = findViewById(R.id.button_make_flashcard); //this button will take you to the flashcard activity where users will be able to make a flashcard
+        Button flashcardButton = findViewById(R.id.button_make_flashcard);
         flashcardButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { openFlashcardActivity(); }//onClick
+            public void onClick(View v) {
+                openFlashcardActivity();
+            }//onClick
         });
     }//onCreate
 
