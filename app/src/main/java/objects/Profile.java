@@ -1,6 +1,7 @@
 package objects;
+import interfaces.IProfile;
 
-public class Profile {
+public class Profile implements IProfile{
 
     //variables
     private String first_name;
