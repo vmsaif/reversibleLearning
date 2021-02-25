@@ -2,7 +2,7 @@
     <string name="app_name">Flashcard Study</string>
     <string name="make_flashcard">Make Flashcard</string>
     <string name="make_question">Enter Question</string>
-    <string name="flashcard_img">Create Flashcard</string>
+    <string name="create_flashcard">Create Flashcard</string>
     <string name="folders">Folders</string>
     <string name="create_quiz">Create Quiz</string>
     <string name="create_test">Create Test</string>
@@ -12,12 +12,16 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="action_register">Register</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="app_logo">"App Logo"</string>
-
+    <string name="question">Question</string>
+    <string name="answer">Answer</string>
+    <string name="tyoe_here">Type Here</string>
+    <string name="flip">Flip</string>
 
 </resources>

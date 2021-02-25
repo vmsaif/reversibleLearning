@@ -1,13 +1,14 @@
 package objects;
+import interfaces.IFlashcard;
 
-public class Flashcard {
+public class Flashcard implements IFlashcard{
 
     //variables
     private CardSide front;
     private CardSide back;
 
 
-    //constructor---will create a Falshcard object that has two sides (CardSide) front and back
+    //constructor---will create a Flashcard object that has two sides (CardSide) front and back
     public Flashcard(){
         front = new CardSide("front"); //front side of the flash card will have the question on it
         back = new CardSide("back"); //back side of the flash card will have the answer
