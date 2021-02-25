@@ -1,13 +1,15 @@
 package flashcard.group5.application;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import data.UserDB;
+import objects.User;
 import presentation.LoginActivity;
 import presentation.OptionsActivity;
 
@@ -15,6 +17,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button guestLogin;
     private Button login;
+    private static UserDB userDB = new UserDB();
+
+    public static UserDB getUserDB() { return userDB; }
+
+    public static void updateUserDB(UserDB currUserDB) {
+        userDB = currUserDB; }
 
 
     @Override
@@ -28,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         guestLogin.setOnClickListener(this);
         login.setOnClickListener(this);
-
     }//onCreate
 
     @Override
