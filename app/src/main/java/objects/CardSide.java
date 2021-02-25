@@ -1,6 +1,7 @@
 package objects;
+import interfaces.ICardSide;
 
-public class CardSide{
+public class CardSide implements ICardSide{
 
     //variables
     private String whichSide;
