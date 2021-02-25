@@ -8,8 +8,8 @@ import android.util.Patterns;
 
 import data.LoginRepository;
 import data.Result;
-import data.model.LoggedInUser;
 import flashcard.group5.application.R;
+import objects.User;
 import presentation.LoggedInUserView;
 import presentation.LoginFormState;
 import presentation.LoginResult;
@@ -34,11 +34,11 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         // can be launched in a separate asynchronous job
-        Result<LoggedInUser> result = loginRepository.login(username, password);
+        Result<User> result = loginRepository.login(username, password);
 
         if (result instanceof Result.Success) {
-            LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
-            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
+            User data = ((Result.Success<User>) result).getData();
+            loginResult.setValue(new LoginResult(new LoggedInUserView(data.getUserName())));
         } else {
             loginResult.setValue(new LoginResult(R.string.login_failed));
         }

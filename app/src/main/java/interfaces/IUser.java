@@ -1,6 +1,6 @@
 package interfaces;
 
-public interface IProfile {
+public interface IUser{
 
     void changeUserName(String user_name);
 

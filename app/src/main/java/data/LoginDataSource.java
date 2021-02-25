@@ -1,6 +1,7 @@
 package data;
 
-import data.model.LoggedInUser;
+import flashcard.group5.application.MainActivity;
+import objects.User;
 
 import java.io.IOException;
 
@@ -9,15 +10,20 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
-    public Result<LoggedInUser> login(String username, String password) {
-
+    public Result<User> login(String username, String password) {
         try {
+            UserDB userDB = MainActivity.getUserDB();
+            User currUser = new User(username, password);
+
+            if(userDB.userExits(currUser))
+
             // TODO: handle loggedInUser authentication
-            LoggedInUser fakeUser =
+         /*   LoggedInUser fakeUser =
                     new LoggedInUser(
                             java.util.UUID.randomUUID().toString(),
-                            "Jane Doe");
-            return new Result.Success<>(fakeUser);
+                            "Jane Doe");*/
+            return new Result.Success<>(currUser);
+            else return new Result.Error(new IOException("User not found"));
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
         }

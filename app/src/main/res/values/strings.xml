@@ -8,7 +8,7 @@
     <string name="create_test">Create Test</string>
     <string name="Guest">Guest</string>
     <string name="Login">Login</string>
-    <string name="login_failed">"Login failed"</string>
+    <string name="login_failed">"Login failed. Either your email address or password is incorrect."</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

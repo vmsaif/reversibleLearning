@@ -1,14 +1,14 @@
 package objects;
-import interfaces.IProfile;
+import interfaces.IUser;
 
-public class Profile implements IProfile{
+public class User implements IUser {
 
     //variables
     private String user_name;
     private String password;
 
     //constructor
-    public Profile(String user_name, String password){
+    public User(String user_name, String password){
         this.user_name = user_name;
         this.password = password;
     }
