@@ -6,7 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FlashcardTest {
+    //Front of the flashcard 
     private Flashcard FrontFlash;
+    //Back of the flashcard
     private Flashcard BackFlash;
     @Before
     public void setUp(){
@@ -21,9 +23,8 @@ public class FlashcardTest {
         Flashcard expected = new Flashcard();
         expected.modifyQuestion("This is the question");
         FrontFlash.modifyQuestion("This is the question");
-        assertTrue("Modified and returned question should be same",expected.returnQuestion().equals(BackFlash.returnQuestion()));//Modify the question again and test it
-        expected.modifyAnswer("That is the question");
-        assertFalse("Modified and returned question shouldn't be same",expected.returnQuestion().equals(FrontFlash.returnQuestion()));
+        assertTrue("Modified and returned question should be same",expected.returnQuestion().equals(FrontFlash.returnQuestion()));//Modify the question again and test it
+        
 
     }
 
@@ -39,7 +40,4 @@ public class FlashcardTest {
         assertFalse("Modified and returned answer shouldn't be same",expected.returnAnswer().equals(BackFlash.returnAnswer()));
     }
 
-    /*@Test
-    public void showFlashcard() {
-    }*/
 }
