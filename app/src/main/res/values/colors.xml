@@ -13,4 +13,8 @@
     <color name="light_ocean_blue">#0178BD</color>
     <color name="light_blue">#368DC5</color>
     <color name="light_pink">#FB9EC4</color>
+    <color name="yollowish">#FBEBBA</color>
+    <color name="grayish">#D3474646</color>
+    <color name="yollowishButtonColor">#D0FFD041</color>
+
 </resources>

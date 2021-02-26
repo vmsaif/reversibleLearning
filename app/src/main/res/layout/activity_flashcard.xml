@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bluish_bg"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/yollowish">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="266dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="109dp"
+        android:layout_marginTop="64dp"
         android:layout_marginEnd="129dp"
-        android:layout_marginBottom="27dp"
+        android:fontFamily="@font/baloo"
         android:text="@string/question"
-        android:textColor="@color/white"
+        android:textColor="@color/grayish"
         android:textSize="33sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,13 +26,16 @@
         android:layout_width="266dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="129dp"
         android:layout_marginBottom="27dp"
+        android:fontFamily="@font/baloo"
         android:text="@string/answer"
-        android:textColor="@color/white"
+        android:textColor="@color/grayish"
         android:textSize="33sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
@@ -44,12 +45,14 @@
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="19dp"
-        android:layout_marginBottom="120dp"
+        android:autofillHints=""
         android:ems="10"
-        android:hint="@string/tyoe_here"
+        android:fontFamily="sans-serif"
+        android:hint="@string/type_here"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -59,29 +62,29 @@
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="19dp"
-        android:layout_marginBottom="151dp"
+        android:layout_marginBottom="97dp"
         android:ems="10"
+        android:hint="@string/type_here"
         android:inputType="textPersonName"
-        android:hint="@string/tyoe_here"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button_make_flashcard"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:autofillHints="" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_make_flashcard"
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_gravity="start"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="97dp"
         android:layout_marginEnd="101dp"
-        android:layout_marginBottom="41dp"
-        android:background="@color/teal_700"
+        android:background="@color/yollowishButtonColor"
         android:text="@string/make_flashcard"
-        android:textColor="#CDFFFFFF"
+        android:textColor="@color/grayish"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
