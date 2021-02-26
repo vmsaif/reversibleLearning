@@ -18,11 +18,12 @@ public class UserDBTest {
     @Test
     public void TestAddUserAndUserExits(){
         User user = new User("user", "pass");
+        // check the non-existent user from the userDB
+        assertFalse("User doesn't exists in the UserDB", users.userExists(user));
         // add the user to the UserDB
         users.addUser(user);
-        // remove the existing user from the userDB
-        assertTrue("User successfully exits", users.userExits(user));
-        assertFalse("User no longer exists in the UserDB", users.userExits(user));
+        // check the existing user from the userDB
+        assertTrue("User exists in the UserDB", users.userExists(user));
     }
 
 }
