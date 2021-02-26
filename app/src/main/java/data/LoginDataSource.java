@@ -16,7 +16,7 @@ public class LoginDataSource implements ILoginDataSource {
             UserDB userDB = MainActivity.getUserDB();
             User currUser = new User(username, password);
 
-            if(userDB.userExits(currUser))
+            if(userDB.userExists(currUser))
 
             // TODO: handle loggedInUser authentication
          /*   LoggedInUser fakeUser =
