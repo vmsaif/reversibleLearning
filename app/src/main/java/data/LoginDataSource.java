@@ -1,7 +1,6 @@
 package data;
 
 import flashcard.group5.application.MainActivity;
-import interfaces.ILoginDataSource;
 import objects.User;
 
 import java.io.IOException;
@@ -9,7 +8,7 @@ import java.io.IOException;
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
-public class LoginDataSource implements ILoginDataSource {
+public class LoginDataSource {
 
     public Result<User> login(String username, String password) {
         try {
