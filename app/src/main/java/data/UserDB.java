@@ -16,7 +16,7 @@ public class UserDB {
     public void addUser(User user){
         this.userDB.add(user); }
 
-    public boolean userExits(User user){
+    public boolean userExists(User user){
         boolean found = false;
         for (int i = 0; i < userDB.size() && !found; i++)
             found = userDB.get(i).getUserName().equals(user.getUserName()) &&

@@ -36,7 +36,7 @@ public class ProfileCreationView extends AppCompatActivity {
                     User currUser = new User(usernameEditText.getText().toString(), passwordEditText.getText().toString());
                     userDB.addUser(currUser);
                     MainActivity.updateUserDB(userDB);
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    Intent intent = new Intent(ProfileCreationView.this, LoginActivity.class);
                     startActivity(intent);
                 }
             });
