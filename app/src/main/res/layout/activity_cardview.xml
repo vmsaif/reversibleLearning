@@ -17,7 +17,7 @@
         android:layout_marginBottom="181dp"
         android:background="@color/light_peach"
         android:gravity="center"
-        android:text="Front Side"
+        android:text="@string/question"
         android:textAlignment="center"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -26,36 +26,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/card_back"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginTop="178dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="181dp"
-        android:background="@color/light_pink"
-        android:gravity="center"
-        android:text="Back Side"
-        android:textAlignment="center"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:alpha="0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_flip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/flip"
-        android:backgroundTint="@color/teal_700"
-        android:textColor="#CDFFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_front" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+

@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-
-import androidx.appcompat.widget.ButtonBarLayout;
-
 import flashcard.group5.application.R;
+import logic.FlashcardLogic;
 import objects.Flashcard;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,7 +21,7 @@ public class FlashcardActivity extends Activity {
     private EditText inputQuestion;
     private EditText inputAnswer;
     private Button makeFlashcardButton;
-    private Flashcard fCard;
+    private FlashcardLogic flashLogic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +32,16 @@ public class FlashcardActivity extends Activity {
         inputQuestion = findViewById(R.id.editTextTextPersonName2);
         inputAnswer = findViewById(R.id.editTextTextPersonName3);
 
-        makeFlashcardButton = (Button) findViewById(R.id.button_make_flashcard);
+        makeFlashcardButton = (Button) findViewById(R.id.button_make_flashcard); //button to go to the animation showing the created card
         makeFlashcardButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                question = inputQuestion.getText().toString();
-                answer = inputAnswer.getText().toString();
+                question = inputQuestion.getText().toString(); //input from user on the question field
+                answer = inputAnswer.getText().toString(); //input from user on the answer field
                 if(!question.equals("") && !answer.equals("")){
-                    fCard = new Flashcard();
-                    fCard.modifyQuestion(question);
-                    fCard.modifyAnswer(answer);
+                    flashLogic = new FlashcardLogic(question,answer); //making a new flashcard logic object
                     Toast.makeText(getBaseContext(), "Flashcard created successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard creation has been successful
-                    openCardviewActivity();
+                    openCardviewActivity(flashLogic); //go to the GUI showing flashcard animation
                 }//if fields are filled properly
                 else{
                     Toast.makeText(getBaseContext(), "Fill in a question and answer to make a flashcard", Toast.LENGTH_SHORT).show();
@@ -62,7 +58,7 @@ public class FlashcardActivity extends Activity {
         startActivity(intent_options);
     }//openOptionsActivity
 
-    public void openCardviewActivity(){
+    public void openCardviewActivity(FlashcardLogic flashLogic){
         Intent intent_cardview = new Intent(this, CardviewActivity.class);
         startActivity(intent_cardview);
     }//openCardviewActivity
