@@ -35,4 +35,7 @@ public class FlashcardList {
         list.set(i, toChange);
     }
 
+    public int getSize(){
+        return list.size();
+    }
 }

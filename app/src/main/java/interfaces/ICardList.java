@@ -14,4 +14,7 @@ public interface ICardList {
     //same as above, will change a flashcard object at given index to new flashcard
     void changeCard (int i, IFlashcard toChange);
 
+    //get the size of the CardList
+    int getSize ();
+
 }
