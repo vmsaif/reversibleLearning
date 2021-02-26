@@ -53,7 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dashboard_logo" />
+        android:src="@drawable/dashboard_logo" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -102,7 +102,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:contentDescription="@string/make_flashcard_image"
-                    app:srcCompat="@drawable/create_flash_card" />
+                    android:src="@drawable/create_flash_card" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -141,8 +141,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:contentDescription="@string/folders_image"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/folders" />
+                    android:src="@drawable/folders" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -192,7 +191,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:contentDescription="@string/create_quiz_image"
-                    app:srcCompat="@drawable/create_quiz" />
+                    android:src="@drawable/create_quiz" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -230,8 +229,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
                     android:contentDescription="@string/create_quiz_image"
-                    android:visibility="visible"
-                    app:srcCompat="@drawable/create_test" />
+                    android:src="@drawable/create_test" />
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
