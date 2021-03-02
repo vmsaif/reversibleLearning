@@ -15,13 +15,21 @@
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="action_register">Register</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">"Welcome "</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="app_logo">"App Logo"</string>
     <string name="question">Question</string>
     <string name="answer">Answer</string>
-    <string name="tyoe_here">Type Here</string>
+    <string name="type_here">Type Here</string>
     <string name="flip">Flip</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="manageYourCards">Manage Your Cards</string>
+    <string name="dashboard_main_image">DashBoard Main Image</string>
+    <string name="make_flashcard_image">Make flashcard Image</string>
+    <string name="folders_image">Folders Image</string>
+    <string name="create_quiz_image">Create Quiz Image</string>
+    <string name="card_shelf">Card Shelf</string>
+    <string name="create_an_account">Create an Account</string>
 
 </resources>

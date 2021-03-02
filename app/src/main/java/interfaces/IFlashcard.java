@@ -14,6 +14,4 @@ public interface IFlashcard {
     //returnAnswer---return the answer string
     String returnAnswer();
 
-    //showFlashcard---will show the front side initially but with a click the side will flip
-    void showFlashcard(boolean isFront);
-}
+}//IFlashcard ends

@@ -3,6 +3,44 @@ import interfaces.IFlashcard;
 
 public class Flashcard implements IFlashcard{
 
+    class CardSide{ //nested class since this is only used inside the flashcard object
+
+        //variables
+        private String whichSide;
+        private String questionOrAns = "";
+
+        //constructor---create a CardSide object given which side of the card is this
+        public CardSide(String whichSide){
+            this.whichSide = whichSide;
+        }//constructor
+
+
+        //addText---adding question or answer to this side
+        public void addText(String qAndA){
+            questionOrAns = qAndA;
+        }//addText
+
+
+        //getText
+        public String getText(){
+            return questionOrAns;
+        }//getText
+
+
+        //getSide---tells if this is the front or the back side
+        public String getSide(){
+            return whichSide;
+        }//getSide
+
+
+        //showSide---will show the card side with the text on it (will be modified for UI but for now just prints the text)
+        public void showSide(){
+            System.out.println(questionOrAns);
+        }//showSide
+
+
+    }//CardSide class
+
     //variables
     private CardSide front;
     private CardSide back;
@@ -37,22 +75,6 @@ public class Flashcard implements IFlashcard{
     public String returnAnswer(){
         return back.getText();
     }//returnAnswer
-
-
-    //showFlashcard---will show the front side initially but with a click the side will flip
-    public void showFlashcard(boolean isFront){
-        //while implementing this in the logic layer I will call a mouse click event.
-        //Every click will cause a boolean to switch its state and that will be passed on to this method
-        //so if a boolean isFront (in the logic layer) is true, this will show the front side of the card
-        //if I click the card, it will change the isFront boolean to false and show the back side of the card
-        if(isFront){
-            front.showSide();
-        }//if front side
-        else{
-            back.showSide();
-        }//else
-    }//showFlashcard
-
 
 }//Flashcard class
 
