@@ -91,6 +91,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="visible"
+        android:onClick="toLogin"
         app:layout_constraintEnd_toStartOf="@+id/register"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
