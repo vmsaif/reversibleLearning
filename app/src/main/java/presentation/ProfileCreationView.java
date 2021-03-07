@@ -1,20 +1,15 @@
 package presentation;
-import data.LoginDataSource;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import data.LoginDataSource;
 import data.UserDB;
 import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
