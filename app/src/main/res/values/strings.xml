@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Flashcard Study</string>
+    <string name="app_name">Reversible Learning</string>
     <string name="make_flashcard">Make Flashcard</string>
     <string name="make_question">Enter Question</string>
     <string name="create_flashcard">Create Flashcard</string>
