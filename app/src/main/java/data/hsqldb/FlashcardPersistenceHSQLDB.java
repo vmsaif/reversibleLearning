@@ -42,7 +42,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
                 + " answer VARCHAR(100)"
                 + " userName VARCHAR(20),"
                 + " folder VARCHAR(20),"
-                + " primary key(question);";
+                + " primary key(user,question);";
         /*This table will have 4 columns which contains the information regarding this flashcard
         * question will contain the question on the Flashcard. Since a question is the most unique thing on a flashcard it is the primary key
         * answer will contain the answer of the question on the Flashcard
