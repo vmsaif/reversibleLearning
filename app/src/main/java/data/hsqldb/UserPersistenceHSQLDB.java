@@ -82,7 +82,7 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
             ResultSet rs = fc.executeQuery("SELECT * FROM usersTable");
             while(rs.next()){
                 User user = fromResultSet(rs);
-                users.add(user); //adding each flashcard in the table to our list
+                users.add(user); //adding each user in the table to our list
             }//while
             rs.close();
             fc.close();
