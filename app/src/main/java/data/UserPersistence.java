@@ -4,7 +4,7 @@ import java.util.List;
 
 import objects.User;
 
-public interface UserPresistance {
+public interface UserPersistence {
     //getUserSequential---returns the users in the sequence stored in the table
     List<User> getUserSequential();
 
@@ -15,10 +15,10 @@ public interface UserPresistance {
     void deleteUser(User givenUser);
 
     //modifyUserName---modifies a user's username in this database
-    void modifyUserName(User givenUser);
+    void modifyUserName(User givenUser, String newUserName);
 
     //modifyUserPassword---modifies a user's password in this database
-    void modifyUserPassword(User givenUser);
+    void modifyUserPassword(User givenUser, String newPassword);
 
-}//UserPresistance ends
+}//UserPersistence ends
 
