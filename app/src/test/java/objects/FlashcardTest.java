@@ -6,38 +6,35 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class FlashcardTest {
-    //Front of the flashcard 
-    private Flashcard FrontFlash;
-    //Back of the flashcard
-    private Flashcard BackFlash;
+    //Variable
+    private Flashcard fCard;
+
     @Before
     public void setUp(){
-        FrontFlash = new Flashcard();
-        BackFlash = new Flashcard();
-
+        fCard = new Flashcard("Question", "Answer", "Ali");
     }
 
     @Test
     public void TestModifyQuestionAndReturnQuestion() {
         //Tests the methods modifyQuestion and returnQuestion
-        Flashcard expected = new Flashcard();
+        Flashcard expected = new Flashcard("Q", "A", "");
         expected.modifyQuestion("This is the question");
-        FrontFlash.modifyQuestion("This is the question");
-        assertTrue("Modified and returned question should be same",expected.returnQuestion().equals(FrontFlash.returnQuestion()));//Modify the question again and test it
-        
+        fCard.modifyQuestion("This is the question");
+        assertTrue("Modified and returned question should be same",expected.getQuestion().equals(fCard.getQuestion()));//Modify the question again and test it
 
     }
 
+
     @Test
     public void TestModifyAnswerAndReturnAnswer() {
-        //Tests the method modifyAnswer and returnAnswer
-        Flashcard expected = new Flashcard();
+        //Tests the method modifyAnswer and getAnswer
+        Flashcard expected = new Flashcard("Q", "A", "");
         expected.modifyAnswer("This is the answer");
-        BackFlash.modifyAnswer("This is the answer");
-        assertTrue("Modified and returned answer should be same",expected.returnAnswer().equals(BackFlash.returnAnswer()));
+        fCard.modifyAnswer("This is the answer");
+        assertTrue("Modified and returned answer should be same",expected.getAnswer().equals(fCard.getAnswer()));
         //Modify the answer again and test it
         expected.modifyAnswer("That is the answer");
-        assertFalse("Modified and returned answer shouldn't be same",expected.returnAnswer().equals(BackFlash.returnAnswer()));
+        assertFalse("Modified and returned answer shouldn't be same",expected.getAnswer().equals(fCard.getAnswer()));
     }
 
 }

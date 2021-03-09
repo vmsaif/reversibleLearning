@@ -1,11 +1,6 @@
 package logic;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import objects.Flashcard;
-import presentation.FlashcardActivity;
-import presentation.CardviewActivity;
 
 public class FlashcardLogic{
 
@@ -14,21 +9,19 @@ public class FlashcardLogic{
 
     //constructor
     public FlashcardLogic(String question, String answer){
-        fCard = new Flashcard();
-        fCard.modifyQuestion(question);
-        fCard.modifyAnswer(answer);
+        fCard = new Flashcard(question, answer, "");
     }//constructor
 
 
     //getQuestion---calls the returnQuestion method
     public String getQuestion(){
-        return fCard.returnQuestion();
+        return fCard.getQuestion();
     }//getQuestion
 
 
-    //getAnswer---calls the returnAnswer method
+    //getAnswer---calls the getAnswer method
     public String getAnswer(){
-        return fCard.returnAnswer();
+        return fCard.getAnswer();
     }//getAnswer
 
 }//FlashcardLogic class

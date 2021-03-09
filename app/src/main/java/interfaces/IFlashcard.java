@@ -8,10 +8,19 @@ public interface IFlashcard {
     //modifyAnswer---can edit the answers
     void modifyAnswer(String answer);
 
-    //returnQuestion---return the question string
-    String returnQuestion();
+    //getQuestion---return the question string
+    String getQuestion();
 
-    //returnAnswer---return the answer string
-    String returnAnswer();
+    //getAnswer---return the answer string
+    String getAnswer();
+
+    //getUserName---returns the userName
+    String getUserName();
+
+    //setFolderName---sets folderName if this flashcard is placed in a folder
+    void setFolderName(String folder);
+
+    //getFolderName---returns the name of the folder this card is associated with
+    String getFolderName();
 
 }//IFlashcard ends
