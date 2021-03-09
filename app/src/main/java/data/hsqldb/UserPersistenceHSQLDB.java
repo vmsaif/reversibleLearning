@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.UserPersistence;
-import objects.Flashcard;
 import objects.User;
 
 public class  UserPersistenceHSQLDB implements UserPersistence {
@@ -108,7 +107,7 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
     @Override
     public void deleteUser(User currentUser) {
         try{
-            PreparedStatement fl = connection.prepareStatement("DELETE FROM usersTable WHERE question = ?");
+            PreparedStatement fl = connection.prepareStatement("DELETE FROM usersTable WHERE userName = ?");
             fl.setString(1, currentUser.getUserName());
             fl.executeUpdate();
         }//try
