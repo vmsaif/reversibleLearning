@@ -1,6 +1,6 @@
 package logic;
 
-import data.UserDB;
+import data.hsqldb.UserDB;
 import flashcard.group5.application.MainActivity;
 import interfaces.IValidCredentials;
 import objects.User;

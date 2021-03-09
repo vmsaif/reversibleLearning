@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import data.UserDB;
+import data.hsqldb.UserDB;
 import objects.User;
 import presentation.LoginActivity;
 import presentation.OptionsActivity;
