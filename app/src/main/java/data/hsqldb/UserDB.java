@@ -1,4 +1,4 @@
-package data;
+package data.hsqldb;
 
 import android.util.Log;
 

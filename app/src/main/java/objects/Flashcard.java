@@ -44,37 +44,66 @@ public class Flashcard implements IFlashcard{
     //variables
     private CardSide front;
     private CardSide back;
+    private String userName;
+    private String folderName = "";
 
 
     //constructor---will create a Flashcard object that has two sides (CardSide) front and back
-    public Flashcard(){
+    public Flashcard(String question, String answer, String userName){
         front = new CardSide("front"); //front side of the flash card will have the question on it
         back = new CardSide("back"); //back side of the flash card will have the answer
+        modifyQuestion(question); //setting the question
+        modifyAnswer(answer); //setting the answer
+        if(userName.equals("")){
+            this.userName = "Guest";
+        }//if this flashcard is not related to any user
+        else{
+            this.userName = userName;
+        }//else
     }//constructor
 
 
-    //modifyQuestion---can edit the question
+    @Override
     public void modifyQuestion(String question){
         front.addText(question);
     }//modifyQuestion
 
 
-    //modifyAnswer---can edit the answers
+    @Override
     public void modifyAnswer(String answer){
         back.addText(answer);
     }//modifyAnswer
 
 
-    //returnQuestion---return the question string
-    public String returnQuestion(){
+    @Override
+    public String getQuestion(){
         return front.getText();
-    }//returnQuestion
+    }//getQuestion
 
 
-    //returnAnswer---return the answer string
-    public String returnAnswer(){
+    @Override
+    public String getAnswer(){
         return back.getText();
-    }//returnAnswer
+    }//getAnswer
+
+
+    @Override
+    public String getUserName(){
+        return userName;
+    }//getUserName
+
+
+    @Override
+    public void setFolderName(String folder){
+        folderName = folder;
+    }//setFolderName
+
+
+    @Override
+    public String getFolderName(){
+        return folderName;
+    }//getFolderName
+    
 
 }//Flashcard class
 

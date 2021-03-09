@@ -22,37 +22,44 @@ import logic.FlashcardLogic;
 public class CardviewActivity extends AppCompatActivity {
 
     //variables
-    private ObjectAnimator anime_1;
-    private ObjectAnimator anime_2;
-
-
+    private AnimatorSet front_anim;
+    private AnimatorSet back_anim;
+    private boolean isFront;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
+        isFront = true;
+        float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during annimations
+        TextView card_front = findViewById(R.id.card_front); //accessing card front text view
+        TextView card_back = findViewById(R.id.card_back); //accessing card back text view
 
-        TextView front_card = (TextView) findViewById(R.id.card_front);
+        card_front.setCameraDistance(8000*scale); //adjusting the camera distance
+        card_back.setCameraDistance(8000*scale); //adjusting the camera distance
 
-        front_card.setOnClickListener(new View.OnClickListener() {
+        front_anim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.front_anim); //setting  the front_anim variable to the animator resource file front_anim
+        back_anim = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_anim); //setting  the back_anim variable to the animator resource file back_anim
+        Button flipButton = findViewById(R.id.flip_button);
+
+        flipButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                anime_1 = ObjectAnimator.ofFloat(front_card, "scaleX", 1f, 0f);//first animation will shrink to reveal the back side
-                anime_2 = ObjectAnimator.ofFloat(front_card, "scaleX", 0f, 1f);//reverse of the previous line
-                anime_1.setInterpolator(new DecelerateInterpolator());//reducing speed of animation at the start while flipping
-                anime_2.setInterpolator(new AccelerateInterpolator());//bringing the speed back ti normal
-
-                anime_1.addListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        front_card.setText("Answer"); //placeholder text reveals the answer...real implementation will be done once actual database is implemented
-                        anime_2.start();
-                    }
-                });//AnimatorListenerAdapter
-                anime_1.start();
+                front_anim.setTarget(card_front);
+                back_anim.setTarget(card_back);
+                if(isFront){
+                    front_anim.start();
+                    back_anim.start();
+                    isFront = false;
+                }//if
+                else{
+                    back_anim.start();
+                    front_anim.start();
+                    isFront = true;
+                }//else
             }//onClick
         });
+
 
     }//onCreate
 }//Cardview class
