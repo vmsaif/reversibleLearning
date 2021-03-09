@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import data.UserDB;
+import data.hsqldb.UserDB;
 import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
 import objects.User;
