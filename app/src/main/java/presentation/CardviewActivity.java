@@ -30,8 +30,9 @@ public class CardviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
+
         isFront = true;
-        float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during annimations
+        float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during animations
         TextView card_front = findViewById(R.id.card_front); //accessing card front text view
         TextView card_back = findViewById(R.id.card_back); //accessing card back text view
 

@@ -10,7 +10,7 @@ public interface FlashcardPersistence {
     List<Flashcard> getFlashcardSequential();
 
     //insertFlashcard---inserts a flashcard in this database
-    void insertFlashcard(Flashcard givenFlashcard);
+    Flashcard insertFlashcard(Flashcard givenFlashcard);
 
     //deleteFlashcard---deletes a flashcard in this database
     void deleteFlashcard(Flashcard currentFlashcard);

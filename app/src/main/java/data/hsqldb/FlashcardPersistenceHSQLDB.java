@@ -58,7 +58,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
 
 
     @Override
-    public void insertFlashcard(Flashcard givenFlashcard){
+    public Flashcard insertFlashcard(Flashcard givenFlashcard){
         try{
             PreparedStatement ft = connection.prepareStatement("INSERT INTO flashcardTable VALUES(?,?,?,?)");
             //grabbing the data from the givenFlashcard to store it into our table
@@ -72,6 +72,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         catch (final SQLException e) {
             e.printStackTrace(System.out);
         }//catch SQLException
+        return givenFlashcard;
     }//insertFlashcard
 
 
