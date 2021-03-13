@@ -2,7 +2,9 @@ package objects;
 
 import android.os.CountDownTimer;
 
-public class TimerCountdown {
+import interfaces.ITimer;
+
+public class TimerCountdown implements ITimer {
 
     private long duration;
     private String timeLeft;
