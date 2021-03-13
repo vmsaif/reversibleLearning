@@ -10,19 +10,29 @@ import static org.junit.Assert.*;
 public class FlashcardTest {
     //Variable
     private IFlashcard fCard;
+    private IFlashcard gCard;
 
     @Before
     public void setUp(){
+        gCard = new Flashcard("", "", "");
         fCard = new Flashcard("Question", "Answer", "Ali");
     }
 
     @Test
     public void TestInitialization() {
-        //Tests the constructor
+        // Test the constructor
         IFlashcard expected = new Flashcard("Question", "Answer", "Ali");
         assertTrue("The question should be the same",expected.getQuestion().equals(fCard.getQuestion()));
         assertTrue("The answer should be the same",expected.getAnswer().equals(fCard.getAnswer()));
+        assertTrue("The username should be Ali",expected.getUserName().equals(fCard.getUserName()));
+        // Test the constructor with "" as the string
+        IFlashcard expected1 = new Flashcard("", "", "Guest");
+        assertTrue("The question should be the same",expected1.getQuestion().equals(gCard.getQuestion()));
+        assertTrue("The answer should be the same",expected1.getAnswer().equals(gCard.getAnswer()));
+        assertTrue("The username should be Guest",expected1.getUserName().equals(gCard.getUserName()));
+        assertTrue("The folder name should be empty",gCard.getFolderName().equals(""));
     }
+
 
     @Test
     public void TestModifyQuestionAndReturnQuestion() {
@@ -31,6 +41,9 @@ public class FlashcardTest {
         expected.modifyQuestion("This is the question");
         fCard.modifyQuestion("This is the question");
         assertTrue("Modified and returned question should be same",expected.getQuestion().equals(fCard.getQuestion()));//Modify the question  and test it
+        //Modify the answer again and test it
+        expected.modifyQuestion("That is the question");
+        assertFalse("Modified and returned question shouldn't be same",expected.getQuestion().equals(fCard.getQuestion()));
     }
 
 
@@ -44,6 +57,15 @@ public class FlashcardTest {
         //Modify the answer again and test it
         expected.modifyAnswer("That is the answer");
         assertFalse("Modified and returned answer shouldn't be same",expected.getAnswer().equals(fCard.getAnswer()));
+    }
+
+    @Test
+    public void TestFolderName(){
+        fCard.setFolderName("folder1");
+        assertEquals("The folder name is the same", fCard.getFolderName(), "folder1");
+        // change the folder name
+        fCard.setFolderName("folder2");
+        assertEquals("The folder name is the same", fCard.getFolderName(), "folder2");
     }
 
 }
