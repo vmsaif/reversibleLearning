@@ -32,11 +32,14 @@ public class ValidCredentials implements IValidCredentials {
         this.userPersistence = userPersistence;
     }
 
+
+    @Override
     public List<User> getUsers() {
         users = userPersistence.getUserSequential();
         return Collections.unmodifiableList(users);
     }
 
+    @Override
     public User getUser(String userName, String password) {
         user = null;
         boolean found = false;
@@ -55,6 +58,7 @@ public class ValidCredentials implements IValidCredentials {
     }
 
 
+    @Override
     public boolean userNameTaken(String username) {
         //will get a list of all users in the database, then do a search for the user
         users = getUsers();
