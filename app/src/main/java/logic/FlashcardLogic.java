@@ -59,8 +59,9 @@ public class FlashcardLogic{
 
 
     //insertFlashcard
-    public void insertFlashcard(Flashcard currentCard){
-        fCardPersistence.insertFlashcard(currentCard);
+    public void insertFlashcard(Flashcard flashCard){
+        fCardPersistence.insertFlashcard(flashCard);
+        currentCard++;
     }//insertFlashcard
 
 
@@ -69,10 +70,5 @@ public class FlashcardLogic{
         fCardPersistence.deleteFlashcard(currentCard);
     }//deleteFlashcard
 
-
-    //getLatestCard---returns the last card stored in this list
-    public Flashcard getLatestCard(){
-        return flashcards.get(0);
-    }//getLatestCard
 
 }//FlashcardLogic class
