@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import flashcard.group5.application.R;
 import logic.FlashcardLogic;
+import objects.Flashcard;
 
 public class CardviewActivity extends AppCompatActivity {
 
@@ -25,16 +26,26 @@ public class CardviewActivity extends AppCompatActivity {
     private AnimatorSet front_anim;
     private AnimatorSet back_anim;
     private boolean isFront;
+    private FlashcardLogic flashcardLogic;
+    private Flashcard flashcard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
 
+//        flashcardLogic = new FlashcardLogic();
+//        flashcard = flashcardLogic.getLatestCard();
+
+
+
         isFront = true;
         float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during animations
         TextView card_front = findViewById(R.id.card_front); //accessing card front text view
         TextView card_back = findViewById(R.id.card_back); //accessing card back text view
+
+//        card_front.setText(flashcard.getQuestion());
+//        card_back.setText(flashcard.getAnswer());
 
         card_front.setCameraDistance(8000*scale); //adjusting the camera distance
         card_back.setCameraDistance(8000*scale); //adjusting the camera distance

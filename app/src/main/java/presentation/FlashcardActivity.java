@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class FlashcardActivity extends Activity {
 
     //variables
@@ -22,6 +24,7 @@ public class FlashcardActivity extends Activity {
     private EditText inputAnswer;
     private Button makeFlashcardButton;
     private FlashcardLogic flashLogic;
+    private Flashcard flashcard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,18 +41,18 @@ public class FlashcardActivity extends Activity {
             public void onClick(View v) {
                 question = inputQuestion.getText().toString(); //input from user on the question field
                 answer = inputAnswer.getText().toString(); //input from user on the answer field
-                if(!question.equals("") && !answer.equals("") && question != null && answer != null){
-                    //flashLogic = new FlashcardLogic(); //making a new flashcard logic object
+                if(!question.equals("") && !answer.equals("") && !question.trim().isEmpty() && !answer.trim().isEmpty()){
+                    flashcard = new Flashcard(question, answer, "guest");
+                    flashLogic = new FlashcardLogic(); //making a new flashcard logic object
+//                    flashLogic.insertFlashcard(flashcard); //adding this flashcard to our database //error
                     Toast.makeText(getBaseContext(), "Flashcard created successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard creation has been successful
                     openCardviewActivity(flashLogic); //go to the GUI showing flashcard animation
                 }//if fields are filled properly
                 else{
                     Toast.makeText(getBaseContext(), "Fill in a question and answer to make a flashcard", Toast.LENGTH_SHORT).show();
                 }//else user has not put in any text in question or answer field
-
-
             }//onClick
-        });//set OnClicklistener
+        });//set OnClickListener
 
     }//onCreate
 

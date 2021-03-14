@@ -1,4 +1,7 @@
 package objects;
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaces.IFlashcard;
 
 public class Flashcard implements IFlashcard{
@@ -7,13 +10,16 @@ public class Flashcard implements IFlashcard{
     private String question;
     private String answer;
     private String userName;
-    private String folderName = "";
+    private List<String> folderNames; //list of all the folders this flashcard is associated with
+    boolean isFavorite;
 
 
     //constructor---will create a Flashcard object that has two sides (CardSide) front and back
     public Flashcard(String question, String answer, String userName){
         this.question = question;
         this.answer = answer;
+        folderNames = new ArrayList<>();
+        isFavorite = false;
         if(userName.equals("")  || userName.toLowerCase().equals("guest")){  //if it does'nt belong to any account
             this.userName = "Guest";
         }//if this flashcard is not related to any user
@@ -54,16 +60,28 @@ public class Flashcard implements IFlashcard{
 
 
     @Override
-    public void setFolderName(String folder){
-        folderName = folder;
-    }//setFolderName
+    public void addFolderName(String folder){
+        folderNames.add(folder);
+    }//addFolderName
 
 
     @Override
-    public String getFolderName(){
-        return folderName;
+    public List<String> getFolderNames(){
+        return folderNames;
     }//getFolderName
-    
+
+
+    @Override
+    public boolean getIsFavorite() {
+        return isFavorite;
+    }//getIsFavorite
+
+
+    @Override
+    public void setIsFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }//setIsFavorite
+
 
 }//Flashcard class
 

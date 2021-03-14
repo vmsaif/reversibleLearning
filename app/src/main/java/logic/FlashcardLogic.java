@@ -1,6 +1,5 @@
 package logic;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -69,5 +68,11 @@ public class FlashcardLogic{
     public void deleteFlashcard(Flashcard currentCard){
         fCardPersistence.deleteFlashcard(currentCard);
     }//deleteFlashcard
+
+
+    //getLatestCard---returns the last card stored in this list
+    public Flashcard getLatestCard(){
+        return flashcards.get(flashcards.size()-1);
+    }//getLatestCard
 
 }//FlashcardLogic class
