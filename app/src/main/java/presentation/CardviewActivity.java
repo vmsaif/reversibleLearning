@@ -34,8 +34,8 @@ public class CardviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
 
-//        flashcardLogic = new FlashcardLogic();
-//        flashcard = flashcardLogic.getLatestCard();
+        flashcardLogic = new FlashcardLogic();
+        flashcard = flashcardLogic.getSequential();
 
 
 
@@ -44,8 +44,8 @@ public class CardviewActivity extends AppCompatActivity {
         TextView card_front = findViewById(R.id.card_front); //accessing card front text view
         TextView card_back = findViewById(R.id.card_back); //accessing card back text view
 
-//        card_front.setText(flashcard.getQuestion());
-//        card_back.setText(flashcard.getAnswer());
+        card_front.setText(flashcard.getQuestion());
+        card_back.setText(flashcard.getAnswer());
 
         card_front.setCameraDistance(8000*scale); //adjusting the camera distance
         card_back.setCameraDistance(8000*scale); //adjusting the camera distance

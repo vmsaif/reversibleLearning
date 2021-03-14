@@ -15,7 +15,7 @@ public class Services {
     //getFlashcardPersistence---creates a new data layer for Flashcards
     public static synchronized FlashcardPersistence getFlashcardPersistence(){
         if(flashcardPersistence == null){
-            flashcardPersistence = new FlashcardPersistenceHSQLDB();
+            flashcardPersistence = new FlashcardPersistenceHSQLDB(getDBPathName());
         }//if
         return flashcardPersistence;
     }//getFlashcardPersistence

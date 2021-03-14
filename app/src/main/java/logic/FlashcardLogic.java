@@ -59,8 +59,8 @@ public class FlashcardLogic{
 
 
     //insertFlashcard
-    public Flashcard insertFlashcard(Flashcard currentCard){
-        return fCardPersistence.insertFlashcard(currentCard);
+    public void insertFlashcard(Flashcard currentCard){
+        fCardPersistence.insertFlashcard(currentCard);
     }//insertFlashcard
 
 
@@ -72,7 +72,7 @@ public class FlashcardLogic{
 
     //getLatestCard---returns the last card stored in this list
     public Flashcard getLatestCard(){
-        return flashcards.get(flashcards.size()-1);
+        return flashcards.get(0);
     }//getLatestCard
 
 }//FlashcardLogic class

@@ -44,7 +44,7 @@ public class FlashcardActivity extends Activity {
                 if(!question.equals("") && !answer.equals("") && !question.trim().isEmpty() && !answer.trim().isEmpty()){
                     flashcard = new Flashcard(question, answer, "guest");
                     flashLogic = new FlashcardLogic(); //making a new flashcard logic object
-//                    flashLogic.insertFlashcard(flashcard); //adding this flashcard to our database //error
+                    flashLogic.insertFlashcard(flashcard); //adding this flashcard to our database //error
                     Toast.makeText(getBaseContext(), "Flashcard created successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard creation has been successful
                     openCardviewActivity(flashLogic); //go to the GUI showing flashcard animation
                 }//if fields are filled properly
