@@ -38,8 +38,8 @@ public class FlashcardActivity extends Activity {
             public void onClick(View v) {
                 question = inputQuestion.getText().toString(); //input from user on the question field
                 answer = inputAnswer.getText().toString(); //input from user on the answer field
-                if(!question.equals("") && !answer.equals("") && question != null && answer != null){
-                    //flashLogic = new FlashcardLogic(); //making a new flashcard logic object
+                if(!question.equals("") && !answer.equals("")){
+                    flashLogic = new FlashcardLogic(question,answer); //making a new flashcard logic object
                     Toast.makeText(getBaseContext(), "Flashcard created successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard creation has been successful
                     openCardviewActivity(flashLogic); //go to the GUI showing flashcard animation
                 }//if fields are filled properly
@@ -53,14 +53,17 @@ public class FlashcardActivity extends Activity {
 
     }//onCreate
 
-//    public void openOptionsActivity(){
-//        Intent intent_options = new Intent(this, OptionsActivity.class);
-//        startActivity(intent_options);
-//    }//openOptionsActivity
+    public void openOptionsActivity(){
+        Intent intent_options = new Intent(this, OptionsActivity.class);
+        startActivity(intent_options);
+    }//openOptionsActivity
 
     public void openCardviewActivity(FlashcardLogic flashLogic){
         Intent intent_cardview = new Intent(this, CardviewActivity.class);
         startActivity(intent_cardview);
     }//openCardviewActivity
+
+
+
 
 }//FlashcardActivity class

@@ -1,73 +1,27 @@
 package logic;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
-import data.FlashcardPersistence;
-import flashcard.group5.application.Services;
 import objects.Flashcard;
 
 public class FlashcardLogic{
 
     //variables
-    private Flashcard fCard;
-    private FlashcardPersistence fCardPersistence;
-    private List<Flashcard> flashcards;
-    private int currentCard;
+    Flashcard fCard;
+
+    //constructor
+    public FlashcardLogic(String question, String answer){
+        fCard = new Flashcard(question, answer, "");
+    }//constructor
 
 
-    //constructor1
-    public FlashcardLogic(){
-        fCardPersistence = Services.getFlashcardPersistence();
-        fCard = null;
-        flashcards = null;
-        currentCard = 0;
-    }//constructor1
+    //getQuestion---calls the returnQuestion method
+    public String getQuestion(){
+        return fCard.getQuestion();
+    }//getQuestion
 
 
-    //constructor2---if we want to give our own database
-    public FlashcardLogic(FlashcardPersistence flashcardPersistence){
-        this();
-        this.fCardPersistence = flashcardPersistence;
-    }//constructor2
-
-
-    //getFlashcards---returns a list of flashcards
-    public List<Flashcard> getFlashcards(){
-        flashcards = fCardPersistence.getFlashcardSequential();
-        return Collections.unmodifiableList(flashcards);
-    }//getFlashcards
-
-
-    //getSequential
-    public Flashcard getSequential(){
-        if(flashcards == null){
-            flashcards = fCardPersistence.getFlashcardSequential();
-            currentCard = 0;
-        }//if
-        if(currentCard < flashcards.size()){
-            fCard = flashcards.get(currentCard);
-            currentCard++;
-        }//if
-        else{
-            flashcards = null;
-            fCard = null;
-            currentCard = 0;
-        }//else
-        return fCard;
-    }//getSequential
-
-
-    //insertFlashcard
-    public Flashcard insertFlashcard(Flashcard currentCard){
-        return fCardPersistence.insertFlashcard(currentCard);
-    }//insertFlashcard
-
-
-    //deleteFlashcard
-    public void deleteFlashcard(Flashcard currentCard){
-        fCardPersistence.deleteFlashcard(currentCard);
-    }//deleteFlashcard
+    //getAnswer---calls the getAnswer method
+    public String getAnswer(){
+        return fCard.getAnswer();
+    }//getAnswer
 
 }//FlashcardLogic class

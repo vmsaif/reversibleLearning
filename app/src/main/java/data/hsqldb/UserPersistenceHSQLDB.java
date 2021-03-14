@@ -1,12 +1,14 @@
 package data.hsqldb;
 
+import android.util.Log;
+
+import java.net.ConnectException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,51 +17,58 @@ import objects.User;
 
 public class  UserPersistenceHSQLDB implements UserPersistence {
 
-    //variables
-    private Connection connection;
-
+    //our path name to the database
+    private final String dbPath;
 
     //constructor
-    public UserPersistenceHSQLDB(){
-        try{
-            Class.forName("org.hsqldb.jdbcDriver");
-            // creates an in-memory database
-            connection = DriverManager.getConnection("jdbc:hsqldb:mem:mymemdb", "SA", "");
-            createUsersTable(); //creating a table
-        }//try
-        catch (ClassNotFoundException e) {
-            e.printStackTrace(System.out);
-        }//catch ClassNotFountException
-        catch (SQLException e) {
-            e.printStackTrace(System.out);
-        }//catch SQLException
+    public UserPersistenceHSQLDB(final String dbPath){
+        this.dbPath = dbPath;
     }//constructor
 
+    //connect to the local database
+    private Connection connection() throws SQLException {
+        return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown = true", "SA", "");
+    }
 
-    //createUsersTable
-    private void createUsersTable(){
-        String usersTable = "create table usersTable ("
-                + " userName VARCHAR(100),"
-                + " password VARCHAR(100)"
-                + " primary key(userName, password);";
-        /*This table will have 2 columns which contains the information regarding this user
-         * userName will contain the user name for the profile.
-         * password will contain the user's password to login
-         * The combination of userName and password will form the primary key to identify our users*/
-        try{
-            connection.createStatement().executeUpdate(usersTable);
-        }//try
-        catch (SQLException e) {
+    //fromResultSet---helper method to access the columns of users table and returning a user object
+    private User fromResultSet(ResultSet rs) throws SQLException{
+        String userName = rs.getString("userName");
+        String password = rs.getString("password");
+
+        User user = new User(userName, password);
+        return user;
+    }//fromResultSet
+
+
+    //receive a username and return the user if exists in the DB, otherwise return null
+    @Override
+    public User getUser(String userName, String password) {
+        User user = null;
+        try(final Connection c = connection()) {
+            final PreparedStatement un = c.prepareStatement("SELECT * FROM users WHERE username = ? and password = ?");
+            un.setString(1, userName);
+            un.setString(2, password);
+
+            final ResultSet rs = un.executeQuery();
+
+            while(rs.next())
+                user = fromResultSet(rs);
+
+            rs.close();
+            un.close();
+        } catch (final SQLException e) {
+            //TO DO: possibly create an error handler
             e.printStackTrace(System.out);
-        }//catch SQLException
-    }//createUsersTable
+        }
+        return user;
+    }
 
 
     //insertUser
     @Override
     public void insertUser(User givenUser){
-        try{
-            PreparedStatement ft = connection.prepareStatement("INSERT INTO usersTable VALUES(?,?)");
+        try(final Connection c = connection()){
+            final PreparedStatement ft = c.prepareStatement("INSERT INTO users VALUES(?,?)");
             //grabbing the data from the user to store it into our table
             ft.setString(1, givenUser.getUserName());
             ft.setString(2, givenUser.getPassword());
@@ -76,11 +85,11 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
     @Override
     public List<User> getUserSequential(){
         List<User> users = new ArrayList<>();
-        try{
-            Statement fc = connection.createStatement();
-            ResultSet rs = fc.executeQuery("SELECT * FROM usersTable");
+        try(final Connection c = connection()) {
+            final Statement fc = c.createStatement();
+            ResultSet rs = fc.executeQuery("SELECT * FROM users");
             while(rs.next()){
-                User user = fromResultSet(rs);
+                final User user = fromResultSet(rs);
                 users.add(user); //adding each user in the table to our list
             }//while
             rs.close();
@@ -93,21 +102,11 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
     }//getUserSequential
 
 
-    //fromResultSet---helper method to access the columns of users table and returning a user object
-    private User fromResultSet(ResultSet rs) throws SQLException{
-        String userName = rs.getString("userName");
-        String password = rs.getString("password");
-
-        User user = new User(userName, password);
-        return user;
-    }//fromResultSet
-
-
     //deleteUser
     @Override
     public void deleteUser(User currentUser) {
-        try{
-            PreparedStatement fl = connection.prepareStatement("DELETE FROM usersTable WHERE userName = ?");
+        try(final Connection c = connection()) {
+            PreparedStatement fl = c.prepareStatement("DELETE FROM users WHERE userName = ?");
             fl.setString(1, currentUser.getUserName());
             fl.executeUpdate();
         }//try
@@ -120,8 +119,8 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
     //modifyUserName
     @Override
     public void modifyUserName(User givenUser, String newUserName) {
-        try {
-            PreparedStatement f1 = connection.prepareStatement("UPDATE usersTable SET userName = ? WHERE userName = ?");
+        try(final Connection c = connection())  {
+            PreparedStatement f1 = c.prepareStatement("UPDATE users SET userName = ? WHERE userName = ?");
             f1.setString(1, newUserName);
             f1.setString(2, givenUser.getUserName());
             f1.executeUpdate();
@@ -135,8 +134,8 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
     //modifyUserPassword
     @Override
     public void modifyUserPassword(User givenUser, String newPassword) {
-        try {
-            PreparedStatement f1 = connection.prepareStatement("UPDATE usersTable SET password = ? WHERE userName = ?");
+        try(final Connection c = connection())  {
+            PreparedStatement f1 = c.prepareStatement("UPDATE users SET password = ? WHERE userName = ?");
             f1.setString(1, newPassword);
             f1.setString(2, givenUser.getUserName());
             f1.executeUpdate();
