@@ -1,60 +1,26 @@
 package objects;
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaces.IFlashcard;
 
 public class Flashcard implements IFlashcard{
 
-    class CardSide{ //nested class since this is only used inside the flashcard object
-
-        //variables
-        private String whichSide;
-        private String questionOrAns = "";
-
-        //constructor---create a CardSide object given which side of the card is this
-        public CardSide(String whichSide){
-            this.whichSide = whichSide;
-        }//constructor
-
-
-        //addText---adding question or answer to this side
-        public void addText(String qAndA){
-            questionOrAns = qAndA;
-        }//addText
-
-
-        //getText
-        public String getText(){
-            return questionOrAns;
-        }//getText
-
-
-        //getSide---tells if this is the front or the back side
-        public String getSide(){
-            return whichSide;
-        }//getSide
-
-
-        //showSide---will show the card side with the text on it (will be modified for UI but for now just prints the text)
-        public void showSide(){
-            System.out.println(questionOrAns);
-        }//showSide
-
-
-    }//CardSide class
-
     //variables
-    private CardSide front;
-    private CardSide back;
+    private String question;
+    private String answer;
     private String userName;
-    private String folderName = "";
+    private List<String> folderNames; //list of all the folders this flashcard is associated with
+    boolean isFavorite;
 
 
     //constructor---will create a Flashcard object that has two sides (CardSide) front and back
     public Flashcard(String question, String answer, String userName){
-        front = new CardSide("front"); //front side of the flash card will have the question on it
-        back = new CardSide("back"); //back side of the flash card will have the answer
-        modifyQuestion(question); //setting the question
-        modifyAnswer(answer); //setting the answer
-        if(userName.equals("")){
+        this.question = question;
+        this.answer = answer;
+        folderNames = new ArrayList<>();
+        isFavorite = false;
+        if(userName.equals("")  || userName.toLowerCase().equals("guest")){  //if it does'nt belong to any account
             this.userName = "Guest";
         }//if this flashcard is not related to any user
         else{
@@ -65,25 +31,25 @@ public class Flashcard implements IFlashcard{
 
     @Override
     public void modifyQuestion(String question){
-        front.addText(question);
+        this.question = question;
     }//modifyQuestion
 
 
     @Override
     public void modifyAnswer(String answer){
-        back.addText(answer);
+        this.answer = answer;
     }//modifyAnswer
 
 
     @Override
     public String getQuestion(){
-        return front.getText();
+        return question;
     }//getQuestion
 
 
     @Override
     public String getAnswer(){
-        return back.getText();
+        return answer;
     }//getAnswer
 
 
@@ -94,16 +60,28 @@ public class Flashcard implements IFlashcard{
 
 
     @Override
-    public void setFolderName(String folder){
-        folderName = folder;
-    }//setFolderName
+    public void addFolderName(String folder){
+        folderNames.add(folder);
+    }//addFolderName
 
 
     @Override
-    public String getFolderName(){
-        return folderName;
+    public List<String> getFolderNames(){
+        return folderNames;
     }//getFolderName
-    
+
+
+    @Override
+    public boolean getIsFavorite() {
+        return isFavorite;
+    }//getIsFavorite
+
+
+    @Override
+    public void setIsFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }//setIsFavorite
+
 
 }//Flashcard class
 
