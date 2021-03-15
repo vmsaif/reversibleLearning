@@ -77,6 +77,7 @@ public class Account implements IAccount {
         boolean result = false;
 
         if(user != null && !userNameTaken(userName)){
+            userPersistence.modifyUserName(user, userName);
             user.changeUserName(userName);
             result = true;
         }
@@ -89,6 +90,7 @@ public class Account implements IAccount {
         boolean result = false;
 
         if(user != null){
+            userPersistence.modifyUserPassword(user, password);
             user.changePassword(password);
             result = true;
         }
