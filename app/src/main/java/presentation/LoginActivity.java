@@ -1,44 +1,27 @@
 package presentation;
 
-import android.app.Activity;
-
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
-import android.graphics.LightingColorFilter;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import flashcard.group5.application.R;
-import logic.ValidCredentials;
-import objects.User;
+import logic.Account;
 
 
 public class LoginActivity extends AppCompatActivity{
 
-    private ValidCredentials validCredentials;
+    private Account account;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        validCredentials = new ValidCredentials();
+        account = new Account();
     }
 
     //will be called when the button "register" is clicked
@@ -55,9 +38,11 @@ public class LoginActivity extends AppCompatActivity{
         //if we get a user back, that means this user trying to login is in the database.
         //This credential validation is based on username and the password to find a match.
         //If the user was not found in the database, we will generate a message.
-        if(validCredentials.getUser(usernameEditText.getText().toString(),passwordEditText.getText().toString()) == null)
+        if(!account.login(usernameEditText.getText().toString(),passwordEditText.getText().toString()))
             showLoginFailed();
-        else updateUiWithUser(usernameEditText.getText().toString());
+        else {
+            updateUiWithUser(usernameEditText.getText().toString());
+        }
     }
 
     private void updateUiWithUser(String userName) {

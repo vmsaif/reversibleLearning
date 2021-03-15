@@ -3,7 +3,7 @@ package Logic;
 import org.junit.Before;
 import org.junit.Test;
 
-import logic.ValidCredentials;
+import logic.Account;
 import objects.User;
 
 import static org.junit.Assert.*;
@@ -11,16 +11,17 @@ import static org.junit.Assert.*;
 public class LoginTest {
 
     private User user;
-    private ValidCredentials validCredentials;
+    private Account account;
 
     @Before
     public void setFakeUser(){
         user = new User("Fake@gmail.com", "Fake");
-        validCredentials = new ValidCredentials(user);
+        account = new Account();
+        account.addNewAccount(user.getUserName(), user.getPassword());
     }
 
     @Test
     public void testUserExist(){
-        assertFalse(validCredentials.userExists());
+        assertTrue(account.login("Fake@gmail.com", "Fake"));
     }
 }
