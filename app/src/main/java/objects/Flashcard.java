@@ -1,80 +1,87 @@
 package objects;
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaces.IFlashcard;
 
 public class Flashcard implements IFlashcard{
 
-    class CardSide{ //nested class since this is only used inside the flashcard object
-
-        //variables
-        private String whichSide;
-        private String questionOrAns = "";
-
-        //constructor---create a CardSide object given which side of the card is this
-        public CardSide(String whichSide){
-            this.whichSide = whichSide;
-        }//constructor
-
-
-        //addText---adding question or answer to this side
-        public void addText(String qAndA){
-            questionOrAns = qAndA;
-        }//addText
-
-
-        //getText
-        public String getText(){
-            return questionOrAns;
-        }//getText
-
-
-        //getSide---tells if this is the front or the back side
-        public String getSide(){
-            return whichSide;
-        }//getSide
-
-
-        //showSide---will show the card side with the text on it (will be modified for UI but for now just prints the text)
-        public void showSide(){
-            System.out.println(questionOrAns);
-        }//showSide
-
-
-    }//CardSide class
-
     //variables
-    private CardSide front;
-    private CardSide back;
+    private String question;
+    private String answer;
+    private String userName;
+    private List<String> folderNames; //list of all the folders this flashcard is associated with
+    boolean isFavorite;
 
 
     //constructor---will create a Flashcard object that has two sides (CardSide) front and back
-    public Flashcard(){
-        front = new CardSide("front"); //front side of the flash card will have the question on it
-        back = new CardSide("back"); //back side of the flash card will have the answer
+    public Flashcard(String question, String answer, String userName){
+        this.question = question;
+        this.answer = answer;
+        folderNames = new ArrayList<>();
+        isFavorite = false;
+        if(userName.equals("")  || userName.toLowerCase().equals("guest")){  //if it does'nt belong to any account
+            this.userName = "Guest";
+        }//if this flashcard is not related to any user
+        else{
+            this.userName = userName;
+        }//else
     }//constructor
 
 
-    //modifyQuestion---can edit the question
+    @Override
     public void modifyQuestion(String question){
-        front.addText(question);
+        this.question = question;
     }//modifyQuestion
 
 
-    //modifyAnswer---can edit the answers
+    @Override
     public void modifyAnswer(String answer){
-        back.addText(answer);
+        this.answer = answer;
     }//modifyAnswer
 
 
-    //returnQuestion---return the question string
-    public String returnQuestion(){
-        return front.getText();
-    }//returnQuestion
+    @Override
+    public String getQuestion(){
+        return question;
+    }//getQuestion
 
 
-    //returnAnswer---return the answer string
-    public String returnAnswer(){
-        return back.getText();
-    }//returnAnswer
+    @Override
+    public String getAnswer(){
+        return answer;
+    }//getAnswer
+
+
+    @Override
+    public String getUserName(){
+        return userName;
+    }//getUserName
+
+
+    @Override
+    public void addFolderName(String folder){
+        folderNames.add(folder);
+    }//addFolderName
+
+
+    @Override
+    public List<String> getFolderNames(){
+        return folderNames;
+    }//getFolderName
+
+
+    @Override
+    public boolean getIsFavorite() {
+        return isFavorite;
+    }//getIsFavorite
+
+
+    @Override
+    public void setIsFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }//setIsFavorite
+
 
 }//Flashcard class
 

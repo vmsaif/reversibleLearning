@@ -1,26 +1,26 @@
 package presentation;
-import data.LoginDataSource;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Activity;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import data.LoginDataSource;
-import data.UserDB;
+import data.hsqldb.UserDB;
 import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
+import logic.Account;
 import objects.User;
 
 public class ProfileCreationView extends AppCompatActivity {
+
+    //account object
+    private Account newAccount;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -31,41 +31,24 @@ public class ProfileCreationView extends AppCompatActivity {
             final EditText passwordEditText = findViewById(R.id.password);
             final Button register = findViewById(R.id.button_register);
 
+            newAccount = new Account();
+
             register.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(!isUserNameValid(usernameEditText.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter a valid user name", Toast.LENGTH_SHORT).show();
 
-                    else if(!isPasswordValid(passwordEditText.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter a valid password. Password must be > 5.", Toast.LENGTH_SHORT).show();
-
-                    else {
-                        UserDB userDB = MainActivity.getUserDB();
-                        User currUser = new User(usernameEditText.getText().toString(), passwordEditText.getText().toString());
-                        userDB.addUser(currUser);
-                        MainActivity.updateUserDB(userDB);
+                    //try to add new account. If success navigate the user to the loginActivity so they can login.
+                    //Otherwise, show an error message
+                    if (newAccount.addNewAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString())) {
                         Intent intent = new Intent(ProfileCreationView.this, LoginActivity.class);
                         startActivity(intent);
-                    }
+                    } else showRegisterFailed();
                 }
             });
+        }
 
-        }
-    private boolean isUserNameValid(String username) {
-        if (username == null) {
-            return false;
-        }
-        if (username.contains("@")) {
-            return Patterns.EMAIL_ADDRESS.matcher(username).matches();
-        } else {
-            return !username.trim().isEmpty();
-        }
+    private void showRegisterFailed() {
+        String userNotFound = "Username exist. Please use different user name.";
+        Toast.makeText(getApplicationContext(), userNotFound, Toast.LENGTH_SHORT).show();
     }
-
-    // A placeholder password validation check
-    private boolean isPasswordValid(String password) {
-        return password != null && password.trim().length() > 5;
-    }
-
 }

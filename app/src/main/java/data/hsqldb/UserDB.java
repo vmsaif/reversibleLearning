@@ -1,4 +1,4 @@
-package data;
+package data.hsqldb;
 
 import android.util.Log;
 
@@ -22,10 +22,5 @@ public class UserDB {
             found = userDB.get(i).getUserName().equals(user.getUserName()) &&
                     userDB.get(i).getPassword().equals(user.getPassword());
         return found;
-    }
-
-    public void print(){
-        for(int i = 0; i < userDB.size(); i++)
-            Log.d("DEBBUG", "User DB item: " + userDB.get(i).getUserName());
     }
 }

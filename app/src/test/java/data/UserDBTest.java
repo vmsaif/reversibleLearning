@@ -2,7 +2,7 @@ package data;
 import org.junit.Before;
 import org.junit.Test;
 
-import objects.CardSide;
+import data.hsqldb.UserDB;
 import objects.User;
 
 import static org.junit.Assert.*;

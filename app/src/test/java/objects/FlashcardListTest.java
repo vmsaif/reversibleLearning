@@ -1,6 +1,9 @@
 package objects;
 import org.junit.Before;
 import org.junit.Test;
+
+import interfaces.IFlashcard;
+
 import static org.junit.Assert.*;
 
 public class FlashcardListTest {
@@ -14,8 +17,8 @@ public class FlashcardListTest {
 
     @Test
     public void TestAddCard() {
-        Flashcard card1 = new Flashcard();
-        Flashcard card2 = new Flashcard();
+        IFlashcard card1 = new Flashcard("Question", "Answer", "Ali");
+        IFlashcard card2 = new Flashcard("Question1", "Answer2", "");
         //Test the addCard method
         list.addCard(card1);
         list.addCard(card2);
@@ -25,8 +28,8 @@ public class FlashcardListTest {
 
     @Test
     public void TestRemoveCard() {
-        Flashcard card1 = new Flashcard();
-        Flashcard card2 = new Flashcard();
+        IFlashcard card1 = new Flashcard("Question", "Answer", "Ali");
+        IFlashcard card2 = new Flashcard("Question1", "Answer2", "");
         //add cards to be tested
         list.addCard(card1);
         list.addCard(card2);
@@ -40,9 +43,9 @@ public class FlashcardListTest {
 
     @Test
     public void TestGetCardAndGetSize() {
-        Flashcard card1 = new Flashcard();
-        Flashcard card2 = new Flashcard();
-        Flashcard card3 = new Flashcard();
+        IFlashcard card1 = new Flashcard("Question", "Answer", "Ali");
+        IFlashcard card2 = new Flashcard("Question1", "Answer2", "");
+        IFlashcard card3 = new Flashcard("Question4", "Answer5", "");
 
         //Test the getCard method and the getSize method
         list.addCard(card1);
@@ -59,9 +62,9 @@ public class FlashcardListTest {
 
     @Test
     public void TestChangeCard() {
-        Flashcard card1 = new Flashcard();
-        Flashcard card2 = new Flashcard();
-        Flashcard card3 = new Flashcard();
+        IFlashcard card1 = new Flashcard("Question", "Answer", "Ali");
+        IFlashcard card2 = new Flashcard("Question1", "Answer2", "");
+        IFlashcard card3 = new Flashcard("Question4", "Answer5", "");
 
         //add a card
         list.addCard(card1);
