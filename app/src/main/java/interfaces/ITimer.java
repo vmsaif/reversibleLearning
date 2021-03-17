@@ -10,8 +10,6 @@ public interface ITimer {
     // Start the timer
     CountDownTimer startTimer();
 
-    // Update the timer to a new time
-    void updateTimer();
 
     // Get the current time in a string format
     String getTime();
