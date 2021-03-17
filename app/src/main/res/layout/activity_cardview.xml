@@ -47,6 +47,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_front"
         android:backgroundTint="@color/white"/>
+
+    <ImageView
+        android:id="@+id/delete_button"
+        android:layout_width="48dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="335dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="15dp"
+        android:contentDescription="@string/Delete_button"
+        android:onClick="deleteCard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_front"
+        app:srcCompat="@drawable/delete_button" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="61dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="334dp"
+        android:layout_marginBottom="117dp"
+        android:contentDescription="@string/home_button"
+        app:layout_constraintBottom_toTopOf="@+id/card_front"
+        android:onClick="goHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
