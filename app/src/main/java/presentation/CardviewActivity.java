@@ -15,6 +15,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import flashcard.group5.application.R;
 import logic.FlashcardLogic;
@@ -72,9 +73,34 @@ public class CardviewActivity extends AppCompatActivity {
                 }//else
             }//onClick
         });
-
-
     }//onCreate
+
+
+    //deleteCard---this function will be implemented when the delete button is pressed
+    public void deleteCard(View view){
+        flashcardLogic.deleteFlashcard(flashcard);
+        if(flashcardLogic.getFlashcard(flashcard.getQuestion()) == null){
+            Toast.makeText(getBaseContext(), "Flashcard DELETED successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard is deleted
+            openOptionsActivity();
+        }//if
+        else{
+            Toast.makeText(getBaseContext(), "Flashcard NOT DELETED", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard WAS NOT DELETED
+        }//else
+
+    }//deleteCard
+
+
+    //openOptionsActivity---takes us back to the options page
+    public void openOptionsActivity(){
+        Intent intent_options = new Intent(this, OptionsActivity.class);
+        startActivity(intent_options);
+    }//openOptionsActivity
+
+
+    //goHome---takes us to the options page
+    public void goHome(View view){
+        openOptionsActivity();
+    }//goHome
 
 
 }//Cardview class

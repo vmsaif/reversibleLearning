@@ -6,9 +6,10 @@ import java.util.List;
 
 import data.FlashcardPersistence;
 import flashcard.group5.application.Services;
+import interfaces.IFlashcardLogic;
 import objects.Flashcard;
 
-public class FlashcardLogic{
+public class FlashcardLogic implements IFlashcardLogic {
 
     //variables
     private Flashcard fCard;

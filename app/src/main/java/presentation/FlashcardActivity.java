@@ -22,7 +22,6 @@ public class FlashcardActivity extends Activity {
     private String answer = "";
     private EditText inputQuestion;
     private EditText inputAnswer;
-    private Button makeFlashcardButton;
     private FlashcardLogic flashLogic;
     private Flashcard flashcard;
 
@@ -36,10 +35,6 @@ public class FlashcardActivity extends Activity {
         inputAnswer = findViewById(R.id.editTextTextPersonName3);
     }//onCreate
 
-//    public void openOptionsActivity(){
-//        Intent intent_options = new Intent(this, OptionsActivity.class);
-//        startActivity(intent_options);
-//    }//openOptionsActivity
 
     public void openCardviewActivity(){
         Intent intent_cardview = new Intent(this, CardviewActivity.class);
@@ -48,13 +43,6 @@ public class FlashcardActivity extends Activity {
         intent_cardview.putExtras(b);
         startActivity(intent_cardview);
     }//openCardviewActivity
-
-    /*
-    * Intent scIntent = new Intent(StudentsActivity.this, StudentCoursesActivity.class);
-        Bundle b = new Bundle();
-        b.putString("studentID", studentID);
-        scIntent.putExtras(b);
-        StudentsActivity.this.startActivity(scIntent);*/
 
 
     //makeCard---will be called when button 'Make Flashcard' is clicked
