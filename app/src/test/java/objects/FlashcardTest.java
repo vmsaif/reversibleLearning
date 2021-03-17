@@ -62,8 +62,8 @@ public class FlashcardTest {
     @Test
     public void TestFolderName(){
         // check both folders are empty
-        assertEquals("The folder name is the same", fCard.getFolderNames(), 0);
-        assertEquals("The folder name is the same", gCard.getFolderNames(), 0);
+        assertEquals("The folder name is the same", fCard.getFolderNames().size(), 0);
+        assertEquals("The folder name is the same", gCard.getFolderNames().size(), 0);
         // add folders
         gCard.addFolderName("folder1");
         fCard.addFolderName("folder1");
@@ -79,6 +79,16 @@ public class FlashcardTest {
         // add  folder names to fCard which will make fCard != gCard
         fCard.addFolderName("folder3");
         assertNotEquals("The folder is not equal to one another", fCard.getFolderNames(), gCard.getFolderNames());
+    }
+
+    @Test
+    public void TestFavorite() {
+        // check the default favorite == false
+        assertFalse("The flashcard is not a favorite", fCard.getIsFavorite());
+        // set to favorite
+        fCard.setIsFavorite(true);
+        // check the favorite == true
+        assertTrue("The flashcard is not a favorite", fCard.getIsFavorite());
     }
 
 }
