@@ -40,6 +40,8 @@ public class ProfileCreationView extends AppCompatActivity {
                     //try to add new account. If success navigate the user to the loginActivity so they can login.
                     //Otherwise, show an error message
                     if (newAccount.addNewAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString())) {
+                        usernameEditText.getText().clear();
+                        passwordEditText.getText().clear();
                         Intent intent = new Intent(ProfileCreationView.this, LoginActivity.class);
                         startActivity(intent);
                     } else showRegisterFailed();
