@@ -34,19 +34,20 @@ public class CardviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
 
-        flashcardLogic = new FlashcardLogic();
-        flashcard = flashcardLogic.getSequential();
+        Bundle b = getIntent().getExtras();
+        String question = b.getString("question");
 
-
-
-        isFront = true;
-        float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during animations
         TextView card_front = findViewById(R.id.card_front); //accessing card front text view
         TextView card_back = findViewById(R.id.card_back); //accessing card back text view
 
-        card_front.setText(flashcard.getQuestion());
-        card_back.setText(flashcard.getAnswer());
+        flashcardLogic = new FlashcardLogic();
+        flashcard = flashcardLogic.getFlashcard(question);
 
+        card_front.setText(flashcard.getQuestion()); //setting the question on card
+        card_back.setText(flashcard.getAnswer()); //setting the answer on card
+
+        isFront = true;
+        float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during animations
         card_front.setCameraDistance(8000*scale); //adjusting the camera distance
         card_back.setCameraDistance(8000*scale); //adjusting the camera distance
 
@@ -74,5 +75,7 @@ public class CardviewActivity extends AppCompatActivity {
 
 
     }//onCreate
+
+
 }//Cardview class
 

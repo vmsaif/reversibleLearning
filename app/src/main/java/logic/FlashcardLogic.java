@@ -1,5 +1,6 @@
 package logic;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -61,7 +62,6 @@ public class FlashcardLogic{
     //insertFlashcard
     public void insertFlashcard(Flashcard flashCard){
         fCardPersistence.insertFlashcard(flashCard);
-        currentCard++;
     }//insertFlashcard
 
 
@@ -71,4 +71,8 @@ public class FlashcardLogic{
     }//deleteFlashcard
 
 
+    //getFlashcard---returns flashcard given a question
+    public Flashcard getFlashcard(String question){
+        return fCardPersistence.getFlashcard(question);
+    }//getFlashcard
 }//FlashcardLogic class
