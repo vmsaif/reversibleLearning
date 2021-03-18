@@ -2,8 +2,6 @@ package presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,13 +9,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import data.hsqldb.UserDB;
-import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
 import logic.Account;
-import objects.User;
 
-public class ProfileCreationView extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
     //account object
     private Account newAccount;
@@ -40,7 +35,7 @@ public class ProfileCreationView extends AppCompatActivity {
                     //try to add new account. If success navigate the user to the loginActivity so they can login.
                     //Otherwise, show an error message
                     if (newAccount.addNewAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString())) {
-                        Intent intent = new Intent(ProfileCreationView.this, LoginActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                         startActivity(intent);
                     } else showRegisterFailed();
                 }
@@ -51,4 +46,5 @@ public class ProfileCreationView extends AppCompatActivity {
         String userNotFound = "Username exist. Please use different user name.";
         Toast.makeText(getApplicationContext(), userNotFound, Toast.LENGTH_SHORT).show();
     }
+
 }

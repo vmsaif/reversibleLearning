@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yollowish"
-    tools:context="presentation.ProfileCreationView">
+    tools:context="presentation.RegisterActivity">
 
     <EditText
 
@@ -17,11 +17,12 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
         android:autofillHints=""
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="monospace"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:singleLine="false"
+        android:text="@string/Username"
         android:textColor="@color/grayish"
         android:textColorHint="@color/grayish"
         app:layout_constraintBottom_toTopOf="@+id/password"
@@ -38,7 +39,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="152dp"
         android:autofillHints=""
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="monospace"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yollowish"
+    android:orientation="vertical"
+    tools:context="presentation.RegisterActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:padding="20dp"
+        android:background="@color/yollowishButtonColor"
+        >
+
+        <TextView
+            android:id="@+id/fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo"
+            android:text="DUMMY NAME"
+            android:textColor="@color/cardview_dark_background"
+            android:textSize="35sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:padding="10dp"-->
+<!--        android:layout_marginTop="-85dp">-->
+
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="125dp"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:elevation="10dp"-->
+<!--            app:cardBackgroundColor="@color/profileUI_Layer1"-->
+<!--            >-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:padding="5dp"-->
+<!--                >-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:src="@drawable/ic_baseline_assignment_ind_24" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/friendsCount"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:fontFamily="@font/aclonica"-->
+<!--                    android:includeFontPadding="false"-->
+<!--                    android:text="@string/friendsCount"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/folders"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/friendsCount"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:fontFamily="@font/aclonica"-->
+<!--                    android:text="@string/folders"-->
+<!--                    android:textSize="18sp" />-->
+
+
+<!--            </RelativeLayout>-->
+
+<!--        </com.google.android.material.card.MaterialCardView>-->
+
+<!--        <com.google.android.material.card.MaterialCardView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="125dp"-->
+<!--            android:layout_margin="10dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:elevation="10dp"-->
+<!--            app:cardBackgroundColor="@color/profileUI_Layer1">-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:padding="5dp"-->
+
+<!--                >-->
+
+
+<!--                <ImageView-->
+<!--                    android:layout_width="30dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:src="@drawable/ic_baseline_article_24" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/cardsCountText"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:fontFamily="@font/aclonica"-->
+<!--                    android:includeFontPadding="false"-->
+<!--                    android:text="@string/cardCount"-->
+<!--                    android:textSize="20sp" />-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/cards"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/cardsCountText"-->
+<!--                    android:layout_centerInParent="true"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:fontFamily="@font/aclonica"-->
+<!--                    android:text="@string/cards"-->
+<!--                    android:textSize="18sp" />-->
+
+
+<!--            </RelativeLayout>-->
+
+<!--        </com.google.android.material.card.MaterialCardView>-->
+<!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <!--        Full Name Text Box-->
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="15dp"-->
+<!--            android:hint="Full Name"-->
+<!--            >-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:drawableLeft="@drawable/ic_baseline_contact_page_24"-->
+<!--                android:drawablePadding="10dp"-->
+<!--                android:text="Dummy Name"-->
+<!--                />-->
+
+
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <!--        Email Text Box-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="Username"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawablePadding="10dp"
+                android:text="dummy.name@dummyserver.lol"
+                />
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        Password Text Box-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:hint="Password"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/updateButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
+                android:drawablePadding="10dp"
+                android:inputType="textPassword"
+                android:text="dummypassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--        update button-->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/yollowishButtonColor"
+            android:fontFamily="@font/baloo"
+            android:text="UPDATE"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+
+</LinearLayout>

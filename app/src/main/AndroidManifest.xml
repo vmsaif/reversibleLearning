@@ -15,7 +15,7 @@
             android:label="@string/title_activity_login" />
         <activity android:name="presentation.OptionsActivity" />
         <activity android:name="presentation.FlashcardActivity" />
-        <activity android:name="presentation.ProfileCreationView"/>
+        <activity android:name="presentation.RegisterActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>
