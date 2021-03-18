@@ -1,10 +1,8 @@
 package flashcard.group5.application;
 
-import android.util.Log;
-
 import data.FlashcardPersistence;
-import data.hsqldb.FlashcardPersistenceHSQLDB;
 import data.UserPersistence;
+import data.hsqldb.FlashcardPersistenceHSQLDB;
 import data.hsqldb.UserPersistenceHSQLDB;
 
 public class Services {
@@ -49,5 +47,9 @@ public class Services {
         return dbName;
     }
 
+    public static synchronized void clean(){
+        FlashcardPersistence flashcardPersistence = null;
+        UserPersistence userPersistence = null;
+    }
 
 }//Services class
