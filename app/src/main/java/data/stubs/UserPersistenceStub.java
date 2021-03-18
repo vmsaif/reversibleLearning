@@ -1,5 +1,6 @@
 package data.stubs;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import data.UserPersistence;
@@ -11,7 +12,11 @@ public class UserPersistenceStub implements UserPersistence {
 
     //constructor
     public UserPersistenceStub(){
-        this.users = users;
+        this.users = new ArrayList<>();
+        users.add(new User("liza@test.com", "test123"));
+        users.add(new User("group5","password5"));
+        users.add(new User("User","Pass"));
+        users.add(new User("username","password"));
     }//constructor
 
 
