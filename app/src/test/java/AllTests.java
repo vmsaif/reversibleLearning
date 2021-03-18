@@ -4,8 +4,10 @@ import org.junit.runners.Suite;
 import Logic.AccountIT;
 import Logic.AccountTest;
 import Logic.FlashcardLogicIT;
+import Logic.FlashcardLogicTest;
+import data.FlashcardPersistenceTest;
 import data.UserDBTest;
-import logic.FlashcardLogic;
+import data.UserPersistenceTest;
 import objects.FlashcardListTest;
 import objects.FlashcardTest;
 import objects.UserTest;
@@ -20,10 +22,12 @@ import objects.UserTest;
         UserTest.class,
         FlashcardTest.class,
         // the data classes
+        UserPersistenceTest.class,
+        FlashcardPersistenceTest.class,
         UserDBTest.class,
         // the logic classes
         AccountTest.class,
-        FlashcardLogic.class,
+        FlashcardLogicTest.class,
         // the integration tests
         AccountIT.class,
         FlashcardLogicIT.class,

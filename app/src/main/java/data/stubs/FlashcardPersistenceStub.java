@@ -3,7 +3,6 @@ package data.stubs;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import data.FlashcardPersistence;
 import objects.Flashcard;
 
@@ -35,13 +34,36 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
 
     @Override
     public void insertFolder(Flashcard flashcard, String folder) {
-        flashcard.addFolderName(folder);
+        int search = searchFlashcard(flashcard);
+        if(search != -1){
+            Flashcard temp = flashcards.get(search);
+            temp.addFolderName(folder);
+            flashcards.set(search, temp);
+        }
     }//insertFolder
 
     @Override
     public List<String> getFlashcardFolders(Flashcard flashcard) {
-        return flashcard.getFolderNames();
+        Flashcard card = null;
+        int search = searchFlashcard(flashcard);
+        if(search != -1){
+            card = getFlashcardSequential().get(search);
+        }
+        return card == null ? null : card.getFolderNames();
     }//getFlashcardFolders
+
+
+    private int searchFlashcard(Flashcard flashcard){
+        int result = -1;
+        for(int i = 0; i < flashcards.size(); i++){
+            if(flashcards.get(i).getQuestion().equals(flashcard.getQuestion()) &&
+                    flashcards.get(i).getAnswer().equals(flashcard.getAnswer()) &&
+                    flashcards.get(i).getUserName().equals(flashcard.getUserName())){
+                result = i;
+            }
+        }
+        return result;
+    }
 
 
     @Override
