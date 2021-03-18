@@ -1,8 +1,6 @@
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import Logic.AccountTest;
-import Logic.FlashcardLogicTest;
 import data.FlashcardPersistenceTest;
 import data.UserDBTest;
 import data.UserPersistenceTest;
@@ -23,9 +21,6 @@ import objects.UserTest;
         UserPersistenceTest.class,
         FlashcardPersistenceTest.class,
         UserDBTest.class,
-        // the logic classes
-        AccountTest.class,
-        FlashcardLogicTest.class,
 })
 
 
