@@ -15,6 +15,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import flashcard.group5.application.R;
 import logic.FlashcardLogic;
@@ -34,19 +35,20 @@ public class CardviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardview);
 
-        flashcardLogic = new FlashcardLogic();
-        flashcard = flashcardLogic.getSequential();
+        Bundle b = getIntent().getExtras();
+        String question = b.getString("question");
 
-
-
-        isFront = true;
-        float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during animations
         TextView card_front = findViewById(R.id.card_front); //accessing card front text view
         TextView card_back = findViewById(R.id.card_back); //accessing card back text view
 
-        card_front.setText(flashcard.getQuestion());
-        card_back.setText(flashcard.getAnswer());
+        flashcardLogic = new FlashcardLogic();
+        flashcard = flashcardLogic.getFlashcard(question);
 
+        card_front.setText(flashcard.getQuestion()); //setting the question on card
+        card_back.setText(flashcard.getAnswer()); //setting the answer on card
+
+        isFront = true;
+        float scale = getApplicationContext().getResources().getDisplayMetrics().density; //setting a scale variable to adjust view during animations
         card_front.setCameraDistance(8000*scale); //adjusting the camera distance
         card_back.setCameraDistance(8000*scale); //adjusting the camera distance
 
@@ -71,8 +73,35 @@ public class CardviewActivity extends AppCompatActivity {
                 }//else
             }//onClick
         });
-
-
     }//onCreate
+
+
+    //deleteCard---this function will be implemented when the delete button is pressed
+    public void deleteCard(View view){
+        flashcardLogic.deleteFlashcard(flashcard);
+        if(flashcardLogic.getFlashcard(flashcard.getQuestion()) == null){
+            Toast.makeText(getBaseContext(), "Flashcard DELETED successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard is deleted
+            openOptionsActivity();
+        }//if
+        else{
+            Toast.makeText(getBaseContext(), "Flashcard NOT DELETED", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard WAS NOT DELETED
+        }//else
+
+    }//deleteCard
+
+
+    //openOptionsActivity---takes us back to the options page
+    public void openOptionsActivity(){
+        Intent intent_options = new Intent(this, OptionsActivity.class);
+        startActivity(intent_options);
+    }//openOptionsActivity
+
+
+    //goHome---takes us to the options page
+    public void goHome(View view){
+        openOptionsActivity();
+    }//goHome
+
+
 }//Cardview class
 

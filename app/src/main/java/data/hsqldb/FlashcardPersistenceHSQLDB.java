@@ -22,18 +22,6 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     //constructor
     public FlashcardPersistenceHSQLDB(final String dbPath){
         this.dbPath = dbPath;
-//        try{
-//            Class.forName("org.hsqldb.jdbcDriver");
-//            // creates an in-memory database
-//            connection = DriverManager.getConnection("jdbc:hsqldb:mem:mymemdb", "SA", "");
-//            createFlashcardTable(); //creating a table
-//        }//try
-//        catch (ClassNotFoundException e) {
-//            e.printStackTrace(System.out);
-//        }//catch ClassNotFountException
-//        catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }//catch SQLException
     }//constructor
 
 
@@ -41,37 +29,6 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     private Connection connection() throws SQLException {
         return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown = true", "SA", "");
     }//connection
-
-
-//    //createFlashcardTable
-//    private void createFlashcardTable(){
-//        String flashcardTable = "CREATE TABLE flashcardTable ("
-//                + " question VARCHAR(100) NOT NULL,"
-//                + " answer VARCHAR(100)"
-//                + " userName VARCHAR(20),"
-//                + " PRIMARY KEY(question));";
-//        /*This table will have 3 columns which contains the information regarding this flashcard
-//        * question will contain the question on the Flashcard. Since a question is the most unique thing on a flashcard it is the primary key
-//        * answer will contain the answer of the question on the Flashcard
-//        * userName will contain a string with the name of the user or guest if app is used as a guest*/
-//        try{
-//            connection.createStatement().executeUpdate(flashcardTable);
-//
-//            String folderTable = "CREATE TABLE folderTable ("
-//                    + " folderName VARCHAR(20) NOT NULL,"
-//                    + " PRIMARY KEY(folderName));";
-//
-//            connection.createStatement().executeUpdate(folderTable);
-//
-//            String card_folders = "CREATE TABLE card_folders ("
-//                    + " question VARCHAR(100) NOT NULL,"
-//                    + " folderName VARCHAR(20) NOT NULL,"
-//                    + " PRIMARY KEY(question, folderName));";
-//        }//try
-//        catch (SQLException e) {
-//            e.printStackTrace(System.out);
-//        }//catch SQLException
-//    }//createFlashcardTable
 
 
     @Override
@@ -174,6 +131,25 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
             e.printStackTrace(System.out);
         }//catch SQLException
     }//deleteFlashCard
+
+    @Override
+    public Flashcard getFlashcard(String question) {
+        Flashcard flashcard = null;
+        try(final Connection connection = connection()){
+            final PreparedStatement fl = connection.prepareStatement("SELECT * FROM flashcardTable WHERE question = ?");
+            fl.setString(1, question);
+            final ResultSet rs = fl.executeQuery();
+            while(rs.next())
+                flashcard = fromResultSet(rs);
+
+            rs.close();
+            fl.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+        return flashcard;
+    }//getFlashcard
 
 
 }//FlashcardPersistenceHSQLDB
