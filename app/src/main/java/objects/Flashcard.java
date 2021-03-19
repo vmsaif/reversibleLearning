@@ -20,12 +20,7 @@ public class Flashcard implements IFlashcard{
         this.answer = answer;
         folderNames = new ArrayList<>();
         isFavorite = false;
-        if(userName.equals("")  || userName.toLowerCase().equals("guest")){  //if it does'nt belong to any account
-            this.userName = "Guest";
-        }//if this flashcard is not related to any user
-        else{
-            this.userName = userName;
-        }//else
+        this.userName = userName;
     }//constructor
 
 

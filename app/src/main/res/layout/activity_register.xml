@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yollowish"
-    tools:context="presentation.RegisterActivity">
+    tools:context="presentation.ProfileCreationView">
 
     <EditText
 
@@ -22,7 +22,6 @@
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:singleLine="false"
-        android:text="@string/Username"
         android:textColor="@color/grayish"
         android:textColorHint="@color/grayish"
         app:layout_constraintBottom_toTopOf="@+id/password"

@@ -15,10 +15,16 @@ public interface FlashcardPersistence {
     //deleteFlashcard---deletes a flashcard in this database
     void deleteFlashcard(Flashcard currentFlashcard);
 
+
+    //getFlashcard---getting a flashcard according to the question
+    Flashcard getFlashcard(String question);
+
     //insertFolder---inserts a folder associated with the flashCard
     void insertFolder(Flashcard flashcard, String folder);
 
-    //getFlashcardFolders
+    //getFlashcardFolders---returns all the folders that contains this flashcard
     List<String> getFlashcardFolders(Flashcard flashcard);
+
+
 
 }//FlashcardPersistence ends

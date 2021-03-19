@@ -38,5 +38,7 @@
     <string name="Username">Username</string>
     <string name="profile">Profile</string>
     <string name="myProfile">My Profile</string>
+    <string name="Delete_button">Delete Button</string>
+    <string name="home_button">Home Button</string>
 
 </resources>
