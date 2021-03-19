@@ -12,7 +12,7 @@ import objects.User;
 
 public class Account implements IAccount {
     private UserPersistence userPersistence;
-    private User user;  //will contain the current logged in user, if not logged in then null
+    public User user;  //will contain the current logged in user, if not logged in then null
     private List<User> users;  //list of users
 
     public Account() {
@@ -64,7 +64,8 @@ public class Account implements IAccount {
 
         if(found) {
             //update current user only if login was successful, otherwise remain null
-            user = users.get(i - 1);
+            this.user = users.get(i - 1);
+            LoggedUser.setLoggedUser(user);
         }
         return found;
     }
@@ -73,11 +74,11 @@ public class Account implements IAccount {
         //get to this point only when a user is logged in
         //Just in case, still check for a user
         boolean result = false;
+        if(!userNameTaken(userNew.getUserName()) && getLoggedUser() != null){
 
-        if(user != null && !userNameTaken(userNew.getUserName())){
-            userPersistence.modifyUser(user, userNew);
-            user.changeUserName(userNew.getUserName());
-            user.changePassword(userNew.getPassword());
+            userPersistence.modifyUser(LoggedUser.getLoggedUser(), userNew);
+            LoggedUser.getLoggedUser().changeUserName(userNew.getUserName());
+            LoggedUser.getLoggedUser().changePassword(userNew.getPassword());
             result = true;
         }
         return result;
@@ -85,10 +86,10 @@ public class Account implements IAccount {
 
 
     public User getLoggedUser(){
-        return user;
+        return LoggedUser.getLoggedUser();
     }
 
     public void logout() {
-        user = null;
+        LoggedUser.setLoggedUser(null);
     }
 }
