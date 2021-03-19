@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import data.stubs.UserPersistenceStub;
 import logic.Account;
+import objects.User;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -62,18 +63,18 @@ public class AccountTest {
     public void TestChangeUserName(){
         // change name when user currently is not logged in
         assertNull("no user", account.getLoggedUser());
-        assertFalse("cannot change username", account.changeUserName("Name1"));
+        assertFalse("cannot change username", account.changeUser(new User("Name1", "test")));
         // change username when user currently is logged in
         assertTrue("Login successfully", account.login("username","password"));
-        assertTrue("change successful", account.changeUserName("Name1"));
+        assertTrue("change successful", account.changeUser(new User("Name1", "test")));
         // login with old username
         assertFalse("Login unsuccessfully", account.login("username","password"));
         // login with new username
         assertTrue("Login successfully", account.login("Name1","password"));
         // change username with existing username
-        assertFalse("cannot change username", account.changeUserName("User"));
+        assertFalse("cannot change username", account.changeUser(new User("User", "test")));
         // change the username with empty string
-        assertTrue("change successful", account.changeUserName(""));
+        assertTrue("change successful", account.changeUser(new User("", "")));
     }
 
 
@@ -81,16 +82,16 @@ public class AccountTest {
     public void TestChangePassword(){
         // change password when user currently is not logged in
         assertNull("no user", account.getLoggedUser());
-        assertFalse("cannot change password", account.changePassword("Pass1"));
+        assertFalse("cannot change password", account.changeUser(new User("tets", "Pass1")));
         // change password when user currently is logged in
         assertTrue("Login successfully", account.login("username","password"));
-        assertTrue("change successful", account.changePassword("Pass1"));
+        assertTrue("change successful", account.changeUser(new User("test", "Pass1")));
         // login with old password
         assertFalse("Login unsuccessfully", account.login("username","password"));
         // login with new password
         assertTrue("Login successfully", account.login("username","Pass1"));
         // change the password with empty string
-        assertTrue("change successful", account.changePassword(""));
+        assertTrue("change successful", account.changeUser(new User("", "")));
     }
 
 
