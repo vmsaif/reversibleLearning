@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/yollowish"
     android:orientation="vertical"
-    tools:context="presentation.ProfileCreationView">
+    tools:context="presentation.ProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
-            android:text="DUMMY NAME"
+            android:text="@string/myProfile"
             android:textColor="@color/cardview_dark_background"
             android:textSize="35sp"
             android:layout_centerVertical="true"
@@ -197,12 +197,13 @@
 
         <!--        update button-->
         <com.google.android.material.button.MaterialButton
+            android:onClick="openOptionsActivity"
             android:id="@+id/profileUpdateButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/yollowishButtonColor"
             android:fontFamily="@font/baloo"
-            android:text="UPDATE"
+            android:text="@string/gotoDashboard"
             android:textColor="@color/white"/>
 
     </LinearLayout>

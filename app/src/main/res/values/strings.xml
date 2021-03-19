@@ -43,6 +43,7 @@
     <string name="next_button">Next Button</string>
     <string name="previous_button">Previous Button</string>
     <string name="my_cards">My Cards</string>
+    <string name="gotoDashboard">My Dashboard</string>
 
 
 </resources>
