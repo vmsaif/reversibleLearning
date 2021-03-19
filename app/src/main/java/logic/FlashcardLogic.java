@@ -76,4 +76,17 @@ public class FlashcardLogic implements IFlashcardLogic {
     public Flashcard getFlashcard(String question){
         return fCardPersistence.getFlashcard(question);
     }//getFlashcard
+
+
+    //getUsersCards---given a user name it will return all the cards created by this user
+    public List<Flashcard> getUsersCards(String userName){
+        return fCardPersistence.getUserCards(userName);
+    }//getUsersCards
+
+
+    //getAllCards---returns all the cards in our database
+    public List<Flashcard> getAllCards(){
+        return fCardPersistence.getAllFlashcards();
+    }//getAllCards
+
 }//FlashcardLogic class
