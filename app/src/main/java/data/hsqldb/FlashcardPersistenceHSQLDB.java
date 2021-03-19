@@ -39,6 +39,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
             ft.setString(1, givenFlashcard.getQuestion());
             ft.setString(2, givenFlashcard.getAnswer());
             ft.setString(3, givenFlashcard.getUserName());
+            //ft.setString(4, givenFlashcard.getFolderNames());
             ft.executeUpdate();
             ft.close();
         }//try
@@ -85,7 +86,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         catch (final SQLException e) {
             e.printStackTrace(System.out);
         }//catch SQLException
-        return folders;
+        return null;
     }//getFlashcardFolders
 
 
@@ -140,6 +141,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
             final ResultSet rs = fl.executeQuery();
             while(rs.next())
                 flashcard = fromResultSet(rs);
+
             rs.close();
             fl.close();
         }//try
@@ -150,45 +152,6 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     }//getFlashcard
 
 
-    //getUserCards---select all the cards associated with this user
-    public List<Flashcard> getUserCards(String userName){
-        List<Flashcard> usersFlashcards = new ArrayList<>();
-        try(final Connection connection = connection()){
-            final PreparedStatement uf = connection.prepareStatement("SELECT * FROM flashcardTable WHERE userName = ?");
-            uf.setString(1, userName);
-            final ResultSet rs = uf.executeQuery();
-            while(rs.next()){
-                usersFlashcards.add(fromResultSet(rs));
-            }//while
-            rs.close();
-            uf.close();
-        }//try
-        catch (final SQLException e) {
-            e.printStackTrace(System.out);
-        }//catch SQLException
-        return usersFlashcards;
-    }//getUserCards
-
-
-    @Override
-    public List<Flashcard> getAllFlashcards() {
-        List<Flashcard> usersFlashcards = new ArrayList<>();
-        try(final Connection connection = connection()){
-            final PreparedStatement uf = connection.prepareStatement("SELECT * FROM flashcardTable");
-            final ResultSet rs = uf.executeQuery();
-            while(rs.next()){
-                usersFlashcards.add(fromResultSet(rs));
-            }//while
-            rs.close();
-            uf.close();
-        }//try
-        catch (final SQLException e) {
-            e.printStackTrace(System.out);
-        }//catch SQLException
-        return usersFlashcards;
-    }//getAllFlashcards
-
-
 }//FlashcardPersistenceHSQLDB
 
-
+/*add a section of adding folders and users to guests*/
