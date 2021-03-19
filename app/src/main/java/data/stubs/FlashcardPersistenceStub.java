@@ -77,9 +77,16 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
         flashcards.remove(currentFlashcard);
     }//deleteFlashCard
 
-    //this was missing ---- need to write this method
+    @Override
     public Flashcard getFlashcard(String question) {
-        return null;
-    }
+        Flashcard fCard = null;
+        for(int i=0; i<flashcards.size(); i++){
+            if(flashcards.get(i).getQuestion().equals(question)){
+                fCard = flashcards.get(i);
+            }//if
+        }//for i
+        return fCard;
+    }//getFlashCard
+
 
 }
