@@ -87,7 +87,7 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
         List<User> users = new ArrayList<>();
         try(final Connection c = connection()) {
             final Statement fc = c.createStatement();
-            ResultSet rs = fc.executeQuery("SELECT * FROM users");
+            final ResultSet rs = fc.executeQuery("SELECT * FROM USERS");
             while(rs.next()){
                 final User user = fromResultSet(rs);
                 users.add(user); //adding each user in the table to our list
@@ -118,32 +118,20 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
 
     //modifyUserName
     @Override
-    public void modifyUserName(User givenUser, String newUserName) {
+    public void modifyUser(User givenUser, User newUser) {
         try(final Connection c = connection())  {
-            PreparedStatement f1 = c.prepareStatement("UPDATE users SET userName = ? WHERE userName = ?");
-            f1.setString(1, newUserName);
-            f1.setString(2, givenUser.getUserName());
+            PreparedStatement f1 = c.prepareStatement("UPDATE users SET userName = ? password = ? WHERE userName = ?");
+            f1.setString(1, newUser.getUserName());
+            f1.setString(2, newUser.getPassword());
+            f1.setString(3, givenUser.getUserName());
             f1.executeUpdate();
         }//try
+
         catch (final SQLException e) {
             e.printStackTrace(System.out);
         }//catch SQLException
     }//modifyUserName
 
-
-    //modifyUserPassword
-    @Override
-    public void modifyUserPassword(User givenUser, String newPassword) {
-        try(final Connection c = connection())  {
-            PreparedStatement f1 = c.prepareStatement("UPDATE users SET password = ? WHERE userName = ?");
-            f1.setString(1, newPassword);
-            f1.setString(2, givenUser.getUserName());
-            f1.executeUpdate();
-        }//try
-        catch (final SQLException e) {
-            e.printStackTrace(System.out);
-        }//catch SQLException
-    }//modifyUserPassword
 
 
 }//UserPersistenceHSQLDB
