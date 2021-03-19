@@ -39,7 +39,7 @@ This package includes:<br>
 This package includes:<br>
 HSQLDB:<br>
 [FlashcardPersistenceHSQLDB](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/data/hsqldb/FlashcardPersistenceHSQLDB.java) <br>
-[UserPersistenceHSQLDBhttps://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/data/hsqldb/UserPersistenceHSQLDB.java]() <br>
+[UserPersistenceHSQLDB](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/data/hsqldb/UserPersistenceHSQLDB.java) <br>
 Stubs:<br>
 [FlashcardPersistenceStub](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/data/stubs/FlashcardPersistenceStub.java) <br>
 [UserPersistenceStub](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/data/stubs/UserPersistenceStub.java) <br>
