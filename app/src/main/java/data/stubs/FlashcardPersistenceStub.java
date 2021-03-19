@@ -53,6 +53,23 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
     }//getFlashcardFolders
 
 
+    @Override
+    public List<Flashcard> getUserCards(String userName) {
+        ArrayList<Flashcard> fCard = new ArrayList<>();
+        for(int i=0; i<flashcards.size(); i++){
+            if(flashcards.get(i).getUserName().equals(userName)){
+                fCard.add(flashcards.get(i));
+            }//if
+        }//for i
+        return fCard;
+    }
+
+    @Override
+    public List<Flashcard> getAllFlashcards() {
+        return flashcards;
+    }//getAllFlashcards
+
+
     private int searchFlashcard(Flashcard flashcard){
         int result = -1;
         for(int i = 0; i < flashcards.size(); i++){

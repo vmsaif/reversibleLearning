@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yollowish"
+    tools:context="presentation.CardShelfActivity">
+
+    <TextView
+        android:id="@+id/shelfCard"
+        android:layout_width="258dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="131dp"
+        android:layout_marginBottom="272dp"
+        android:background="@color/yollowishButtonColor"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:text="@string/question"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/next_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="298dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="301dp"
+        android:onClick="nextCard"
+        android:contentDescription="@string/next_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/shelfCard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/next_button" />
+
+    <ImageView
+        android:id="@+id/previous_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="298dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="301dp"
+        android:onClick="prevCard"
+        android:contentDescription="@string/previous_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/shelfCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/previous_button" />
+
+    <TextView
+        android:id="@+id/user_card"
+        android:layout_width="233dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="87dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="150dp"
+        android:background="@color/yollowish"
+        android:gravity="center"
+        android:text="@string/my_cards"
+        android:textAlignment="center"
+        android:textColor="@color/grayish"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/shelfCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/flip_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/flip"
+        android:onClick="flipButton2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shelfCard"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/delete_button2"
+        android:layout_width="48dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="86dp"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="104dp"
+        android:contentDescription="@string/Delete_button"
+        android:onClick="deleteCard2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/flip_button2"
+        app:layout_constraintTop_toBottomOf="@+id/next_button"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/delete_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
