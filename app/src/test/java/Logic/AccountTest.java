@@ -1,0 +1,107 @@
+package Logic;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import data.stubs.UserPersistenceStub;
+import logic.Account;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+public class AccountTest {
+
+    private Account account;
+
+    @Before
+    public void setUp(){
+        account = new Account(new UserPersistenceStub());
+    }
+
+    @Test
+    public void TestAddAccount(){
+        // test add a new account
+        assertTrue("account added successfully", account.addNewAccount("group101","123"));
+        assertTrue("account added successfully", account.addNewAccount("group102","password2"));
+        // test add a duplicate account
+        assertFalse("account not added successfully", account.addNewAccount("group101","123"));
+        // add account with same username but different password
+        assertFalse("account not added successfully", account.addNewAccount("group101","12345"));
+        // add account with different username but same password
+        assertTrue("account added successfully", account.addNewAccount("accounts23","123"));
+        // add account with empty string as username and password
+        assertTrue("account added successfully", account.addNewAccount("",""));
+        // add account with empty spaces as username and a password
+        assertTrue("account added successfully", account.addNewAccount("    ","     "));
+    }
+
+
+    @Test
+    public void TestLoginAndGetLoggedUser(){
+        // login when an account has a wrong password
+        assertFalse("login unsuccessful", account.login("User","Password"));
+        assertNull("no user is logged in", account.getLoggedUser());
+        // login when an account has password with different case (lower/upper)
+        assertFalse("login unsuccessful", account.login("USERNAME","PASSWORD"));
+        assertNull("no user is logged in", account.getLoggedUser());
+        // check if login succeeds
+        assertTrue("Login successfully", account.login("username","password"));
+        assertEquals("username is the same", account.getLoggedUser().getUserName(), "username");
+        assertEquals("password is the same", account.getLoggedUser().getPassword(), "password");
+        assertTrue("Login successfully", account.login("User","Pass"));
+        assertEquals("username is the same", account.getLoggedUser().getUserName(), "User");
+        assertEquals("password is the same", account.getLoggedUser().getPassword(), "Pass");
+        // login when an account doesn't exist
+        assertFalse("login unsuccessful", account.login("empty","false"));
+    }
+
+
+    @Test
+    public void TestChangeUserName(){
+        // change name when user currently is not logged in
+        assertNull("no user", account.getLoggedUser());
+        assertFalse("cannot change username", account.changeUserName("Name1"));
+        // change username when user currently is logged in
+        assertTrue("Login successfully", account.login("username","password"));
+        assertTrue("change successful", account.changeUserName("Name1"));
+        // login with old username
+        assertFalse("Login unsuccessfully", account.login("username","password"));
+        // login with new username
+        assertTrue("Login successfully", account.login("Name1","password"));
+        // change username with existing username
+        assertFalse("cannot change username", account.changeUserName("User"));
+        // change the username with empty string
+        assertTrue("change successful", account.changeUserName(""));
+    }
+
+
+    @Test
+    public void TestChangePassword(){
+        // change password when user currently is not logged in
+        assertNull("no user", account.getLoggedUser());
+        assertFalse("cannot change password", account.changePassword("Pass1"));
+        // change password when user currently is logged in
+        assertTrue("Login successfully", account.login("username","password"));
+        assertTrue("change successful", account.changePassword("Pass1"));
+        // login with old password
+        assertFalse("Login unsuccessfully", account.login("username","password"));
+        // login with new password
+        assertTrue("Login successfully", account.login("username","Pass1"));
+        // change the password with empty string
+        assertTrue("change successful", account.changePassword(""));
+    }
+
+
+    @Test
+    public void TestLogout(){
+        // login the user
+        assertTrue("Login successfully", account.login("username","password"));
+        assertEquals("username is the same", account.getLoggedUser().getUserName(), "username");
+        assertEquals("password is the same", account.getLoggedUser().getPassword(), "password");
+        // logout user
+        account.logout();
+        assertNull("user has logged out", account.getLoggedUser());
+    }
+}

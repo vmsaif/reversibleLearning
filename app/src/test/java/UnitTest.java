@@ -1,13 +1,14 @@
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-// import all the test files
-import Logic.LoginTest;
+import data.FlashcardPersistenceTest;
+import data.UserDBTest;
+import data.UserPersistenceTest;
 import objects.FlashcardListTest;
 import objects.FlashcardTest;
 import objects.UserTest;
 
-import data.UserDBTest;
+// import all the test files
 
 
 @RunWith(Suite.class)
@@ -17,10 +18,11 @@ import data.UserDBTest;
         UserTest.class,
         FlashcardTest.class,
         // the data classes
+        UserPersistenceTest.class,
+        FlashcardPersistenceTest.class,
         UserDBTest.class,
-        LoginTest.class
 })
 
 
-public class AllTests {
+public class UnitTest {
 }
