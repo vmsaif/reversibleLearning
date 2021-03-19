@@ -59,9 +59,6 @@ public class AccountTest {
     }
     @Test
     public void TestChangeUserName(){
-        // change user when user currently is not logged in
-        assertNull("no user", account.getLoggedUser());
-        assertFalse("cannot change username", account.changeUser(new User("username", "test")));
         // change user when user currently is logged in
         assertTrue("Login successfully", account.login("username","password"));
         assertTrue("change successful", account.changeUser(new User("Name1", "password")));
