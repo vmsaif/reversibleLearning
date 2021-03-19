@@ -1,22 +1,12 @@
 package presentation;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
-
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
-
 import flashcard.group5.application.R;
-import logic.Account;
-import logic.AccountValidator;
 import logic.LoggedUser;
 import objects.User;
 
@@ -40,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         loggedInUser = LoggedUser.getLoggedUser();
 
         showAllData();
+    }
 
     private void showAllData() {
 
@@ -51,13 +42,9 @@ public class ProfileActivity extends AppCompatActivity {
             password.getEditText().setText(passwordFromDB);
 
         }
-
     }
-
     public void openOptionsActivity(View view){
         Intent intent_options = new Intent(this, OptionsActivity.class);
         startActivity(intent_options);
     }//openOptionsActivity
-
-
 }
