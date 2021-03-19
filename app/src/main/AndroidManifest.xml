@@ -16,6 +16,7 @@
         <activity android:name="presentation.OptionsActivity" />
         <activity android:name="presentation.FlashcardActivity" />
         <activity android:name="presentation.RegisterActivity" />
+        <activity android:name="presentation.ProfileActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
