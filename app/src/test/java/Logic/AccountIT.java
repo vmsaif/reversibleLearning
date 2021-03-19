@@ -40,10 +40,10 @@ public class AccountIT {
         assertEquals("Users is the same", account.getLoggedUser().getUserName(), user1.getUserName());
         assertEquals("Users is the same", account.getLoggedUser().getPassword(), user1.getPassword());
         // change username
-        assertTrue(account.changeUserName("Name1"));
+        assertTrue(account.changeUser(new User("Name1", "name1")));
         assertEquals("Users is the same", account.getLoggedUser().getUserName(), "Name1");
         // change password
-        assertTrue(account.changePassword("pass1"));
+        assertTrue(account.changeUser(new User("UserName","pass1")));
         assertEquals("Users is the same", account.getLoggedUser().getPassword(), "pass1");
         // logout
         account.logout();

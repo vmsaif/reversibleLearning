@@ -15,7 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import data.hsqldb.UserDB;
 import objects.User;
 import presentation.LoginActivity;
 import presentation.OptionsActivity;
@@ -24,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button guestLogin;
     private Button login;
-    private static UserDB userDB = new UserDB();
     private String tag = "MainActivity";
 
     //public static UserDB getUserDB() { return userDB; }

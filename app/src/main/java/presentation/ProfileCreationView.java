@@ -11,16 +11,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import data.hsqldb.UserDB;
 import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
 import logic.Account;
+import logic.AccountValidator;
 import objects.User;
 
 public class ProfileCreationView extends AppCompatActivity {
 
     //account object
     private Account newAccount;
+    private String message;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -37,20 +38,34 @@ public class ProfileCreationView extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    //try to add new account. If success navigate the user to the loginActivity so they can login.
-                    //Otherwise, show an error message
-                    if (newAccount.addNewAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString())) {
-                        usernameEditText.getText().clear();
-                        passwordEditText.getText().clear();
-                        Intent intent = new Intent(ProfileCreationView.this, LoginActivity.class);
-                        startActivity(intent);
-                    } else showRegisterFailed();
+                    message = AccountValidator.validateUserName(usernameEditText.getText().toString());
+                    if (message != null) {
+                        showRegisterFailed();
+                    } else {
+                        message = AccountValidator.validatePassword(passwordEditText.getText().toString());
+                        if (message != null)
+                            showRegisterFailed();
+                    }
+
+                    if (message == null) {
+                        //try to add new account. If success navigate the user to the loginActivity so they can login.
+                        //Otherwise, show an error message
+                        if (newAccount.addNewAccount(usernameEditText.getText().toString(), passwordEditText.getText().toString())) {
+                            usernameEditText.getText().clear();
+                            passwordEditText.getText().clear();
+                            Intent intent = new Intent(ProfileCreationView.this, LoginActivity.class);
+                            startActivity(intent);
+                        } else {
+                            message = "User name is unavailable. Please select a different user name.";
+                            showRegisterFailed();
+                        }
+                    }
                 }
             });
         }
 
-    private void showRegisterFailed() {
-        String userNotFound = "Username exist. Please use different user name.";
-        Toast.makeText(getApplicationContext(), userNotFound, Toast.LENGTH_SHORT).show();
+    private void showRegisterFailed(){
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
+
 }

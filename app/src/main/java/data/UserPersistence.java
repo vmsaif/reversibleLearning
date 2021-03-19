@@ -19,10 +19,7 @@ public interface UserPersistence {
     void deleteUser(User givenUser);
 
     //modifyUserName---modifies a user's username in this database
-    void modifyUserName(User givenUser, String newUserName);
-
-    //modifyUserPassword---modifies a user's password in this database
-    void modifyUserPassword(User givenUser, String newPassword);
+    void modifyUser(User givenUser, User newUser);
 
 }//UserPersistence ends
 

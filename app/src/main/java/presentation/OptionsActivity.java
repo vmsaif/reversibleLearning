@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -28,8 +29,23 @@ public class OptionsActivity extends Activity {
             public void onClick(View v) { openCardShelfActivity(); }//onClick
         });
 
+
+        RelativeLayout profileWidget = findViewById(R.id.profileActivity);
+        profileWidget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openProfileActivity();
+            }
+        });
+
     }//onCreate
 
+    public void openProfileActivity() {
+        Intent intent_flashcard = new Intent(this, ProfileActivity.class);
+        startActivity(intent_flashcard);
+    }
+
+    public void openFlashcardActivity(){
 
     //openFlashcardActivity---goes to the activity where a flashcard is created
     private void openFlashcardActivity(){

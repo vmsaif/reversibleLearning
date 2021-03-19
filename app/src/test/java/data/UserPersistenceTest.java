@@ -80,7 +80,7 @@ public class UserPersistenceTest {
         // find a user
         User user = db.getUser("liza@test.com","test123");
         // modify the username
-        db.modifyUserName(user,"group5@test.com");
+        db.modifyUser(user,new User("group5@test.com", "test123"));
         // find the old username
         user = db.getUser("liza@test.com","test123");
         assertNull(user);
@@ -96,7 +96,7 @@ public class UserPersistenceTest {
         // find a user
         User user = db.getUser("liza@test.com","test123");
         // modify the password
-        db.modifyUserPassword(user,"newPassword");
+        db.modifyUser(user,new User("liza@test.com", "newPassword"));
         // find the old password
         user = db.getUser("liza@test.com","test123");
         assertNull(user);
