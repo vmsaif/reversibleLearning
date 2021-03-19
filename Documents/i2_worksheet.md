@@ -21,7 +21,7 @@ SOLID
 
 https://code.cs.umanitoba.ca/3350-winter-2021-a03/group5app-comp3350-a03-group5/-/issues/44
 
-The SOLID violation is a logic class breaking the single-responsibility priinciple, as the CalendarLogic class
+The SOLID violation is a logic class breaking the single-responsibility principle, as the CalendarLogic class
 is doing all the calendar logic and logic for events as well, lowering cohesion.
 
 
@@ -29,8 +29,7 @@ Retrospective
 ----------------
 
 Our retrospective did seriously change the way we are doing testing. Instead of the way we had done testing previously, where we assigned one person to write tests for our various classes and interfaces, we decided to all write tests for our own code and send them to the person who was originally writing tests.\
-By doing this, it makes it easier for our tester to create tests, and also helps prevent issues where changes in the codebase are not reflected in our testing framework, leading to tests that do not run after changes.\
-However, this change is not reflected on gitlab, because the tests written and sent to the individual in charge of the tests were not logged over gitlab.\
+By doing this, it makes it easier for our tester to create tests, and also helps prevent issues where changes in the codebase are not reflected in our testing framework, leading to tests that do not run after changes. However, this change is not reflected on gitlab, because the tests written and sent to the individual in charge of the tests were not logged over gitlab.\
 (We use Discord for team communication)
 
 
@@ -41,7 +40,7 @@ https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/392e926bd2e5da
 https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/204f80cd8538cb13009e3d375570a8e5de60b507#86739463c1d652089ca4c62a4558d35ffd3c225d_21_21
 
 We use the singleton design pattern for our database. This is to prevent multiple database instances, which would be undesirable for storing relatively small amounts of data.\
-Here we create a final varuable for the db path, so we can insure we are always in the same database.
+Here we create a final variable for the db path, so we can insure we are always in the same database.
 
 
 Iteration 1 Feedback fixes
@@ -54,10 +53,7 @@ These were flagged for the following reasons: Questions and Answers because they
 Confuse the user and detract from the experience (and are also unfinished features) and user validation because we had an issue in the code for validating users, which is a danger for security.
 
 https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/c584e6ce Is where we refactor the code to remove the inactive buttons. We had them set up for future features we had planned, but as they are not finished yet, we changed them to completed features.\
-https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/0dc332457ad7494b1ac650c0529038e1b783ee2a Fixes the user validation by storing whether the user input lower or uppercase latters.\
-https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/392e926bd2e5da2295980502d3bbdc625fa67ab8 Fixes the question and answer not showing the input valuse by linking the question and answer fields to the database we set up. You are not intended to flip back to a question after seeing the answer, so we removed the flip button on the answer presentation.
+https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/0dc332457ad7494b1ac650c0529038e1b783ee2a Fixes the user validation by storing whether the user input lower or uppercase letters.\
+https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/392e926bd2e5da2295980502d3bbdc625fa67ab8 Fixes the question and answer not showing the input values by linking the question and answer fields to the database we set up. You are not intended to flip back to a question after seeing the answer, so we removed the flip button on the answer presentation.
 
-Explain what the issue was, and why it was flagged. 
-Explain what you did to refactor or fix your code to address the issue. 
-Provide links to the commits where you fixed the issue.
 
