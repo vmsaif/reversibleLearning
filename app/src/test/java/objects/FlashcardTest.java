@@ -26,7 +26,7 @@ public class FlashcardTest {
         assertTrue("The answer should be the same",expected.getAnswer().equals(fCard.getAnswer()));
         assertTrue("The username should be Ali",expected.getUserName().equals(fCard.getUserName()));
         // Test the constructor with "" as the string
-        IFlashcard expected1 = new Flashcard("", "", "Guest");
+        IFlashcard expected1 = new Flashcard("", "", "");
         assertTrue("The question should be the same",expected1.getQuestion().equals(gCard.getQuestion()));
         assertTrue("The answer should be the same",expected1.getAnswer().equals(gCard.getAnswer()));
         assertTrue("The username should be Guest",expected1.getUserName().equals(gCard.getUserName()));
@@ -89,6 +89,9 @@ public class FlashcardTest {
         fCard.setIsFavorite(true);
         // check the favorite == true
         assertTrue("The flashcard is not a favorite", fCard.getIsFavorite());
+        // check the favorite == false
+        fCard.setIsFavorite(false);
+        assertFalse("The flashcard is not a favorite", fCard.getIsFavorite());
     }
 
 }

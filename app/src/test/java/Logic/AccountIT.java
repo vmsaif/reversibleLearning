@@ -39,10 +39,9 @@ public class AccountIT {
         assertTrue("Login is successful", account.login(user1.getUserName(),user1.getPassword()));
         assertEquals("Users is the same", account.getLoggedUser().getUserName(), user1.getUserName());
         assertEquals("Users is the same", account.getLoggedUser().getPassword(), user1.getPassword());
-        // change username
+        // change user
         assertTrue(account.changeUser(new User("Name1", "name1")));
         assertEquals("Users is the same", account.getLoggedUser().getUserName(), "Name1");
-        // change password
         assertTrue(account.changeUser(new User("UserName","pass1")));
         assertEquals("Users is the same", account.getLoggedUser().getPassword(), "pass1");
         // logout
