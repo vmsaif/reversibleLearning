@@ -16,5 +16,7 @@
     <color name="yollowish">#FBEBBA</color>
     <color name="grayish">#D3474646</color>
     <color name="yollowishButtonColor">#D0FFD041</color>
+    <color name="profileUI_Layer1">#FFC107</color>
+    <color name="profileUI1">#FFEB3B</color>
 
 </resources>

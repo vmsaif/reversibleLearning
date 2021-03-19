@@ -30,22 +30,23 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:autofillHints=""
-        android:hint="@string/prompt_email"
+        android:hint="@string/Username"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:singleLine="false"
         android:textColor="@color/grayish"
         android:textColorHint="@color/grayish"
-        app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
 
     <EditText
         android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:autofillHints=""
         android:hint="@string/prompt_password"
@@ -57,15 +58,17 @@
         android:textColorHint="@color/grayish"
         app:layout_constraintBottom_toTopOf="@+id/register"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/register"
-        android:layout_width="158dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         android:background="@color/yollowishButtonColor"
         android:onClick="toRegister"
         android:text="@string/action_register"
@@ -73,31 +76,30 @@
         android:textColor="@color/grayish"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/login"
+        app:layout_constraintEnd_toStartOf="@+id/login"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login"
         style="@style/Widget.AppCompat.Button"
-        android:layout_width="158dp"
-        android:layout_height="62dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
         android:background="@color/yollowishButtonColor"
+        android:onClick="toLogin"
         android:text="@string/Login"
         android:textAlignment="center"
         android:textColor="@color/grayish"
         android:textSize="18sp"
         android:textStyle="bold"
         android:visibility="visible"
-        android:onClick="toLogin"
-        app:layout_constraintEnd_toStartOf="@+id/register"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/register"
         app:layout_constraintTop_toBottomOf="@+id/password"
         tools:visibility="visible" />
-
 
     <ProgressBar
         android:id="@+id/loading"

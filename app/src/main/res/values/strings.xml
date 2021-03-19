@@ -31,6 +31,13 @@
     <string name="create_quiz_image">Create Quiz Image</string>
     <string name="card_shelf">Card Shelf</string>
     <string name="create_an_account">Create an Account</string>
+    <string name="friendsCount">1</string>
+    <string name="friends">Friends</string>
+    <string name="cards">Cards</string>
+    <string name="cardCount">1</string>
+    <string name="Username">Username</string>
+    <string name="profile">Profile</string>
+    <string name="myProfile">My Profile</string>
     <string name="Delete_button">Delete Button</string>
     <string name="home_button">Home Button</string>
 
