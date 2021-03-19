@@ -11,18 +11,12 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import flashcard.group5.application.R;
-import interfaces.IFlashcard;
-import logic.Account;
 import logic.FlashcardLogic;
 import objects.Flashcard;
-import objects.User;
 
-public class CardShelfActivity extends AppCompatActivity {
+public class ShelfcardActivity extends AppCompatActivity {
 
     //variables
-    private Account userAccount;
-    private User user;
-    private String userName;
     private FlashcardLogic flashcardLogic;
     private TextView shelfCard;
     private ArrayList<Flashcard> uCards;
@@ -32,10 +26,8 @@ public class CardShelfActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_shelf);
+        setContentView(R.layout.activity_shelfcard);
 
-        userAccount = new Account(); //getting access to the User database
-        userName = gettingUser();
         flashcardLogic = new FlashcardLogic();
         shelfCard = findViewById(R.id.shelfCard); //accessing card front text view
         isQuestion = true; //initially shows the question side
@@ -46,20 +38,7 @@ public class CardShelfActivity extends AppCompatActivity {
         }//if no cards
         cardNumber = 0;
         shelfCard.setText(uCards.get(cardNumber).getQuestion()); //initially showing this card
-
-
     }//onCreate
-
-
-    //gettingUser---setting up the current user
-    private String gettingUser(){
-        String userName = "guest";
-        if(userAccount.getLoggedUser() != null){
-            user = userAccount.getLoggedUser();
-            userName = user.getUserName();
-        }//if
-        return userName;
-    }//gettingUser
 
 
     //nextCard---when the next button is pressed
@@ -115,4 +94,4 @@ public class CardShelfActivity extends AppCompatActivity {
     }//openOptionsActivity
 
 
-}//CardShelfActivity
+}//ShelfcardActivity
