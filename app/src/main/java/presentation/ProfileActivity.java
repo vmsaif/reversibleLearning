@@ -17,12 +17,14 @@ import com.google.android.material.textfield.TextInputLayout;
 import flashcard.group5.application.R;
 import logic.Account;
 import logic.AccountValidator;
+import logic.LoggedUser;
 import objects.User;
 
 public class ProfileActivity extends AppCompatActivity {
 
     TextInputLayout userName, password;
     MaterialButton updateButton;
+    User loggedInUser;
     Account account;
     String message;
 
@@ -35,8 +37,11 @@ public class ProfileActivity extends AppCompatActivity {
         password = findViewById(R.id.profilePasswordField);
         updateButton = findViewById(R.id.profileUpdateButton);
 
-        account = new Account();
+        loggedInUser = LoggedUser.getLoggedUser();
 
+        showAllData();
+
+        account = new Account();
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,11 +58,23 @@ public class ProfileActivity extends AppCompatActivity {
                             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                             startActivity(intent);
                         }
-                    }
-                    else Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-
-
+                    } else Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                 }
         });
     }
+
+    private void showAllData() {
+
+        if(loggedInUser != null){
+            String userNameFromDB = loggedInUser.getUserName();
+            String passwordFromDB = loggedInUser.getPassword();
+
+            userName.getEditText().setText(userNameFromDB);
+            password.getEditText().setText(passwordFromDB);
+
+        }
+
+    }
+
+
 }

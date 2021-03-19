@@ -18,7 +18,7 @@
         android:layout_marginBottom="8dp"
         android:autofillHints=""
         android:fontFamily="monospace"
-        android:hint="@string/prompt_email"
+        android:hint="@string/Username"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
         android:singleLine="false"

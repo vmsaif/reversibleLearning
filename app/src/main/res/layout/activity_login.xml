@@ -8,7 +8,7 @@
     tools:context="presentation.LoginActivity">
 
     <!--
-            This image below was made using adobe photoshop
+            This image below was made using image editor
     -->
     <ImageView
         android:id="@+id/imageView4"
