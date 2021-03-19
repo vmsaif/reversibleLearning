@@ -1,7 +1,5 @@
 package logic;
 
-import android.util.Log;
-
 import java.util.Collections;
 import java.util.List;
 

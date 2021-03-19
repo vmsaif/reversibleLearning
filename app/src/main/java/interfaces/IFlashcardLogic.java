@@ -25,4 +25,11 @@ public interface IFlashcardLogic {
 
     //getFlashcard---returns flashcard given a question
     Flashcard getFlashcard(String question);
+
+    //getUsersCards---given a user name it will return all the cards created by this user
+    List<Flashcard> getUsersCards(String userName);
+
+    //getAllCards---returns all the cards in our database
+    List<Flashcard> getAllCards();
+
 }//IFlashcardLogic
