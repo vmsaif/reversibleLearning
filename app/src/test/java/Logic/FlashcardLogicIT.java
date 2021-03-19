@@ -34,7 +34,7 @@ public class FlashcardLogicIT {
         flashcardDB.insertFlashcard(flashcard);
         // check if insert is successful
         assertEquals(flashcardDB.getFlashcards().get(4).getQuestion(), flashcard.getQuestion());
-        assertEquals(flashcardDB.getFlashcards().size(), 6);
+        assertEquals(flashcardDB.getFlashcards().size(), 7);
     }
 
     @Test

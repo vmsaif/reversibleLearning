@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -22,17 +23,33 @@ public class OptionsActivity extends Activity {
             public void onClick(View v) { openFlashcardActivity(); }//onClick
         });
 
+<<<<<<< app/src/main/java/presentation/OptionsActivity.java
         RelativeLayout createCardShelfWidget = findViewById(R.id.Folders); //this button will take you to the Card shelf activity
         createCardShelfWidget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { openCardShelfActivity(); }//onClick
+=======
+        RelativeLayout profileWidget = findViewById(R.id.profileActivity);
+        profileWidget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openProfileActivity();
+            }
+>>>>>>> app/src/main/java/presentation/OptionsActivity.java
         });
 
     }//onCreate
 
+<<<<<<< app/src/main/java/presentation/OptionsActivity.java
 
-    //openFlashcardActivity---goes to the activity where a flashcard is created
-    private void openFlashcardActivity(){
+=======
+    public void openProfileActivity() {
+        Intent intent_flashcard = new Intent(this, ProfileActivity.class);
+        startActivity(intent_flashcard);
+    }
+
+    public void openFlashcardActivity(){
+>>>>>>> app/src/main/java/presentation/OptionsActivity.java
         Intent intent_flashcard = new Intent(this, FlashcardActivity.class);
         startActivity(intent_flashcard);
     }//openFlashcardActivity

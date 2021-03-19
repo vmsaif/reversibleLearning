@@ -17,10 +17,8 @@ public interface IAccount {
     //attempt to change the current username
     //will return a boolean for success or failure
     //Will fail if the new userName already taken
-    boolean changeUserName(String userName);
+    boolean changeUser(User userNew);
 
-    //Same as the above method - for changing password
-    boolean changePassword(String password);
 
     //Will return the current user that is logged in
     //If no user logged in, should return a null

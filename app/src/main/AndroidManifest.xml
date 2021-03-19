@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Group5">
-        <activity android:name="presentation.CardShelfActivity"></activity>
         <activity android:name="presentation.CardviewActivity" />
         <activity
             android:name="presentation.LoginActivity"
@@ -17,6 +16,7 @@
         <activity android:name="presentation.OptionsActivity" />
         <activity android:name="presentation.FlashcardActivity" />
         <activity android:name="presentation.ProfileCreationView" />
+        <activity android:name="presentation.ProfileActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,10 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

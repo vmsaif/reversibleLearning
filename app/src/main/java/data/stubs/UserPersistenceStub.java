@@ -56,20 +56,13 @@ public class UserPersistenceStub implements UserPersistence {
 
     //modifyUserName
     @Override
-    public void modifyUserName(User givenUser, String newUserName) {
+    public void modifyUser(User givenUser, User newUser) {
         int index = users.indexOf(givenUser);
         User user = users.get(index);
-        user.changeUserName(newUserName);
+        user.changeUserName(newUser.getUserName());
+        user.changePassword(newUser.getPassword());
         users.set(index, user);
     }//modifyUserName
 
 
-    //modifyUserPassword
-    @Override
-    public void modifyUserPassword(User givenUser, String newPassword) {
-        int index = users.indexOf(givenUser);
-        User user = users.get(index);
-        user.changePassword(newPassword);
-        users.set(index, user);
-    }//modifyUserPassword
 }
