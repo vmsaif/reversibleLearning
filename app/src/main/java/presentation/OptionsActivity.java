@@ -45,7 +45,6 @@ public class OptionsActivity extends Activity {
         startActivity(intent_flashcard);
     }
 
-    public void openFlashcardActivity(){
 
     //openFlashcardActivity---goes to the activity where a flashcard is created
     private void openFlashcardActivity(){
