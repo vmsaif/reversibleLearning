@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/yollowish"
     android:orientation="vertical"
-    tools:context="presentation.RegisterActivity">
+    tools:context="presentation.ProfileCreationView">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -170,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
                 android:drawablePadding="10dp"
-                android:text="dummy.name@dummyserver.lol"
+
                 />
 
 
@@ -192,7 +192,7 @@
                 android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
                 android:drawablePadding="10dp"
                 android:inputType="textPassword"
-                android:text="dummypassword" />
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!--        update button-->

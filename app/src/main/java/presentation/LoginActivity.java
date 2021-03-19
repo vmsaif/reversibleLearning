@@ -31,7 +31,7 @@ public class LoginActivity extends AppCompatActivity{
 
     //will be called when the button "register" is clicked
     public void toRegister(View view){
-        Intent intent = new Intent(this, RegisterActivity.class);
+        Intent intent = new Intent(this, ProfileCreationView.class);
         startActivity(intent);
     }
 
