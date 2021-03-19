@@ -15,6 +15,7 @@ public interface FlashcardPersistence {
     //deleteFlashcard---deletes a flashcard in this database
     void deleteFlashcard(Flashcard currentFlashcard);
 
+
     //getFlashcard---getting a flashcard according to the question
     Flashcard getFlashcard(String question);
 
@@ -24,10 +25,6 @@ public interface FlashcardPersistence {
     //getFlashcardFolders---returns all the folders that contains this flashcard
     List<String> getFlashcardFolders(Flashcard flashcard);
 
-    //getUserCards---select all the cards associated with this user
-    List<Flashcard> getUserCards(String userName);
 
-    //getAllFlashcards---returns all the flashcards in our database
-    List<Flashcard> getAllFlashcards();
 
 }//FlashcardPersistence ends
