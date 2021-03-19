@@ -16,6 +16,8 @@ import logic.Account;
 public class LoginActivity extends AppCompatActivity{
 
     private Account account;
+    private EditText usernameEditText;
+    private EditText passwordEditText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,8 +34,8 @@ public class LoginActivity extends AppCompatActivity{
 
     //will be called when the button "login" is clicked
     public void toLogin(View view) {
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
+        usernameEditText = (EditText) findViewById(R.id.username);
+        passwordEditText = (EditText) findViewById(R.id.password);
 
         //if we get a user back, that means this user trying to login is in the database.
         //This credential validation is based on username and the password to find a match.
@@ -41,19 +43,26 @@ public class LoginActivity extends AppCompatActivity{
         if(!account.login(usernameEditText.getText().toString(),passwordEditText.getText().toString()))
             showLoginFailed();
         else {
-            updateUiWithUser(usernameEditText.getText().toString());
+            updateUiWithUser();
         }
     }
 
-    private void updateUiWithUser(String userName) {
-        String welcome = getString(R.string.welcome) + userName;
+    private void updateUiWithUser() {
+        String welcome = getString(R.string.welcome) + usernameEditText.getText().toString();
         Intent intent = new Intent(this, OptionsActivity.class);
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        clearInput();
         startActivity(intent);
     }
 
     private void showLoginFailed() {
         String userNotFound = "Username or password is invalid.";
         Toast.makeText(getApplicationContext(), userNotFound, Toast.LENGTH_SHORT).show();
+        clearInput();
+    }
+
+    private void clearInput() {
+        usernameEditText.getText().clear();
+        passwordEditText.getText().clear();
     }
 }
