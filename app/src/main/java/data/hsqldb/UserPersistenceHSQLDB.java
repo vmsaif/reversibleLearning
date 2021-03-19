@@ -120,7 +120,7 @@ public class  UserPersistenceHSQLDB implements UserPersistence {
     @Override
     public void modifyUser(User givenUser, User newUser) {
         try(final Connection c = connection())  {
-            PreparedStatement f1 = c.prepareStatement("UPDATE users SET userName = ? password = ? WHERE userName = ?");
+            PreparedStatement f1 = c.prepareStatement("UPDATE users SET userName = ?, password = ? WHERE userName = ?");
             f1.setString(1, newUser.getUserName());
             f1.setString(2, newUser.getPassword());
             f1.setString(3, givenUser.getUserName());
