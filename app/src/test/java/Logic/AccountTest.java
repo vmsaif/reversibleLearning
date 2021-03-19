@@ -76,36 +76,20 @@ public class AccountTest {
     }
 
     @Test
-    public void TestChangeUserPassword(){
+    public void TestChangeUserNameAndPassword(){
         // change name when user currently is not logged in
         assertNull("no user", account.getLoggedUser());
         assertFalse("cannot change username", account.changeUser(new User("username", "test")));
         // change username when user currently is logged in
         assertTrue("Login successfully", account.login("username","password"));
-        assertTrue("change successful", account.changeUser(new User("Name1", "password")));
+        assertTrue("change successful", account.changeUser(new User("Name1", "pass1")));
         // login with old username
         assertFalse("Login unsuccessfully", account.login("username","password"));
         // login with new username
-        assertTrue("Login successfully", account.login("Name1","password"));
+        assertTrue("Login successfully", account.login("Name1","pass1"));
         // change username with existing username
         assertFalse("cannot change username", account.changeUser(new User("User", "test")));
         // change the username with empty string
-        assertTrue("change successful", account.changeUser(new User("", "")));
-    }
-
-    @Test
-    public void TestChangePassword(){
-        // change password when user currently is not logged in
-        assertNull("no user", account.getLoggedUser());
-        assertFalse("cannot change password", account.changeUser(new User("test", "Pass1")));
-        // change password when user currently is logged in
-        assertTrue("Login successfully", account.login("username","password"));
-        assertTrue("change successful", account.changeUser(new User("username", "Pass1")));
-        // login with old password
-        assertFalse("Login unsuccessfully", account.login("username","password"));
-        // login with new password
-        assertTrue("Login successfully", account.login("username","Pass1"));
-        // change the password with empty string
         assertTrue("change successful", account.changeUser(new User("", "")));
     }
 
