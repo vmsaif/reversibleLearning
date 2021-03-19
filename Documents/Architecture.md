@@ -16,7 +16,6 @@ This package includes:<br>
 <p> The presentation tier is the user interface and communication layer of the application, where the 
 end user interacts with the application. Its main purpose is to display information to and collect information from the user.<br>
 This package includes: <br>
-[CardviewActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/CardviewActivity.java) <br>
 [FlashcardActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/FlashcardActivity.java) <br>
 [LoginActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/LoginActivity.java) <br>
 [ProfileActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/ProfileActivity.java) <br>
