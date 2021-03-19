@@ -49,7 +49,7 @@ Stubs:<br>
 <p> This package contains the information of the various objects to be used by the rest of the project.<br>
 This package includes:<br>
 [Flashcard](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/objects/Flashcard.java)<br>
-    *Will hold 2 CardSide objects representing the front and back side of a card.<br>
+    *Representing the front and back side of a card.<br>
 [User](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/objects/User.java)<br>
     *Represents the informations of the user
 </p>
