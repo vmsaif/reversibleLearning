@@ -25,11 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button login;
     private String tag = "MainActivity";
 
-    //public static UserDB getUserDB() { return userDB; }
-
-    //public static void updateUserDB(UserDB currUserDB) {
-      //  userDB = currUserDB; }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
