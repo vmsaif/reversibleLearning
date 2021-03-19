@@ -100,7 +100,7 @@ public class CardShelfActivity extends AppCompatActivity {
         flashcardLogic.deleteFlashcard(uCards.get(cardNumber));
         if(flashcardLogic.getFlashcard(uCards.get(cardNumber).getQuestion()) == null){
             Toast.makeText(getBaseContext(), "Flashcard DELETED successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard is deleted
-//            openOptionsActivity();
+            openOptionsActivity();
         }//if
         else{
             Toast.makeText(getBaseContext(), "Flashcard NOT DELETED", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard WAS NOT DELETED
