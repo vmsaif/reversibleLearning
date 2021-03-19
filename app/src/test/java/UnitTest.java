@@ -5,7 +5,6 @@ import Logic.AccountTest;
 import Logic.FlashcardLogicTest;
 import data.FlashcardPersistenceTest;
 import data.UserPersistenceTest;
-import objects.FlashcardListTest;
 import objects.FlashcardTest;
 import objects.UserTest;
 
@@ -15,7 +14,6 @@ import objects.UserTest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         // the object classes
-        FlashcardListTest.class,
         UserTest.class,
         FlashcardTest.class,
         // the data classes
