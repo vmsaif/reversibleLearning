@@ -31,15 +31,32 @@ public class OptionsActivity extends Activity {
             }
         });
 
+        RelativeLayout cardShelfWidget = findViewById(R.id.Folders);
+        cardShelfWidget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openShelfcardActivity();
+            }
+        });
+
     }//onCreate
 
-    public void openProfileActivity() {
+
+    private void openProfileActivity() {
         Intent intent_flashcard = new Intent(this, ProfileActivity.class);
         startActivity(intent_flashcard);
     }
 
-    public void openFlashcardActivity(){
+    private void openFlashcardActivity(){
         Intent intent_flashcard = new Intent(this, FlashcardActivity.class);
         startActivity(intent_flashcard);
     }//openFlashcardActivity
+
+
+    //openShelfcardActivity---goes to the activity where a the card shelf is
+    private void openShelfcardActivity(){
+        Intent intent_flashcard = new Intent(this, ShelfcardActivity.class);
+        startActivity(intent_flashcard);
+    }//openopenShelfcardActivity
+
 }//OptionsActivity

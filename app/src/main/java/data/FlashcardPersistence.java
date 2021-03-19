@@ -25,6 +25,13 @@ public interface FlashcardPersistence {
     //getFlashcardFolders---returns all the folders that contains this flashcard
     List<String> getFlashcardFolders(Flashcard flashcard);
 
+    //getUserCards---select all the cards associated with this user
+    List<Flashcard> getUserCards(String userName);
+
+    //getAllFlashcards---returns all the flashcards in our database
+    List<Flashcard> getAllFlashcards();
+
+
 
 
 }//FlashcardPersistence ends

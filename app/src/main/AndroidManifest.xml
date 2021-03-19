@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Group5">
+        <activity android:name="presentation.ShelfcardActivity"></activity>
         <activity android:name="presentation.CardviewActivity" />
         <activity
             android:name="presentation.LoginActivity"

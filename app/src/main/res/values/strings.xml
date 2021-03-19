@@ -40,5 +40,9 @@
     <string name="myProfile">My Profile</string>
     <string name="Delete_button">Delete Button</string>
     <string name="home_button">Home Button</string>
+    <string name="next_button">Next Button</string>
+    <string name="previous_button">Previous Button</string>
+    <string name="my_cards">My Cards</string>
+
 
 </resources>

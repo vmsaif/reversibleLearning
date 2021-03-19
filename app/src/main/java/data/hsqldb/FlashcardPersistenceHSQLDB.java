@@ -152,6 +152,43 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     }//getFlashcard
 
 
-}//FlashcardPersistenceHSQLDB
+    //getUserCards---select all the cards associated with this user
+    public List<Flashcard> getUserCards(String userName){
+        List<Flashcard> usersFlashcards = new ArrayList<>();
+        try(final Connection connection = connection()){
+            final PreparedStatement uf = connection.prepareStatement("SELECT * FROM flashcardTable WHERE userName = ?");
+            uf.setString(1, userName);
+            final ResultSet rs = uf.executeQuery();
+            while(rs.next()){
+                usersFlashcards.add(fromResultSet(rs));
+            }//while
+            rs.close();
+            uf.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+        return usersFlashcards;
+    }//getUserCards
 
-/*add a section of adding folders and users to guests*/
+
+    @Override
+    public List<Flashcard> getAllFlashcards() {
+        List<Flashcard> usersFlashcards = new ArrayList<>();
+        try(final Connection connection = connection()){
+            final PreparedStatement uf = connection.prepareStatement("SELECT * FROM flashcardTable");
+            final ResultSet rs = uf.executeQuery();
+            while(rs.next()){
+                usersFlashcards.add(fromResultSet(rs));
+            }//while
+            rs.close();
+            uf.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+        return usersFlashcards;
+    }//getAllFlashcards
+
+
+}//FlashcardPersistenceHSQLDB
