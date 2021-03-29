@@ -1,77 +1,97 @@
 package presentation;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import flashcard.group5.application.R;
-import logic.Account;
-import logic.FlashcardLogic;
-import objects.Flashcard;
-import objects.User;
-
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class FlashcardActivity extends Activity {
+import flashcard.group5.application.R;
+import logic.FlashcardLogic;
+import objects.Flashcard;
+
+public class FlashcardActivity extends AppCompatActivity {
 
     //variables
-    private String question = "";
-    private String answer = "";
-    private EditText inputQuestion;
-    private EditText inputAnswer;
-    private FlashcardLogic flashLogic;
-    private Account account;
-    private User user;
-    private String userName;
-    private Flashcard flashcard;
+    private FlashcardLogic flashcardLogic;
+    private TextView shelfCard;
+    private ArrayList<Flashcard> uCards;
+    private int cardNumber;
+    private boolean isQuestion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flashcard);
-        flashLogic = new FlashcardLogic(); //making a new flashcard logic object
-        account = new Account(); //making a new account object to get the current user
-        if(account.getLoggedUser() != null) {
-            user = account.getLoggedUser();
-            userName = user.getUserName();
-        }//if
-        else{
-            userName = "guest";
-        }//else
-        //initialising the edit text fields
-        inputQuestion = findViewById(R.id.editTextTextPersonName2);
-        inputAnswer = findViewById(R.id.editTextTextPersonName3);
+        setContentView(R.layout.activity_flashcards);
+
+        flashcardLogic = new FlashcardLogic();
+        shelfCard = findViewById(R.id.shelfCard); //accessing card front text view
+        isQuestion = true; //initially shows the question side
+        uCards = new ArrayList<>();
+        uCards.addAll(flashcardLogic.getAllCards());
+        if(uCards.isEmpty()){
+            uCards.add(new Flashcard("No other cards!", "You cant delete me!", "guest"));
+        }//if no cards
+        cardNumber = 0;
+        shelfCard.setText(uCards.get(cardNumber).getQuestion()); //initially showing this card
     }//onCreate
 
 
-    public void openCardviewActivity(){
-        Intent intent_cardview = new Intent(this, CardviewActivity.class);
-        Bundle b = new Bundle();
-        b.putString("question",question);
-        intent_cardview.putExtras(b);
-        startActivity(intent_cardview);
-    }//openCardviewActivity
+    //nextCard---when the next button is pressed
+    public void nextCard(View view){
+        if(cardNumber+1 < uCards.size()){
+            cardNumber++;
+            Flashcard fll = uCards.get(cardNumber); //get the next card associated with this user
+            shelfCard.setText(fll.getQuestion());
+        }//if has next card
+    }//nextCard
 
 
-    //makeCard---will be called when button 'Make Flashcard' is clicked
-    public void makeCard(View view){
-        question = inputQuestion.getText().toString(); //input from user on the question field
-        answer = inputAnswer.getText().toString(); //input from user on the answer field
-        if(!question.equals("") && !answer.equals("") && !question.trim().isEmpty() && !answer.trim().isEmpty()){
-            flashcard = new Flashcard(question, answer, userName);
-            flashLogic.insertFlashcard(flashcard); //adding this flashcard to our database
-            Toast.makeText(getBaseContext(), "Flashcard created successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard creation has been successful
-            openCardviewActivity(); //go to the GUI showing flashcard animation
-        }//if fields are filled properly
+    //prevCard---shows the previous card when the next button is pressed
+    public void prevCard(View view){
+        if(cardNumber > 0){
+            cardNumber--;
+            Flashcard fll = uCards.get(cardNumber); //get the next card associated with this user
+            shelfCard.setText(fll.getQuestion());
+        }//if has previous card
+    }//prevCard
+
+
+    //flipButton2---called when the flipped button is pressed
+    public void flipButton2(View view){
+        if(isQuestion){
+            shelfCard.setText(uCards.get(cardNumber).getQuestion());
+            isQuestion = false;
+        }//if
         else{
-            Toast.makeText(getBaseContext(), "Fill in a question and answer to make a flashcard", Toast.LENGTH_SHORT).show();
-        }//else user has not put in any text in question or answer field
-    }//makeCard
+            shelfCard.setText(uCards.get(cardNumber).getAnswer());
+            isQuestion = true;
+        }//else show answer
+    }//filpButton2
 
-}//FlashcardActivity class
+
+    //deleteCard---this function will be implemented when the delete button is pressed
+    public void deleteCard2(View view){
+        flashcardLogic.deleteFlashcard(uCards.get(cardNumber));
+        if(flashcardLogic.getFlashcard(uCards.get(cardNumber).getQuestion()) == null){
+            Toast.makeText(getBaseContext(), "Flashcard DELETED successfully", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard is deleted
+            openOptionsActivity();
+        }//if
+        else{
+            Toast.makeText(getBaseContext(), "Flashcard NOT DELETED", Toast.LENGTH_SHORT).show();//show a message telling the user that the flashcard WAS NOT DELETED
+        }//else
+    }//deleteCard
+
+
+    //openOptionsActivity---takes us back to the options page
+    public void openOptionsActivity(){
+        Intent intent_options = new Intent(this, OptionsActivity.class);
+        startActivity(intent_options);
+    }//openOptionsActivity
+
+
+}//ShelfcardActivity

@@ -44,6 +44,7 @@
     <string name="previous_button">Previous Button</string>
     <string name="my_cards">My Cards</string>
     <string name="gotoDashboard">My Dashboard</string>
+    <string name="flashCards">Flashcards</string>
 
 
 </resources>
