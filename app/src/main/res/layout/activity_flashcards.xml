@@ -7,7 +7,6 @@
     android:background="@color/yollowish"
     tools:context="presentation.FlashcardActivity">
 
-
     <TextView
         android:id="@+id/shelfCard"
         android:layout_width="258dp"
@@ -40,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/shelfCard"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/next_button" />
+        app:srcCompat="@drawable/ic_baseline_arrow_right_24" />
 
     <ImageView
         android:id="@+id/previous_button"
@@ -56,7 +55,7 @@
         app:layout_constraintEnd_toStartOf="@+id/shelfCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/previous_button" />
+        app:srcCompat="@drawable/ic_baseline_arrow_left_24" />
 
     <TextView
         android:id="@+id/user_card"
@@ -69,6 +68,7 @@
         android:background="@color/yollowish"
         android:gravity="center"
         android:text="@string/my_cards"
+        android:fontFamily="@font/baloo"
         android:textAlignment="center"
         android:textColor="@color/grayish"
         android:textSize="30sp"
@@ -110,5 +110,5 @@
         app:layout_constraintStart_toEndOf="@+id/flip_button2"
         app:layout_constraintTop_toBottomOf="@+id/next_button"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/delete_button" />
+        app:srcCompat="@drawable/ic_baseline_delete_forever_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
