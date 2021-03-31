@@ -45,14 +45,14 @@ public class OptionsActivity extends Activity {
     }
 
     private void openFlashcardActivity(){
-        Intent intent_flashcard = new Intent(this, CreateFlashcardActivity.class);
+        Intent intent_flashcard = new Intent(this, FlashcardActivity.class);
         startActivity(intent_flashcard);
     }//openFlashcardActivity
 
 
     //openShelfcardActivity---goes to the activity where a the card shelf is
     private void openShelfcardActivity(){
-        Intent intent_flashcard = new Intent(this, FlashcardsActivity.class);
+        Intent intent_flashcard = new Intent(this, ShelfCardActivity.class);
         startActivity(intent_flashcard);
     }//openopenShelfcardActivity
 
