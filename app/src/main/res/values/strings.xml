@@ -45,6 +45,10 @@
     <string name="my_cards">My Cards</string>
     <string name="gotoDashboard">My Dashboard</string>
     <string name="flashCards">Flashcards</string>
+    <string name="password">Password</string>
+    <string name="foldersCount">1</string>
+    <string name="profilepagefolderlogoDescription">ProfilePageFolderLogo</string>
+    <string name="profilepagecardlogoDescription">ProfilePageCardLogo</string>
 
 
 </resources>
