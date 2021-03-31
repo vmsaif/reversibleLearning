@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class CreateFlashcardActivity extends Activity {
+public class FlashcardActivity extends Activity {
 
     //variables
     private String question = "";
