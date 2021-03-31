@@ -4,10 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import flashcard.group5.application.R;
 
@@ -56,7 +53,7 @@ public class OptionsActivity extends Activity {
 
     //openShelfcardActivity---goes to the activity where a the card shelf is
     private void openShelfcardActivity(){
-        Intent intent_flashcard = new Intent(this, ShelfcardActivity.class);
+        Intent intent_flashcard = new Intent(this, ShelfCardActivity.class);
         startActivity(intent_flashcard);
     }//openopenShelfcardActivity
 

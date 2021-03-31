@@ -14,7 +14,7 @@ import flashcard.group5.application.R;
 import logic.FlashcardLogic;
 import objects.Flashcard;
 
-public class ShelfcardActivity extends AppCompatActivity {
+public class ShelfCardActivity extends AppCompatActivity {
 
     //variables
     private FlashcardLogic flashcardLogic;
@@ -26,7 +26,7 @@ public class ShelfcardActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shelfcard);
+        setContentView(R.layout.activity_selfcard);
 
         flashcardLogic = new FlashcardLogic();
         shelfCard = findViewById(R.id.shelfCard); //accessing card front text view
