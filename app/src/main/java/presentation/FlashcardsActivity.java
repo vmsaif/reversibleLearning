@@ -14,7 +14,7 @@ import flashcard.group5.application.R;
 import logic.FlashcardLogic;
 import objects.Flashcard;
 
-public class FlashcardActivity extends AppCompatActivity {
+public class FlashcardsActivity extends AppCompatActivity {
 
     //variables
     private FlashcardLogic flashcardLogic;
