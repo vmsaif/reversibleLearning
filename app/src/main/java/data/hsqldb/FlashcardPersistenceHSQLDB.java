@@ -50,21 +50,92 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
 
 
     @Override
-    public void insertFolder(Flashcard flashcard, String folder) {
+    public void insertFolder(String folder) {
         try(final Connection connection = connection()){
             final PreparedStatement fl = connection.prepareStatement("INSERT INTO folderTable VALUES(?)");
             fl.setString(1, folder);
             fl.executeUpdate();
             fl.close();
-
-            PreparedStatement uf = connection.prepareStatement("INSERT INTO card_folders VALUES(?,?)");
-            uf.setString(1, flashcard.getQuestion());
-            uf.setString(2, folder);
         }//try
         catch (final SQLException e) {
             e.printStackTrace(System.out);
         }//catch SQLException
     }//insertFolder
+
+
+    @Override
+    public void insertCardToFolder(Flashcard flashcard, String folder){
+        try(final Connection connection = connection()){
+            final PreparedStatement uf = connection.prepareStatement("INSERT INTO card_folders VALUES(?,?)");
+            uf.setString(1, flashcard.getQuestion());
+            uf.setString(2, folder);
+            uf.executeUpdate();
+            uf.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+    }//insertCardToFolder
+
+
+    @Override
+    public void deleteFolder(String folderName) {
+        try(final Connection connection = connection()){
+            final PreparedStatement fl = connection.prepareStatement("DELETE FROM folderTable WHERE folderName = ?");
+            fl.setString(1, folderName);
+            fl.executeUpdate();
+            fl.close();
+
+            final PreparedStatement ff = connection.prepareStatement("DELETE FROM card_folders WHERE folderName = ?");
+            ff.setString(1, folderName);
+            ff.executeUpdate();
+            ff.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+    }//deleteFolder
+
+
+    @Override
+    public List<Flashcard> getFolderCards(String folderName) {
+        List<Flashcard> fcardList = new ArrayList<>();
+        try(final Connection connection = connection()){
+            final PreparedStatement fol = connection.prepareStatement("SELECT * FROM"
+                    + " flashcardTable INNER JOIN card_folders"
+                    + " ON card_folders.question = flashcardTable.question"
+                    + " WHERE card_folders.folderName = ?");
+            fol.setString(1, folderName);
+            final ResultSet rs = fol.executeQuery();
+            while(rs.next()){
+                fcardList.add(fromResultSet(rs)); //adding each flashcard in the table to our list
+            }//while
+            rs.close();
+            fol.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+        return fcardList;
+    }//getFolderCards
+
+
+    @Override
+    public void removeCardFromFolder(Flashcard flashcard, String folder) {
+        try(final Connection connection = connection()){
+            final PreparedStatement fol = connection.prepareStatement("DELETE * FROM card_folders"
+                    + " WHERE card_folders.folderName = ?"
+                    + " AND card_folders.question = ?");
+            fol.setString(1, folder);
+            fol.setString(2, flashcard.getQuestion());
+            fol.executeUpdate();
+            fol.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+    }//removeCardFromFolder
+
 
     @Override
     public List<String> getFlashcardFolders(Flashcard flashcard) {
@@ -86,7 +157,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         catch (final SQLException e) {
             e.printStackTrace(System.out);
         }//catch SQLException
-        return null;
+        return folders;
     }//getFlashcardFolders
 
 
@@ -126,6 +197,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
             final PreparedStatement fl = connection.prepareStatement("DELETE FROM flashcardTable WHERE question = ?");
             fl.setString(1, currentFlashcard.getQuestion());
             fl.executeUpdate();
+            fl.close();
         }//try
         catch (final SQLException e) {
             e.printStackTrace(System.out);
@@ -189,6 +261,24 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
         }//catch SQLException
         return usersFlashcards;
     }//getAllFlashcards
+
+
+    public List<String> getAllFolders() {
+        List<String> folders = new ArrayList<>();
+        try(final Connection connection = connection()){
+            final PreparedStatement uf = connection.prepareStatement("SELECT * FROM folderTable");
+            final ResultSet rs = uf.executeQuery();
+            while(rs.next()){
+                folders.add(rs.getString("folderName"));
+            }//while
+            rs.close();
+            uf.close();
+        }//try
+        catch (final SQLException e) {
+            e.printStackTrace(System.out);
+        }//catch SQLException
+        return folders;
+    }//getAllFolders
 
 
 }//FlashcardPersistenceHSQLDB

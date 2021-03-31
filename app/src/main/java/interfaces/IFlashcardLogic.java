@@ -32,5 +32,24 @@ public interface IFlashcardLogic {
     //getAllCards---returns all the cards in our database
     List<Flashcard> getAllCards();
 
+    //getAllFolders---returns all the folders in our database
+    List<String> getAllFolders();
+
+    //insertCardToFolder---helps pass information to the database to add an entry into card_folders table
+    void insertCardToFolder(Flashcard flashcard, String folder);
+
+    //insertFolder---inserts a new folder in our database along with the flashcard it is associated with
+    void insertFolder(String folder);
+
+    //deleteFolder---deletes a folder
+    void deleteFolder(String folderName);
+
+    //getFolderCards---returns all the cards that this folder contains
+    List<Flashcard> getFolderCards(String folderName);
+
+    //removeCardFromFolder---removes a card from the folder
+    void removeCardFromFolder(Flashcard flashcard, String folder);
+
+
 
 }//IFlashcardLogic

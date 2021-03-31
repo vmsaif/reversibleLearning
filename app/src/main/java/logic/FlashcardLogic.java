@@ -1,6 +1,5 @@
 package logic;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -88,5 +87,40 @@ public class FlashcardLogic implements IFlashcardLogic {
     public List<Flashcard> getAllCards(){
         return fCardPersistence.getAllFlashcards();
     }//getAllCards
+
+    @Override
+    public List<String> getAllFolders() {
+        return fCardPersistence.getAllFolders();
+    }//getAllFolders
+
+
+    @Override
+    public void insertCardToFolder(Flashcard flashcard, String folder) {
+        fCardPersistence.insertCardToFolder(flashcard,folder);
+    }//insertCardToFolder
+
+
+    @Override
+    public void insertFolder(String folder){
+        fCardPersistence.insertFolder(folder);
+    }//insertFolder
+
+
+    @Override
+    public void deleteFolder(String folderName) {
+        fCardPersistence.deleteFolder(folderName);
+    }//deleteFolder
+
+
+    @Override
+    public List<Flashcard> getFolderCards(String folderName) {
+        return fCardPersistence.getFolderCards(folderName);
+    }//getFolderCards
+
+    @Override
+    public void removeCardFromFolder(Flashcard flashcard, String folder) {
+        fCardPersistence.removeCardFromFolder(flashcard, folder);
+    }//removeCardFromFolder
+
 
 }//FlashcardLogic class

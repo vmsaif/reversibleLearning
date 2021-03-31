@@ -45,7 +45,8 @@ public class OptionsActivity extends Activity {
     private void openProfileActivity() {
         Intent intent_flashcard = new Intent(this, ProfileActivity.class);
         startActivity(intent_flashcard);
-    }
+    }//openProfileActivity
+
 
     private void openFlashcardActivity(){
         Intent intent_flashcard = new Intent(this, FlashcardActivity.class);
@@ -58,5 +59,12 @@ public class OptionsActivity extends Activity {
         Intent intent_flashcard = new Intent(this, ShelfcardActivity.class);
         startActivity(intent_flashcard);
     }//openopenShelfcardActivity
+
+
+    //openFoldersActivity---goes to the activity where a the folders are
+    public void openFoldersActivity(View view){
+        Intent intent_folders = new Intent(this, FoldersActivity.class);
+        startActivity(intent_folders);
+    }//openopenFoldersActivity
 
 }//OptionsActivity

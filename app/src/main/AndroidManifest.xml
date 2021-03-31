@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Group5">
-        <activity android:name="presentation.ShelfcardActivity"></activity>
+        <activity android:name="presentation.FolderViewActivity"></activity>
+        <activity android:name="presentation.FoldersActivity" />
+        <activity android:name="presentation.AddFolderActivity" />
+        <activity android:name="presentation.AddToFolderActivity" />
+        <activity android:name="presentation.ShelfcardActivity" />
         <activity android:name="presentation.CardviewActivity" />
         <activity
             android:name="presentation.LoginActivity"
@@ -21,6 +25,7 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

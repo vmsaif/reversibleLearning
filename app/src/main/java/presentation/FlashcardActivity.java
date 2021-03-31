@@ -12,11 +12,9 @@ import logic.FlashcardLogic;
 import objects.Flashcard;
 import objects.User;
 
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
 
 public class FlashcardActivity extends Activity {
 
