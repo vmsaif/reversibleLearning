@@ -18,7 +18,6 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     //private Connection connection;
     private final String dbPath;
 
-
     //constructor
     public FlashcardPersistenceHSQLDB(final String dbPath){
         this.dbPath = dbPath;
