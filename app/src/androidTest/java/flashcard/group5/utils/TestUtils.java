@@ -65,4 +65,8 @@ public class TestUtils {
         return account.changeUser(userNew);
     }
 
+    public void deleteUser(){
+        account.deleteUser();
+    }
+
 }
