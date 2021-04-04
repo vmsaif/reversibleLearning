@@ -33,13 +33,8 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
 
 
     @Override
-    public void insertFolder(Flashcard flashcard, String folder) {
-        int search = searchFlashcard(flashcard);
-        if(search != -1){
-            Flashcard temp = flashcards.get(search);
-            temp.addFolderName(folder);
-            flashcards.set(search, temp);
-        }
+    public void insertFolder(String folder) {
+        //does not do anything in the stub implementation
     }//insertFolder
 
     @Override
@@ -68,6 +63,42 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
     public List<Flashcard> getAllFlashcards() {
         return flashcards;
     }//getAllFlashcards
+
+
+    @Override
+    public List<String> getAllFolders() {
+        ArrayList<String> folder = new ArrayList<>();
+        for(int i=0; i<flashcards.size(); i++){
+            folder.addAll(flashcards.get(i).getFolderNames());
+        }//for i
+        return folder;
+    }
+
+    @Override
+    public void insertCardToFolder(Flashcard flashcard, String folder) {
+        int search = searchFlashcard(flashcard);
+        if(search != -1){
+            Flashcard temp = flashcards.get(search);
+            temp.addFolderName(folder);
+            flashcards.set(search, temp);
+        }
+    }
+
+    @Override
+    public void deleteFolder(String folderName) {
+        //empty for the stub implementation
+    }
+
+    @Override
+    public List<Flashcard> getFolderCards(String folderName) {
+        //empty since we dont have a folder object
+        return null;
+    }
+
+    @Override
+    public void removeCardFromFolder(Flashcard flashcard, String folder) {
+        //empty method for stub
+    }
 
 
     private int searchFlashcard(Flashcard flashcard){

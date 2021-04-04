@@ -65,11 +65,11 @@ public class FlashcardPersistenceTest {
     }
 
     @Test
-    public void TestInsertFolder(){
+    public void TestInsertCardToFolder(){
         Flashcard newFlashcard = new Flashcard("question123", "answer1321", "newUser1");
         Flashcard existFlashcard = new Flashcard("question", "answer", "group5");
         // insert folders to an existing flashcard
-        db.insertFolder(existFlashcard, "folder1");
+        db.insertFolder("folder1");
         // check the folder is inserted
         Flashcard foundCard = db.getFlashcardSequential().get(2);
         // check the content
@@ -79,20 +79,20 @@ public class FlashcardPersistenceTest {
         assertEquals(foundCard.getFolderNames().size(), 1);
         assertEquals(foundCard.getFolderNames().get(0), "folder1");
         // insert duplicate folder
-        db.insertFolder(existFlashcard, "folder1");
+        db.insertFolder("folder1");
         // check the folder is inserted
         foundCard = db.getFlashcardSequential().get(2);
         assertEquals(foundCard.getFolderNames().size(), 2);
         assertEquals(foundCard.getFolderNames().get(1), "folder1");
         // insert more folders
-        db.insertFolder(existFlashcard, "folder2");
-        db.insertFolder(existFlashcard, "folder3");
+        db.insertFolder("folder2");
+        db.insertFolder("folder3");
         // check the folder is inserted
         foundCard = db.getFlashcardSequential().get(2);
         assertEquals(foundCard.getFolderNames().size(), 4);
         assertEquals(foundCard.getFolderNames().get(3), "folder3");
         // insert new flashcard
-        db.insertFolder(newFlashcard, "folder1");
+        db.insertFolder("folder1");
         // check the folder is inserted by checking the size
         assertEquals(db.getFlashcardSequential().size(), 4);
     }
@@ -110,7 +110,7 @@ public class FlashcardPersistenceTest {
         assertEquals(folders.get(1), "folder2");
         assertEquals(folders.get(2), "folder13");
         // add a new folder
-        db.insertFolder(existFlashcard, "newFolder");
+        db.insertFolder("newFolder");
         // check the new folder
         folders = db.getFlashcardFolders(existFlashcard);
         // check the size and content
