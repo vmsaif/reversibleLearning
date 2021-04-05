@@ -50,6 +50,10 @@
     <string name="folder_name">Folder Name</string>
     <string name="delete_folder">Delete Folder</string>
     <string name="remove_card">Remove Card</string>
+    <string name="favoriteCountInt">1</string>
+    <string name="profilepagecardlogoDescription">Profile Page Card Logo Description</string>
+    <string name="favoriteCountIntDescription">1</string>
+    <string name="password">Password</string>
 
 
 </resources>

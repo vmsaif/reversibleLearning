@@ -28,7 +28,7 @@ public class OptionsActivity extends Activity {
             }
         });
 
-        RelativeLayout cardShelfWidget = findViewById(R.id.Folders);
+        RelativeLayout cardShelfWidget = findViewById(R.id.cardShelf);
         cardShelfWidget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

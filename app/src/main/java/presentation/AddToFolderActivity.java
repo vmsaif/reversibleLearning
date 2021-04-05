@@ -73,7 +73,7 @@ public class AddToFolderActivity extends AppCompatActivity {
 
     //openShelfcardActivity---takes us to this activity
     private void openShelfcardActivity(){
-        Intent intent_shelf = new Intent(this, ShelfcardActivity.class);
+        Intent intent_shelf = new Intent(this, ShelfCardActivity.class);
         startActivity(intent_shelf);
     }//openShelfcardActivity
 
