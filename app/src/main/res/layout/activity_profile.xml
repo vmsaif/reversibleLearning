@@ -52,13 +52,13 @@
                     android:layout_height="30dp"
                     android:src="@drawable/ic_baseline_assignment_ind_24"
                     android:layout_centerHorizontal="true"
-                    android:contentDescription="@string/profilepagefolderlogoDescription" />
+                    android:contentDescription="@string/favoriteCountIntDescription" />
                 <TextView
                     android:layout_marginTop="5dp"
                     android:id="@+id/folderCountInt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/foldersCount"
+                    android:text="@string/favoriteCountInt"
                     android:layout_centerHorizontal="true"
                     android:layout_below="@id/folderCountImage"
                     android:textSize="20sp"
