@@ -7,6 +7,21 @@
     android:background="@color/yollowish"
     tools:context="presentation.ShelfCardActivity">
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="61dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="334dp"
+        android:layout_marginBottom="171dp"
+        android:contentDescription="@string/home_button"
+        android:onClick="openOptionsActivity"
+        app:layout_constraintBottom_toTopOf="@+id/shelfCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home_button" />
 
     <TextView
         android:id="@+id/shelfCard"

@@ -110,5 +110,4 @@ public class ShelfCardActivity extends AppCompatActivity {
         startActivity(intent_addFolder);
     }//addToFolder
 
-
 }//ShelfcardActivity
