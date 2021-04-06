@@ -58,7 +58,7 @@ public class FlashcardTest {
 
         // check if it is added to the shelf
         onView(withId(R.id.imageView7)).perform(click());
-        onView(withId(R.id.Folders)).perform(click());
+        onView(withId(R.id.cardShelf)).perform(click());
         onView(allOf(withId(R.id.shelfCard), withText(question)));
         onView(allOf(withId(R.id.shelfCard), withText(answer)));
     }
@@ -86,7 +86,7 @@ public class FlashcardTest {
         onView(withId(R.id.delete_button)).perform(click());
 
         // check if it is not added to the shelf
-        onView(withId(R.id.Folders)).perform(click());
+        onView(withId(R.id.cardShelf)).perform(click());
         onView(allOf(withId(R.id.shelfCard), not(withText(question))));
         onView(allOf(withId(R.id.shelfCard), not(withText(answer))));
     }
@@ -112,7 +112,7 @@ public class FlashcardTest {
 
         // check if it is added to the shelf
         onView(withId(R.id.imageView7)).perform(click());
-        onView(withId(R.id.Folders)).perform(click());
+        onView(withId(R.id.cardShelf)).perform(click());
         onView(allOf(withId(R.id.shelfCard), withText(question)));
         onView(allOf(withId(R.id.shelfCard), withText(answer)));
 

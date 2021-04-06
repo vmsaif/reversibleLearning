@@ -69,4 +69,9 @@ public class FlashcardLogicTest {
             assertEquals(flashcardDB.getFlashcards().size(), --i);
         }
     }
+
+    @Test
+    public void TestInsertFolder(){
+        
+    }
 }
