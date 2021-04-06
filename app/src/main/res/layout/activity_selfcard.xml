@@ -121,9 +121,9 @@
         android:id="@+id/addFolder"
         android:layout_width="164dp"
         android:layout_height="61dp"
-        android:layout_marginStart="123dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="124dp"
-        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/yollowishButtonColor"
         android:onClick="addToFolder"
         android:text="@string/addToFolder"
@@ -131,7 +131,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/shelfCard"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_card" />
 

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class ShelfCardActivity extends AppCompatActivity {
     private ArrayList<Flashcard> uCards;
     private int cardNumber;
     private boolean isQuestion;
+    private Button favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class ShelfCardActivity extends AppCompatActivity {
         }//if no cards
         cardNumber = 0;
         shelfCard.setText(uCards.get(cardNumber).getQuestion()); //initially showing this card
+
     }//onCreate
 
 
@@ -109,5 +112,6 @@ public class ShelfCardActivity extends AppCompatActivity {
         intent_addFolder.putExtras(b);
         startActivity(intent_addFolder);
     }//addToFolder
+
 
 }//ShelfcardActivity

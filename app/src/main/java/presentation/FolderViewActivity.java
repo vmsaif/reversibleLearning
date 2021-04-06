@@ -41,6 +41,7 @@ public class FolderViewActivity extends AppCompatActivity {
         isQuestion = true; //initially shows the question side
         uCards = new ArrayList<>();
         uCards.addAll(flashcardLogic.getFolderCards(folderName)); //getting all the cards in this folder
+
         if(uCards.isEmpty()){
             uCards.add(new Flashcard("No other cards!", "You cant delete me!", "guest"));
         }//if no cards
