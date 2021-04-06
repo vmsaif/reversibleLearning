@@ -13,7 +13,7 @@
         <activity android:name="presentation.FoldersActivity" />
         <activity android:name="presentation.AddFolderActivity" />
         <activity android:name="presentation.AddToFolderActivity" />
-        <activity android:name="presentation.ShelfcardActivity" />
+        <activity android:name="presentation.ShelfCardActivity" />
         <activity android:name="presentation.CardviewActivity" />
         <activity
             android:name="presentation.LoginActivity"
