@@ -71,7 +71,35 @@ public class FlashcardLogicTest {
     }
 
     @Test
+    public void TestGetUsersCards(){
+        // default order of flashcards
+        List<Flashcard> fList = flashcardDB.getFlashcards();
+        // check the flashcards in sequential order
+        for(int i = 0; i < fList.size(); i++){
+            Flashcard flashcard = flashcardDB.getSequential();
+            assertEquals(fList.get(i).getQuestion(), flashcard.getQuestion());
+            assertEquals(fList.get(i).getAnswer(), flashcard.getAnswer());
+            assertEquals(fList.get(i).getUserName(), flashcard.getUserName());
+        }
+    }
+
+    @Test
     public void TestInsertFolder(){
-        
+
+    }
+
+    @Test
+    public void TestInsertCardToFolder(){
+
+    }
+
+    @Test
+    public void TestDeleteFolder(){
+
+    }
+
+    @Test
+    public void TestRemoveCardFromFolder(){
+
     }
 }
