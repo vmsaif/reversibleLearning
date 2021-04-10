@@ -65,7 +65,7 @@ public class FlashcardPersistenceTest {
     }
 
     @Test
-    public void TestInsertCardToFolder(){
+    public void TestInsertFolder(){
         Flashcard newFlashcard = new Flashcard("question123", "answer1321", "newUser1");
         Flashcard existFlashcard = new Flashcard("question", "answer", "group5");
         // insert folders to an existing flashcard
@@ -122,5 +122,37 @@ public class FlashcardPersistenceTest {
         assertNull(folders);
     }
 
+
+    @Test
+    public void TestGetAllFolders(){
+
+    }
+
+
+    @Test
+    public void TestInsertCardToFolder(){
+        // make some flashcards
+        // insert those flashcards to DB
+        // assign those cards to folders
+        // check if folder has those cards
+        // check if the cards have the folders
+    }
+
+    @Test
+    public void TestGetFolderCards(){
+        // get all the cards from the folder
+    }
+
+    @Test
+    public void TestDeleteFolder(){
+        // delete the folder from the list
+        // check if the folder exists
+        // check the flashcards that is assigned to the folder that the folder is no longer there
+    }
+
+    @Test
+    public void TestRemoveCardFromFolder(){
+        // remove the card from the folder
+    }
 
 }
