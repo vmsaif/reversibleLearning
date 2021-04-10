@@ -19,15 +19,18 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
     //constructor
     public FlashcardPersistenceStub(){
         this.flashcards = new ArrayList<>();
+        this.folders = new ArrayList<>();
+        this.card_folders = new ArrayList<>();
         flashcards.add(new Flashcard("What is the answer of this question?", "answer1000", "guest3000"));
         flashcards.add(new Flashcard("This is a question", "This is an answer", "mike"));
         flashcards.add(new Flashcard("question", "answer", "group5"));
         Flashcard fCard = new Flashcard("question1", "answer1", "user1");
-        Flashcard fCard2 = new Flashcard("question2", "answer2", "user2");
-        Flashcard fCard3 = new Flashcard("question3", "answer3", "user3");
         fCard.addFolderName("folder1");
         fCard.addFolderName("folder2");
         fCard.addFolderName("folder13");
+        folders.add("folder1");
+        folders.add("folder2");
+        folders.add("folder13");
         flashcards.add(fCard);
     }//constructor
 
@@ -80,11 +83,7 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
 
     @Override
     public List<String> getAllFolders() {
-        ArrayList<String> folder = new ArrayList<>();
-        for(int i=0; i<flashcards.size(); i++){
-            folder.addAll(flashcards.get(i).getFolderNames());
-        }//for i
-        return folder;
+        return folders;
     }
 
     @Override
