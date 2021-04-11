@@ -19,16 +19,5 @@ public interface IFlashcard {
     //getUserName---returns the userName
     String getUserName();
 
-    //setFolderName---sets folderName if this flashcard is placed in a folder
-    void addFolderName(String folder);
-
-    //getFolderName---returns the list of folders this card is associated with
-    List<String> getFolderNames();
-
-    //getIsFavorite---tells if this card is marked as favorite or not
-    boolean getIsFavorite();
-
-    //setIsFavorite---change if the card is favorite or not
-    void setIsFavorite(boolean favorite);
 
 }//IFlashcard ends
