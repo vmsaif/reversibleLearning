@@ -122,7 +122,7 @@ public class FlashcardPersistenceHSQLDB implements FlashcardPersistence {
     @Override
     public void removeCardFromFolder(Flashcard flashcard, String folder) {
         try(final Connection connection = connection()){
-            final PreparedStatement fol = connection.prepareStatement("DELETE * FROM card_folders"
+            final PreparedStatement fol = connection.prepareStatement("DELETE FROM card_folders"
                     + " WHERE card_folders.folderName = ?"
                     + " AND card_folders.question = ?");
             fol.setString(1, folder);
