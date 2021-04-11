@@ -99,81 +99,64 @@ public class FlashcardLogicIT {
         // check the folders exists
         assertTrue(folderList.contains("maths"));
         assertTrue(folderList.contains("science"));
-        assertEquals(folderList.size(), 3);
+        assertEquals(folderList.size(), 4);
     }
 
     @Test
     public void Test6InsertCardToFolderAndGetFolderCards(){
         // make some flashcards
-        Flashcard card1 = new Flashcard("card with question 1", "answer 1", "user1");
-        Flashcard card2 = new Flashcard("card with question 2", "answer 2", "user1");
-        Flashcard card3 = new Flashcard("card with question 3", "answer 3", "user3");
+        Flashcard card1 = new Flashcard("card with question 11", "answer 1", "user1");
+        Flashcard card2 = new Flashcard("card with question 22", "answer 2", "user1");
+        Flashcard card3 = new Flashcard("card with question 33", "answer 3", "user3");
         // insert those flashcards to DB
         flashcardDB.insertFlashcard(card1);
         flashcardDB.insertFlashcard(card2);
         flashcardDB.insertFlashcard(card3);
-        flashcardDB.insertFolder("maths");
         // assign those cards to folders
-        flashcardDB.insertCardToFolder(card1, "maths");
-        flashcardDB.insertCardToFolder(card2, "maths");
-        flashcardDB.insertCardToFolder(card3, "maths");
+        flashcardDB.insertCardToFolder(card1, "arts");
+        flashcardDB.insertCardToFolder(card2, "arts");
+        flashcardDB.insertCardToFolder(card3, "arts");
         // check if folder has those cards
-        List<Flashcard> cardList = flashcardDB.getFolderCards("maths");
-        assertEquals(cardList.size(), 3);
-        assertEquals(cardList.get(0).getQuestion(), card1.getQuestion());
-        assertEquals(cardList.get(1).getQuestion(), card2.getQuestion());
-        assertEquals(cardList.get(2).getQuestion(), card3.getQuestion());
+        List<Flashcard> cardList = flashcardDB.getFolderCards("arts");
+        assertEquals(cardList.size(), 4);
+        assertEquals(cardList.get(0).getQuestion(), "Question4");
+        assertEquals(cardList.get(1).getQuestion(), card1.getQuestion());
+        assertEquals(cardList.get(2).getQuestion(), card2.getQuestion());
+        assertEquals(cardList.get(3).getQuestion(), card3.getQuestion());
     }
 
     @Test
-    public void Test7DeleteFolder(){
+    public void Test7RemoveCardFromFolder(){
+        // get a card
+        List<Flashcard> cardList1 = flashcardDB.getFolderCards("arts");
+        Flashcard card1 = cardList1.get(0);
+        // remove the card from the folder
+        flashcardDB.removeCardFromFolder(card1, "arts");
+        cardList1 = flashcardDB.getFolderCards("arts");
+        // check that the card is no longer in the folder
+        assertEquals(cardList1.size(), flashcardDB.getFolderCards("arts").size());
+    }
+
+    @Test
+    public void Test8DeleteFolder(){
         // make some flashcards
-        Flashcard card1 = new Flashcard("card with question 1", "answer 1", "user1");
-        Flashcard card2 = new Flashcard("card with question 2", "answer 2", "user1");
-        Flashcard card3 = new Flashcard("card with question 3", "answer 3", "user3");
+        Flashcard card1 = new Flashcard("card with question 111", "answer 1", "user1");
+        Flashcard card2 = new Flashcard("card with question 222", "answer 2", "user1");
+        Flashcard card3 = new Flashcard("card with question 333", "answer 3", "user3");
         // insert those flashcards to DB
         flashcardDB.insertFlashcard(card1);
         flashcardDB.insertFlashcard(card2);
         flashcardDB.insertFlashcard(card3);
-        flashcardDB.insertFolder("maths");
         // assign those cards to folders
-        flashcardDB.insertCardToFolder(card1, "maths");
-        flashcardDB.insertCardToFolder(card2, "maths");
-        flashcardDB.insertCardToFolder(card3, "maths");
-        // check it is correct
-        List<Flashcard> cardList1 = flashcardDB.getFolderCards("maths");
-        assertEquals(cardList1.size(), 3);
+        flashcardDB.insertCardToFolder(card1, "arts");
+        flashcardDB.insertCardToFolder(card2, "arts");
+        flashcardDB.insertCardToFolder(card3, "arts");
         // delete the folder from the list
-        flashcardDB.deleteFolder("maths");
+        flashcardDB.deleteFolder("arts");
         // check if the folder exists
-        assertFalse(flashcardDB.getAllFolders().contains("maths"));
+        assertFalse(flashcardDB.getAllFolders().contains("arts"));
     }
 
-    @Test
-    public void Test8RemoveCardFromFolder(){
-        // make some flashcards
-        Flashcard card1 = new Flashcard("card with question 1", "answer 1", "user1");
-        Flashcard card2 = new Flashcard("card with question 2", "answer 2", "user1");
-        Flashcard card3 = new Flashcard("card with question 3", "answer 3", "user3");
-        // insert those flashcards to DB
-        flashcardDB.insertFlashcard(card1);
-        flashcardDB.insertFlashcard(card2);
-        flashcardDB.insertFlashcard(card3);
-        flashcardDB.insertFolder("maths");
-        // assign those cards to folders
-        flashcardDB.insertCardToFolder(card1, "maths");
-        flashcardDB.insertCardToFolder(card2, "maths");
-        flashcardDB.insertCardToFolder(card3, "maths");
-        // check it is correct
-        List<Flashcard> cardList1 = flashcardDB.getFolderCards("maths");
-        assertEquals(cardList1.size(), 3);
-        // remove the card from the folder and check it
-        flashcardDB.removeCardFromFolder(card1, "maths");
-        cardList1 = flashcardDB.getFolderCards("maths");
-        assertEquals(cardList1.size(), 2);
-        assertFalse(flashcardDB.getFlashcard(card1.getQuestion()).getFolderNames().contains("maths"));
-        assertEquals(cardList1.get(0).getQuestion(), card2.getQuestion());
-    }
 
     @After
     public void tearDown(){
