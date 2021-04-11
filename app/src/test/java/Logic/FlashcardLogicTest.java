@@ -69,4 +69,60 @@ public class FlashcardLogicTest {
             assertEquals(flashcardDB.getFlashcards().size(), --i);
         }
     }
+
+    @Test
+    public void TestGetSequential(){
+        // default order of flashcards
+        List<Flashcard> fList = flashcardDB.getFlashcards();
+        // check the flashcards in sequential order
+        for(int i = 0; i < fList.size(); i++){
+            Flashcard flashcard = flashcardDB.getSequential();
+            assertEquals(fList.get(i).getQuestion(), flashcard.getQuestion());
+            assertEquals(fList.get(i).getAnswer(), flashcard.getAnswer());
+            assertEquals(fList.get(i).getUserName(), flashcard.getUserName());
+        }
+    }
+
+    @Test
+    public void TestGetUserCards(){
+
+    }
+
+
+    @Test
+    public void TestGetAllFolders(){
+
+    }
+
+    @Test
+    public void TestInsertFolder(){
+        // insert some folders
+        // check if the folders exists
+    }
+
+    @Test
+    public void TestInsertCardToFolder(){
+        // make some flashcards
+        // insert those flashcards to DB
+        // assign those cards to folders
+        // check if folder has those cards
+        // check if the cards have the folders
+    }
+
+    @Test
+    public void TestGetFolderCards(){
+        // get all the cards from the folder
+    }
+
+    @Test
+    public void TestDeleteFolder(){
+        // delete the folder from the list
+        // check if the folder exists
+        // check the flashcards that is assigned to the folder that the folder is no longer there
+    }
+
+    @Test
+    public void TestRemoveCardFromFolder(){
+        // remove the card from the folder
+    }
 }

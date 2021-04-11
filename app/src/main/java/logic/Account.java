@@ -1,7 +1,5 @@
 package logic;
 
-import android.util.Log;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -91,5 +89,9 @@ public class Account implements IAccount {
 
     public void logout() {
         LoggedUser.setLoggedUser(null);
+    }
+
+    public void deleteUser() {
+       userPersistence.deleteUser(getLoggedUser());
     }
 }

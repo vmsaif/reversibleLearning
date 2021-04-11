@@ -26,4 +26,7 @@ public interface IAccount {
 
     //logout - will set the current user to null
     void logout();
+
+    // delete the user
+    void deleteUser();
 }
