@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.List;
 
+import data.FlashcardPersistence;
 import data.stubs.FlashcardPersistenceStub;
 import logic.FlashcardLogic;
 import objects.Flashcard;
@@ -12,13 +13,16 @@ import objects.Flashcard;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 public class FlashcardLogicTest {
     private FlashcardLogic flashcardDB;
+    private FlashcardPersistence flashcardPersistence;
 
     @Before
     public void setUp(){
         flashcardDB = new FlashcardLogic(new FlashcardPersistenceStub());
+        flashcardPersistence = mock(FlashcardPersistence.class);
     }
 
     @Test
