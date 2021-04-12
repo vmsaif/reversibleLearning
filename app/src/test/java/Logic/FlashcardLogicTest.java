@@ -3,6 +3,7 @@ package Logic;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import data.FlashcardPersistence;
@@ -14,15 +15,21 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class FlashcardLogicTest {
     private FlashcardLogic flashcardDB;
+    private FlashcardLogic mockedLogic;
     private FlashcardPersistence flashcardPersistence;
 
     @Before
     public void setUp(){
+        // test using stubs
         flashcardDB = new FlashcardLogic(new FlashcardPersistenceStub());
+        // mock for iteration 3 feature
         flashcardPersistence = mock(FlashcardPersistence.class);
+        mockedLogic = new FlashcardLogic(flashcardPersistence);
     }
 
     @Test
@@ -116,9 +123,8 @@ public class FlashcardLogicTest {
         assertEquals(cardList.size(), 0);
     }
 
-
     @Test
-    public void TestInsertFolderAndGetAllFolders(){
+    public void TestInsertFolder(){
         // insert some folders
         flashcardDB.insertFolder("maths");
         flashcardDB.insertFolder("science");
@@ -135,6 +141,20 @@ public class FlashcardLogicTest {
         // check the folders stays the same
         folderList = flashcardDB.getAllFolders();
         assertEquals(folderList.size(), 7);
+    }
+
+    @Test
+    public void TestGetAllFolders(){
+        List<String> folders = new ArrayList<>();
+        folders.add("maths");
+        folders.add("science");
+        folders.add("language");
+        when(flashcardPersistence.getAllFolders()).thenReturn(folders);
+        List<String> allFolders = mockedLogic.getAllFolders();
+        assertEquals(allFolders.size(), 3);
+        assertEquals(allFolders.get(0), "maths");
+        assertEquals(allFolders.get(1), "science");
+        verify(flashcardPersistence).getAllFolders();
     }
 
     @Test
