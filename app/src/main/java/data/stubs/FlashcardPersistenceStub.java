@@ -10,7 +10,6 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
 
     // List of Flashcards
     private List<Flashcard> flashcards;
-    private List<String> folders;
 
 
     //constructor
@@ -20,10 +19,10 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
         flashcards.add(new Flashcard("This is a question", "This is an answer", "mike"));
         flashcards.add(new Flashcard("question", "answer", "group5"));
         Flashcard fCard = new Flashcard("question1", "answer1", "user1");
+        fCard.addFolderName("folder1");
+        fCard.addFolderName("folder2");
+        fCard.addFolderName("folder13");
         flashcards.add(fCard);
-        folders.add("Biology");
-        folders.add("Physics");
-        folders.add("Maths");
     }//constructor
 
 
@@ -40,8 +39,12 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
 
     @Override
     public List<String> getFlashcardFolders(Flashcard flashcard) {
-        //does not do anything in the stub implementation
-        return null;
+        Flashcard card = null;
+        int search = searchFlashcard(flashcard);
+        if(search != -1){
+            card = getFlashcardSequential().get(search);
+        }
+        return card == null ? null : card.getFolderNames();
     }//getFlashcardFolders
 
 
@@ -64,12 +67,21 @@ public class FlashcardPersistenceStub implements FlashcardPersistence {
 
     @Override
     public List<String> getAllFolders() {
-        return folders;
+        ArrayList<String> folder = new ArrayList<>();
+        for(int i=0; i<flashcards.size(); i++){
+            folder.addAll(flashcards.get(i).getFolderNames());
+        }//for i
+        return folder;
     }
 
     @Override
     public void insertCardToFolder(Flashcard flashcard, String folder) {
-        //does not do anything in the stub implementation
+        int search = searchFlashcard(flashcard);
+        if(search != -1){
+            Flashcard temp = flashcards.get(search);
+            temp.addFolderName(folder);
+            flashcards.set(search, temp);
+        }
     }
 
     @Override

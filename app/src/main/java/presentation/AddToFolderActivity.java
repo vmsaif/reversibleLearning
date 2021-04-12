@@ -46,6 +46,7 @@ public class AddToFolderActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) { //this method helps us get the name of the folder that has been clicked
                 String folderName = folderList.get(position).toString();
+                flashcard.addFolderName(folderName); //updating the folder list in our object
                 flashcardLogic.insertCardToFolder(flashcard, folderName); //actually associating the card with this folder in our database
                 Toast.makeText(AddToFolderActivity.this, "Added to folder: " + folderName, Toast.LENGTH_SHORT).show();
                 openShelfcardActivity();

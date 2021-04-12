@@ -10,6 +10,7 @@ public class Flashcard implements IFlashcard{
     private String question;
     private String answer;
     private String userName;
+    private List<String> folderNames; //list of all the folders this flashcard is associated with
     boolean isFavorite;
 
 
@@ -17,6 +18,7 @@ public class Flashcard implements IFlashcard{
     public Flashcard(String question, String answer, String userName){
         this.question = question;
         this.answer = answer;
+        folderNames = new ArrayList<>();
         isFavorite = false;
         this.userName = userName;
     }//constructor
@@ -51,6 +53,29 @@ public class Flashcard implements IFlashcard{
         return userName;
     }//getUserName
 
+
+    @Override
+    public void addFolderName(String folder){
+        folderNames.add(folder);
+    }//addFolderName
+
+
+    @Override
+    public List<String> getFolderNames(){
+        return folderNames;
+    }//getFolderName
+
+
+    @Override
+    public boolean getIsFavorite() {
+        return isFavorite;
+    }//getIsFavorite
+
+
+    @Override
+    public void setIsFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }//setIsFavorite
 
 
 }//Flashcard class
