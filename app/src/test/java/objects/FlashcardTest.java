@@ -81,17 +81,4 @@ public class FlashcardTest {
         assertNotEquals("The folder is not equal to one another", fCard.getFolderNames(), gCard.getFolderNames());
     }
 
-    @Test
-    public void TestFavorite() {
-        // check the default favorite == false
-        assertFalse("The flashcard is not a favorite", fCard.getIsFavorite());
-        // set to favorite
-        fCard.setIsFavorite(true);
-        // check the favorite == true
-        assertTrue("The flashcard is not a favorite", fCard.getIsFavorite());
-        // check the favorite == false
-        fCard.setIsFavorite(false);
-        assertFalse("The flashcard is not a favorite", fCard.getIsFavorite());
-    }
-
 }

@@ -25,10 +25,5 @@ public interface IFlashcard {
     //getFolderName---returns the list of folders this card is associated with
     List<String> getFolderNames();
 
-    //getIsFavorite---tells if this card is marked as favorite or not
-    boolean getIsFavorite();
-
-    //setIsFavorite---change if the card is favorite or not
-    void setIsFavorite(boolean favorite);
 
 }//IFlashcard ends
