@@ -30,7 +30,6 @@ public class FlashcardTest {
         assertTrue("The question should be the same",expected1.getQuestion().equals(gCard.getQuestion()));
         assertTrue("The answer should be the same",expected1.getAnswer().equals(gCard.getAnswer()));
         assertTrue("The username should be Guest",expected1.getUserName().equals(gCard.getUserName()));
-        assertEquals("The folder should be empty",gCard.getFolderNames().size(), 0);
     }
 
 
@@ -59,39 +58,6 @@ public class FlashcardTest {
         assertFalse("Modified and returned answer shouldn't be same",expected.getAnswer().equals(fCard.getAnswer()));
     }
 
-    @Test
-    public void TestFolderName(){
-        // check both folders are empty
-        assertEquals("The folder name is the same", fCard.getFolderNames().size(), 0);
-        assertEquals("The folder name is the same", gCard.getFolderNames().size(), 0);
-        // add folders
-        gCard.addFolderName("folder1");
-        fCard.addFolderName("folder1");
-        assertEquals("The folder name is the same", fCard.getFolderNames(), gCard.getFolderNames());
-        // add more folder names
-        gCard.addFolderName("folder2");
-        fCard.addFolderName("folder2");
-        assertEquals("The folder name is the same", fCard.getFolderNames(), gCard.getFolderNames());
-        // check the content of the folder names
-        for(int i = 0; i < fCard.getFolderNames().size(); i++){
-            assertEquals("The names in the folder are equals", fCard.getFolderNames().get(i), gCard.getFolderNames().get(i));
-        }
-        // add  folder names to fCard which will make fCard != gCard
-        fCard.addFolderName("folder3");
-        assertNotEquals("The folder is not equal to one another", fCard.getFolderNames(), gCard.getFolderNames());
-    }
 
-    @Test
-    public void TestFavorite() {
-        // check the default favorite == false
-        assertFalse("The flashcard is not a favorite", fCard.getIsFavorite());
-        // set to favorite
-        fCard.setIsFavorite(true);
-        // check the favorite == true
-        assertTrue("The flashcard is not a favorite", fCard.getIsFavorite());
-        // check the favorite == false
-        fCard.setIsFavorite(false);
-        assertFalse("The flashcard is not a favorite", fCard.getIsFavorite());
-    }
 
 }
