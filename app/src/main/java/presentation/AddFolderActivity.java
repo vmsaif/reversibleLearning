@@ -53,7 +53,7 @@ public class AddFolderActivity extends AppCompatActivity {
     public void createFolder(View view){
         name = folderName.getText().toString();
         if(!name.equals("") && !name.trim().isEmpty()){
-            if(!folderPresent(name)){
+            if(!folderPresent(name.trim())){
                 flashcardLogic.insertFolder(name); //inserting this folder in out database
                 Toast.makeText(getBaseContext(), "Folder created successfully", Toast.LENGTH_SHORT).show();
                 openOptionsActivity(); //go back to the card shelf

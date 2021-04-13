@@ -4,6 +4,7 @@ package flashcard.group5;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
+import androidx.test.orchestrator.instrumentationlistener.OrchestratedInstrumentationListener;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -26,7 +27,7 @@ import static org.hamcrest.Matchers.not;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class FlashcardTest {
+public class MakeFlashCardTest {
     private final int sleepTime = 500;
     @Rule
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
@@ -37,6 +38,7 @@ public class FlashcardTest {
         testUtils = new TestUtils();
     }
 
+    //testing feature #1 - Make a flashcard - put a question and it's answer on it
     @Test
     public void TestCreateFlashcard(){
         String question = "What group is this?";
@@ -63,12 +65,14 @@ public class FlashcardTest {
         onView(allOf(withId(R.id.shelfCard), withText(answer)));
     }
 
-    @Test
-    public void TestDeleteFlashcardAfterCreation(){
-        String question = "This question will be deleted right away";
-        String answer = "no answer in this textBox";
 
-        // click guest
+    //testing feature #2 - hide answers from the question, flipping
+    @Test
+    public void TestFlippingCard() {
+        String question = "A new question to test flipping";
+        String answer = "test flipping";
+
+        //click guest
         onView(withId(R.id.button_guestLogin)).perform(click());
         onView(withId(R.id.makeFlashCard)).perform(click());
 
@@ -78,51 +82,12 @@ public class FlashcardTest {
         closeSoftKeyboard();
         onView(withId(R.id.button_make_flashcard)).perform(click());
 
-        // verify that the flashcard has been created
-        onView(withId(R.id.card_front)).check(matches(withText(question)));
-        onView(withId(R.id.card_back)).check(matches(withText(answer)));
 
-        // delete the card
-        onView(withId(R.id.delete_button)).perform(click());
-
-        // check if it is not added to the shelf
-        onView(withId(R.id.cardShelf)).perform(click());
-        onView(allOf(withId(R.id.shelfCard), not(withText(question))));
-        onView(allOf(withId(R.id.shelfCard), not(withText(answer))));
-    }
-
-    @Test
-    public void TestDeleteFlashcardFromShelf(){
-        String question = "A new question that will be deleted on the shelf";
-        String answer = "A new answer";
-
-        // click guest
-        onView(withId(R.id.button_guestLogin)).perform(click());
-        onView(withId(R.id.makeFlashCard)).perform(click());
-
-        // fill the flashcard
-        onView(withId(R.id.editTextTextPersonName2)).perform(typeText(question));
-        onView(withId(R.id.editTextTextPersonName3)).perform(typeText(answer));
-        closeSoftKeyboard();
-        onView(withId(R.id.button_make_flashcard)).perform(click());
-
-        // verify that the flashcard has been created
-        onView(withId(R.id.card_front)).check(matches(withText(question)));
-        onView(withId(R.id.card_back)).check(matches(withText(answer)));
-
-        // check if it is added to the shelf
-        onView(withId(R.id.imageView7)).perform(click());
-        onView(withId(R.id.cardShelf)).perform(click());
-        onView(allOf(withId(R.id.shelfCard), withText(question)));
-        onView(allOf(withId(R.id.shelfCard), withText(answer)));
-
-        // delete the card
-        onView(withId(R.id.delete_button2)).perform(click());
-
-        // check if it doesn't exists
-        onView(allOf(withId(R.id.shelfCard), not(withText(question))));
-        onView(allOf(withId(R.id.shelfCard), not(withText(answer))));
-
+        //verify flipping feature
+        onView(withId(R.id.flip_button)).perform(click());
+        onView(withId(R.id.flip_button)).perform(click());
+        onView(withId(R.id.flip_button)).perform(click());
+        onView(withId(R.id.flip_button)).perform(click());
     }
 
 }

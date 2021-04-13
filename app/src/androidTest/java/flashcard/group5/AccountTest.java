@@ -44,26 +44,6 @@ public class AccountTest {
     }
 
     @Test
-    public void TestLoginNotGuest(){
-        String user = "user123";
-        String password = "pass123";
-
-        // click login
-        onView(withId(R.id.button_login)).perform(click());
-
-        // fill the login form
-        onView(withId(R.id.username)).perform(typeText(user));
-        closeSoftKeyboard();
-        onView(withId(R.id.password)).perform(typeText(password));
-        closeSoftKeyboard();
-        onView(withId(R.id.login)).perform(click());
-
-        // checked logged in
-        onView(withId(R.id.profileActivity)).perform(click());
-        onView(allOf(withId(R.id.fullName), withText(user)));
-    }
-
-    @Test
     public void TestRegister(){
         String user = "Us3rn4me";
         String password = "pass123";
@@ -94,6 +74,26 @@ public class AccountTest {
 
         // delete the user
         testUtils.deleteUser();
+    }
+
+    @Test
+    public void TestLoginNotGuest(){
+        String user = "user123";
+        String password = "pass123";
+
+        // click login
+        onView(withId(R.id.button_login)).perform(click());
+
+        // fill the login form
+        onView(withId(R.id.username)).perform(typeText(user));
+        closeSoftKeyboard();
+        onView(withId(R.id.password)).perform(typeText(password));
+        closeSoftKeyboard();
+        onView(withId(R.id.login)).perform(click());
+
+        // checked logged in
+        onView(withId(R.id.profileActivity)).perform(click());
+        onView(allOf(withId(R.id.fullName), withText(user)));
     }
 
 }

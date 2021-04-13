@@ -9,7 +9,8 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         AccountTest.class,
-        FlashcardTest.class,
+        MakeFlashCardTest.class,
+        DeleteFlashCardTest.class,
 })
 
 
