@@ -43,6 +43,7 @@ public class AccountTest {
         onView(withId(R.id.button_guestLogin)).perform(click());
     }
 
+    //test feature #3 - Profile creation = registration
     @Test
     public void TestRegister(){
         String user = "Us3rn4me";
