@@ -165,7 +165,7 @@
 
         <!--        update button-->
         <com.google.android.material.button.MaterialButton
-            android:onClick="openOptionsActivity"
+            android:onClick="updateUser"
             android:id="@+id/profileUpdateButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
