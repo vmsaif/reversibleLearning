@@ -24,10 +24,10 @@
         android:textSize="35sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.6" />
 
     <Button
         android:id="@+id/deleteFolder"
@@ -67,7 +67,7 @@
 
     <TextView
         android:id="@+id/shelfCard2"
-        android:layout_width="258dp"
+        android:layout_width="0dp"
         android:layout_height="260dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="55dp"
@@ -80,26 +80,26 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteFolder" />
+        app:layout_constraintTop_toBottomOf="@+id/deleteFolder"
+        app:layout_constraintVertical_bias="0.06" />
 
     <ImageView
         android:id="@+id/next_button2"
         android:layout_width="65dp"
         android:layout_height="75dp"
         android:layout_marginStart="3dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="484dp"
         android:layout_marginEnd="9dp"
-        android:layout_marginBottom="279dp"
+        android:layout_marginBottom="328dp"
         android:contentDescription="@string/next_button"
         android:onClick="nextCard2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/shelfCard2"
-        app:layout_constraintTop_toBottomOf="@+id/remove_card"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_arrow_right_24" />
 
     <ImageView
