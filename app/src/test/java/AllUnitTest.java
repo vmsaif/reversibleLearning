@@ -2,6 +2,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import Logic.AccountTest;
+import Logic.AccountValidatorTest;
 import Logic.FlashcardLogicTest;
 import data.FlashcardPersistenceTest;
 import data.UserPersistenceTest;
@@ -21,9 +22,10 @@ import objects.UserTest;
         FlashcardPersistenceTest.class,
         // logic tests
         AccountTest.class,
-        FlashcardLogicTest.class
+        FlashcardLogicTest.class,
+        AccountValidatorTest.class,
 })
 
 
-public class UnitTest {
+public class AllUnitTest {
 }

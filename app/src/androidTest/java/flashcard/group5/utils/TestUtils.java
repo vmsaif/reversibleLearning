@@ -28,6 +28,10 @@ public class TestUtils {
         flashcardLogic.deleteFlashcard(currentCard);
     }
 
+    public void deleteFolder(String folderName){
+        flashcardLogic.deleteFolder(folderName);
+    }
+
 
     public Flashcard getFlashcard(String question){
         return flashcardLogic.getFlashcard(question);

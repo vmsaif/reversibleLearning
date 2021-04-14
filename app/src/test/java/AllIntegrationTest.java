@@ -15,5 +15,5 @@ import Logic.FlashcardLogicIT;
 })
 
 
-public class IntegrationTest {
+public class AllIntegrationTest {
 }
