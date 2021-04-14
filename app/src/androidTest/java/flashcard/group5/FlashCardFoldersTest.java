@@ -56,6 +56,8 @@ public class FlashCardFoldersTest {
         //delete the folder so we can re-run the test as folder name is primary key
         onView(allOf(withText("Math"))).perform(click());
         onView(withId(R.id.deleteFolder)).perform(click());
+
+        testUtils.deleteFolder("Math");
     }
 
 }

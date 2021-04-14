@@ -26,7 +26,7 @@ import static org.hamcrest.Matchers.allOf;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class AccountTest {
+public class RegisterTest {
     private final int sleepTime = 500;
     @Rule
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
@@ -76,25 +76,4 @@ public class AccountTest {
         // delete the user
         testUtils.deleteUser();
     }
-
-    @Test
-    public void TestLoginNotGuest(){
-        String user = "user123";
-        String password = "pass123";
-
-        // click login
-        onView(withId(R.id.button_login)).perform(click());
-
-        // fill the login form
-        onView(withId(R.id.username)).perform(typeText(user));
-        closeSoftKeyboard();
-        onView(withId(R.id.password)).perform(typeText(password));
-        closeSoftKeyboard();
-        onView(withId(R.id.login)).perform(click());
-
-        // checked logged in
-        onView(withId(R.id.profileActivity)).perform(click());
-        onView(allOf(withId(R.id.fullName), withText(user)));
-    }
-
 }

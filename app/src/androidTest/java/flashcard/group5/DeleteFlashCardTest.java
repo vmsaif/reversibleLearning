@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
 import flashcard.group5.utils.TestUtils;
+import objects.Flashcard;
 
 import static androidx.test.espresso.Espresso.closeSoftKeyboard;
 import static androidx.test.espresso.Espresso.onView;
@@ -43,6 +44,7 @@ public class DeleteFlashCardTest {
     public void TestDeleteFlashcardAfterCreation(){
         String question = "This question will be deleted right away";
         String answer = "no answer in this textBox";
+        String user = "guest";
 
         // click guest
         onView(withId(R.id.button_guestLogin)).perform(click());
@@ -65,5 +67,7 @@ public class DeleteFlashCardTest {
         onView(withId(R.id.cardShelf)).perform(click());
         onView(allOf(withId(R.id.shelfCard), not(withText(question))));
         onView(allOf(withId(R.id.shelfCard), not(withText(answer))));
+
+        testUtils.deleteFlashcard(new Flashcard(question,answer,user));
     }
 }

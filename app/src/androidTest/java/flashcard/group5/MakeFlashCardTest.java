@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
 import flashcard.group5.utils.TestUtils;
+import objects.Flashcard;
 
 import static androidx.test.espresso.Espresso.closeSoftKeyboard;
 import static androidx.test.espresso.Espresso.onView;
@@ -43,6 +44,7 @@ public class MakeFlashCardTest {
     public void TestCreateFlashcard(){
         String question = "What group is this?";
         String answer = "Group 5";
+        String user = "guest";
 
         // click guest
         onView(withId(R.id.button_guestLogin)).perform(click());
@@ -63,31 +65,7 @@ public class MakeFlashCardTest {
         onView(withId(R.id.cardShelf)).perform(click());
         onView(allOf(withId(R.id.shelfCard), withText(question)));
         onView(allOf(withId(R.id.shelfCard), withText(answer)));
+
+        testUtils.deleteFlashcard(new Flashcard(question,answer,user));
     }
-
-
-    //testing feature #2 - hide answers from the question, flipping
-    @Test
-    public void TestFlippingCard() {
-        String question = "A new question to test flipping";
-        String answer = "test flipping";
-
-        //click guest
-        onView(withId(R.id.button_guestLogin)).perform(click());
-        onView(withId(R.id.makeFlashCard)).perform(click());
-
-        // fill the flashcard
-        onView(withId(R.id.editTextTextPersonName2)).perform(typeText(question));
-        onView(withId(R.id.editTextTextPersonName3)).perform(typeText(answer));
-        closeSoftKeyboard();
-        onView(withId(R.id.button_make_flashcard)).perform(click());
-
-
-        //verify flipping feature
-        onView(withId(R.id.flip_button)).perform(click());
-        onView(withId(R.id.flip_button)).perform(click());
-        onView(withId(R.id.flip_button)).perform(click());
-        onView(withId(R.id.flip_button)).perform(click());
-    }
-
 }

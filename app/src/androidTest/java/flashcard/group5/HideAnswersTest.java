@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import flashcard.group5.application.MainActivity;
 import flashcard.group5.application.R;
 import flashcard.group5.utils.TestUtils;
+import objects.Flashcard;
 
 import static androidx.test.espresso.Espresso.closeSoftKeyboard;
 import static androidx.test.espresso.Espresso.onView;
@@ -43,6 +44,7 @@ public class HideAnswersTest {
     public void TestFlippingCard() {
         String question = "A new question to test flipping";
         String answer = "test flipping";
+        String user = "guest";
 
         //click guest
         onView(withId(R.id.button_guestLogin)).perform(click());
@@ -60,6 +62,8 @@ public class HideAnswersTest {
         onView(withId(R.id.flip_button)).perform(click());
         onView(withId(R.id.flip_button)).perform(click());
         onView(withId(R.id.flip_button)).perform(click());
+
+        testUtils.deleteFlashcard(new Flashcard(question,answer,user));
     }
 
 }

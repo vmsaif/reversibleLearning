@@ -8,9 +8,14 @@ import org.junit.runners.Suite;
 @LargeTest
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        AccountTest.class,
+        RegisterTest.class,
+        RememberUsersTest.class,
         MakeFlashCardTest.class,
         DeleteFlashCardTest.class,
+        CounterTest.class,
+        FlashCardFoldersTest.class,
+        HideAnswersTest.class,
+        ViewFlashCardsTest.class,
 })
 
 
