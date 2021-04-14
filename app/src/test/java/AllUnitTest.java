@@ -27,5 +27,5 @@ import objects.UserTest;
 })
 
 
-public class UnitTest {
+public class AllUnitTest {
 }
