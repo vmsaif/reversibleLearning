@@ -158,7 +158,25 @@ public class FlashcardLogicTest {
     }
 
     @Test
-    public void TestInsertCardToFolderAndGetFolderCards(){
+    public void TestGetFolderCards(){
+        List<Flashcard> cards = new ArrayList<>();
+        Flashcard card1 = new Flashcard("card with quesiton 1", "answer 1", "user1");
+        Flashcard card2 = new Flashcard("card with quesiton 2", "answer 2", "user1");
+        Flashcard card3 = new Flashcard("card with quesiton 3", "answer 3", "user3");
+        cards.add(card1);
+        cards.add(card2);
+        cards.add(card3);
+        when(flashcardPersistence.getFolderCards("math")).thenReturn(cards);
+        List<Flashcard> returnCards = mockedLogic.getFolderCards("math");
+        assertEquals(returnCards.size(), 3);
+        assertTrue(returnCards.contains(card1));
+        assertTrue(returnCards.contains(card2));
+        assertTrue(returnCards.contains(card3));
+        verify(flashcardPersistence).getFolderCards("math");
+    }
+
+    @Test
+    public void TestInsertCardToFolder(){
         // make some flashcards
         Flashcard card1 = new Flashcard("card with quesiton 1", "answer 1", "user1");
         Flashcard card2 = new Flashcard("card with quesiton 2", "answer 2", "user1");
