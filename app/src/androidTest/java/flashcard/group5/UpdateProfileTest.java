@@ -38,19 +38,19 @@ public class UpdateProfileTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variables
+    String user = "test1@test.com";
+    String password = "usertest";
+    String newUser = "test2@test.com";
+
     @Before
-    public void setupTestUtils() {
-        testUtils = new TestUtils();
-    }
+    public void setupTestUtils() { testUtils = new TestUtils(); }
 
 
     //test issue #125 - update user's information. Register an account -> login -> change username -> login again wit
     //the new user name
     @Test
     public void updateUserName() {
-        String user = "test1@test.com";
-        String password = "usertest";
-        String newUser = "test2@test.com";
         // click register
         onView(withId(R.id.button_login)).perform(click());
         onView(withId(R.id.register)).perform(click());
@@ -71,17 +71,17 @@ public class UpdateProfileTest {
         closeSoftKeyboard();
         onView(withId(R.id.login)).perform(click());
 
+        //change the user name to a new one and update profile
         onView(withId(R.id.profileActivity)).perform(click());
         onView(withId(R.id.profileUserNameField)).perform(clearText());
         onView(withId(R.id.profileUserNameField)).perform(typeText(newUser));
         onView(withId(R.id.profileUpdateButton)).perform(click());
 
     }
+
+    //test if the update worked and we can login with the new user name
     @Test
     public void newlogin() {
-
-        String password = "usertest";
-        String user = "test2@test.com";
 
         // click login
         onView(withId(R.id.button_login)).perform(click());

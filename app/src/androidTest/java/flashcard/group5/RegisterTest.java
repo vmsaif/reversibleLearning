@@ -32,11 +32,16 @@ public class RegisterTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variables
+    String user = "Us3rn4me";
+    String password = "pass123";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
     }
 
+    //test if using the app as a guest works
     @Test
     public void TestLoginGuest(){
         // click guest
@@ -46,8 +51,6 @@ public class RegisterTest {
     //test feature #3 - Profile creation = registration
     @Test
     public void TestRegister(){
-        String user = "Us3rn4me";
-        String password = "pass123";
 
         // click register
         onView(withId(R.id.button_login)).perform(click());

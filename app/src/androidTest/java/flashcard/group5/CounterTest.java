@@ -34,6 +34,13 @@ public class CounterTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variables
+    String user = "user123";
+    String password = "pass123";
+
+    String question = "What group is this?";
+    String answer = "Group 5";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
@@ -42,9 +49,6 @@ public class CounterTest {
     //testing feature #1 - Make a flashcard - put a question and it's answer on it
     @Test
     public void TestCounterFlashCards(){
-
-        String user = "user123";
-        String password = "pass123";
 
         // click login
         onView(withId(R.id.button_login)).perform(click());
@@ -56,12 +60,7 @@ public class CounterTest {
         closeSoftKeyboard();
         onView(withId(R.id.login)).perform(click());
 
-
         onView(withId(R.id.makeFlashCard)).perform(click());
-
-        String question = "What group is this?";
-        String answer = "Group 5";
-
 
         // fill the flashcard
         onView(withId(R.id.editTextTextPersonName2)).perform(typeText(question));
@@ -73,6 +72,7 @@ public class CounterTest {
         onView(withId(R.id.card_front)).check(matches(withText(question)));
         onView(withId(R.id.card_back)).check(matches(withText(answer)));
 
+        //check that we have 1 flashcard now
         onView(withId(R.id.imageView7)).perform(click());
         onView(withId(R.id.profileActivity)).perform(click());
 

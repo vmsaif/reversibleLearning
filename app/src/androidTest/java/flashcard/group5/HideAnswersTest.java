@@ -34,6 +34,11 @@ public class HideAnswersTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variables
+    String question = "A new question to test flipping";
+    String answer = "test flipping";
+    String user = "guest";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
@@ -42,9 +47,6 @@ public class HideAnswersTest {
     //testing feature #2 - hide answers from the question, flipping
     @Test
     public void TestFlippingCard() {
-        String question = "A new question to test flipping";
-        String answer = "test flipping";
-        String user = "guest";
 
         //click guest
         onView(withId(R.id.button_guestLogin)).perform(click());
@@ -55,7 +57,6 @@ public class HideAnswersTest {
         onView(withId(R.id.editTextTextPersonName3)).perform(typeText(answer));
         closeSoftKeyboard();
         onView(withId(R.id.button_make_flashcard)).perform(click());
-
 
         //verify flipping feature
         onView(withId(R.id.flip_button)).perform(click());

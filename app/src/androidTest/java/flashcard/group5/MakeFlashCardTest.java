@@ -34,6 +34,11 @@ public class MakeFlashCardTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variable
+    String question = "What group is this?";
+    String answer = "Group 5";
+    String user = "guest";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
@@ -42,9 +47,6 @@ public class MakeFlashCardTest {
     //testing feature #1 - Make a flashcard - put a question and it's answer on it
     @Test
     public void TestCreateFlashcard(){
-        String question = "What group is this?";
-        String answer = "Group 5";
-        String user = "guest";
 
         // click guest
         onView(withId(R.id.button_guestLogin)).perform(click());

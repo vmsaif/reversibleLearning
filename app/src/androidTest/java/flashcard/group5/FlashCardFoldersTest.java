@@ -34,6 +34,9 @@ public class FlashCardFoldersTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variables
+    String folerName = "Math";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
@@ -48,16 +51,16 @@ public class FlashCardFoldersTest {
         //create a folder
         onView(withId(R.id.AllFolders)).perform(click());
         onView(withId(R.id.button)).perform(click());
-        onView(withId(R.id.folder_name)).perform(typeText("Math"));
+        onView(withId(R.id.folder_name)).perform(typeText(folerName));
         closeSoftKeyboard();
         onView(withId(R.id.button4)).perform(click());
         onView(withId(R.id.AllFolders)).perform(click());
 
         //delete the folder so we can re-run the test as folder name is primary key
-        onView(allOf(withText("Math"))).perform(click());
+        onView(allOf(withText(folerName))).perform(click());
         onView(withId(R.id.deleteFolder)).perform(click());
 
-        testUtils.deleteFolder("Math");
+        testUtils.deleteFolder(folerName);
     }
 
 }

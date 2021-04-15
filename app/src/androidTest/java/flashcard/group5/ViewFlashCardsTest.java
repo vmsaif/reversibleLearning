@@ -34,6 +34,18 @@ public class ViewFlashCardsTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variables
+    String question1 = "question 1?";
+    String answer1 = "answer 1";
+
+    String question2 = "question 2?";
+    String answer2 = "answer2";
+
+    String question3 = "question 3?";
+    String answer3 = "answer3";
+
+    String user = "guest";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
@@ -42,23 +54,12 @@ public class ViewFlashCardsTest {
     //testing feature #1 - Make a flashcard - put a question and it's answer on it
     @Test
     public void TestCreateFlashcard(){
-        String question1 = "question 1?";
-        String answer1 = "answer 1";
-
-        String question2 = "question 2?";
-        String answer2 = "answer2";
-
-        String question3 = "question 3?";
-        String answer3 = "answer3";
-
-        String user = "guest";
 
         // click guest
         onView(withId(R.id.button_guestLogin)).perform(click());
 
-
         onView(withId(R.id.makeFlashCard)).perform(click());
-        // fill the flashcard
+        // fill the flashcard 1
         onView(withId(R.id.editTextTextPersonName2)).perform(typeText(question1));
         onView(withId(R.id.editTextTextPersonName3)).perform(typeText(answer1));
         closeSoftKeyboard();
@@ -67,7 +68,7 @@ public class ViewFlashCardsTest {
 
 
         onView(withId(R.id.makeFlashCard)).perform(click());
-        // fill the flashcard
+        // fill the flashcard 2
         onView(withId(R.id.editTextTextPersonName2)).perform(typeText(question2));
         onView(withId(R.id.editTextTextPersonName3)).perform(typeText(answer2));
         closeSoftKeyboard();
@@ -75,7 +76,7 @@ public class ViewFlashCardsTest {
         onView(withId(R.id.imageView7)).perform(click());
 
         onView(withId(R.id.makeFlashCard)).perform(click());
-        // fill the flashcard
+        // fill the flashcard 3
         onView(withId(R.id.editTextTextPersonName2)).perform(typeText(question3));
         onView(withId(R.id.editTextTextPersonName3)).perform(typeText(answer3));
         closeSoftKeyboard();
@@ -84,6 +85,9 @@ public class ViewFlashCardsTest {
 
         onView(withId(R.id.cardShelf)).perform(click());
 
+        //view the flashcards
+        onView(withId(R.id.next_button)).perform(click());
+        onView(withId(R.id.next_button)).perform(click());
         onView(withId(R.id.next_button)).perform(click());
         onView(withId(R.id.next_button)).perform(click());
         onView(withId(R.id.next_button)).perform(click());

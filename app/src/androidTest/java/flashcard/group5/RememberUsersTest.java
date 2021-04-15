@@ -32,6 +32,10 @@ public class RememberUsersTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variable
+    String user = "user123";
+    String password = "pass123";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
@@ -41,8 +45,6 @@ public class RememberUsersTest {
     //test issue #126 - remember users. Check if a registered user was saved and can log in
     @Test
     public void TestLoginNotGuest(){
-        String user = "user123";
-        String password = "pass123";
 
         // click login
         onView(withId(R.id.button_login)).perform(click());

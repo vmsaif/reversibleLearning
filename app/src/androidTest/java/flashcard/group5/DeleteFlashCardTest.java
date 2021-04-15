@@ -34,6 +34,11 @@ public class DeleteFlashCardTest {
     public ActivityScenarioRule<MainActivity> activityRule = new ActivityScenarioRule<>(MainActivity.class);
     private TestUtils testUtils;
 
+    //set up variables
+    String question = "This question will be deleted right away";
+    String answer = "no answer in this textBox";
+    String user = "guest";
+
     @Before
     public void setupTestUtils() {
         testUtils = new TestUtils();
@@ -42,9 +47,6 @@ public class DeleteFlashCardTest {
     //testing feature #128 - Delete flashcard
     @Test
     public void TestDeleteFlashcardAfterCreation(){
-        String question = "This question will be deleted right away";
-        String answer = "no answer in this textBox";
-        String user = "guest";
 
         // click guest
         onView(withId(R.id.button_guestLogin)).perform(click());
