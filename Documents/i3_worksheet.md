@@ -13,7 +13,7 @@ What technical debt did you leave?
 -----------------
 
 We would like to include a counter for the folders a user has created, but we can't. This is inadvertent, prudent debt. The way we set up 
-fodlers to work in the database does not lend well to counting, and as a result of this we would need to refactor large portions of the folder 
+folders to work in the database does not lend well to counting, and as a result of this we would need to refactor large portions of the folder 
 implementation (and spend a fair amount of development time) and we don't feel it's an important enough issue to hamper our other features going forward.
 In the end, while it would be nice to see a count of all the topics you've ever needed a folder for, it seemed less important than counting your flashcards.
 
@@ -30,14 +30,21 @@ unlike any of our others would have damaged the quality of the other features.
 Acceptance test/end-to-end
 -----------------
 
-Write a discussion about an end-to-end test that you wrote. What did you test,
-how did you set up the test so it was not flaky? Provide a link to that test.
+[Link to come later]
+
+In the UpdateProfileTest, we test the entire process of creating a user profile, and the process of changing 
+a user's profile information. This tests our edit profile feature, while also testing our create profile feature. 
+Because of the way we set up our variables, we can be sure that there is no other sources of error in the test, 
+because the second username is a constant variable, the only way the test can fail is if the changed password 
+is incorrectly updated, creating a solid and not flaky test.
 
 Acceptance test, untestable
 -----------------
 
-What challenges did you face when creating acceptance tests? What was difficult
-or impossible to test?
+Because of the way espresso checks for text validation, and because our flashcards are not shown in a specific order, we cannot be sure when exactly we will see the flashcard 
+we are trying to verify for. This creates a problem, because we cannot create an acceptance test for it without fully emptying the database first. 
+Therefore, without proper and perfect instructions, any acceptance test will fail unless we wipe the database or instruct the marker to do so. As a result of this, 
+due to the way espresso checks for test validation and because of our database, creating a flashcard is untestable.
 
 Velocity/teamwork
 -----------------
