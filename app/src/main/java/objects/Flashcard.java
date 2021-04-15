@@ -65,18 +65,5 @@ public class Flashcard implements IFlashcard{
         return folderNames;
     }//getFolderName
 
-
-    @Override
-    public boolean getIsFavorite() {
-        return isFavorite;
-    }//getIsFavorite
-
-
-    @Override
-    public void setIsFavorite(boolean favorite) {
-        isFavorite = favorite;
-    }//setIsFavorite
-
-
 }//Flashcard class
 

@@ -209,11 +209,13 @@
         android:layout_marginEnd="104dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="@color/yollowishButtonColor"
-        android:text="@string/folders"
         android:onClick="openFoldersActivity"
+        android:text="@string/folders"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
