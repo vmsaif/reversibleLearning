@@ -78,6 +78,7 @@ public class Account implements IAccount {
             LoggedUser.getLoggedUser().changeUserName(userNew.getUserName());
             LoggedUser.getLoggedUser().changePassword(userNew.getPassword());
             result = true;
+            LoggedUser.setLoggedUser(userNew);
         }
         return result;
     }

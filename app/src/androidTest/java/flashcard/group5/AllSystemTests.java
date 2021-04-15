@@ -10,6 +10,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
         RegisterTest.class,
         RememberUsersTest.class,
+        UpdateProfileTest.class,
         MakeFlashCardTest.class,
         DeleteFlashCardTest.class,
         CounterTest.class,

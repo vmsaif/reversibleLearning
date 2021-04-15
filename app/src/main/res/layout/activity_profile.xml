@@ -126,53 +126,56 @@
         android:layout_marginTop="-20dp"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/profileUserNameField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:hint="@string/Username"
-            >
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_email_24"
 
                 android:drawablePadding="10dp" />
 
 
-        </com.google.android.material.textfield.TextInputLayout>
-
         <!--        Password Text Box-->
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
             android:id="@+id/profilePasswordField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:hint="@string/password"
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/updateButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_baseline_vpn_key_24"
                 android:drawablePadding="10dp"
                 android:inputType="textPassword"
                 />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <!--        update button-->
-        <com.google.android.material.button.MaterialButton
-            android:onClick="updateUser"
+        <Button
             android:id="@+id/profileUpdateButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/yollowishButtonColor"
+            android:layout_marginBottom="15dp"
+            android:backgroundTint="@color/yollowishButtonColor"
             android:fontFamily="@font/baloo"
-            android:text="@string/gotoDashboard"
-            android:textColor="@color/white"/>
+            android:onClick="updateUser"
+            android:text="update"
+            android:textColor="@color/grayish"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_front" />
+        <!--        update button-->
 
     </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dashboardbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/yollowishButtonColor"
+        android:fontFamily="@font/baloo"
+        android:onClick="openOptionsActivity"
+        android:text="@string/gotoDashboard"
+        android:textColor="@color/white" />
 </LinearLayout>

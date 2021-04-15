@@ -3,6 +3,8 @@ package presentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,8 +25,8 @@ import objects.User;
 public class ProfileActivity extends AppCompatActivity {
 
     //variables
-    private TextInputLayout userName, password;
-    private MaterialButton dashboardButton;
+    private EditText userName, password;
+    private Button dashboardButton;
     private User loggedInUser;
     private String userNameFromDB;
     private String passwordFromDB;
@@ -56,8 +58,8 @@ public class ProfileActivity extends AppCompatActivity {
             userNameFromDB = loggedInUser.getUserName();
             passwordFromDB = loggedInUser.getPassword();
 
-            userName.getEditText().setText(userNameFromDB);
-            password.getEditText().setText(passwordFromDB);
+            userName.setText(userNameFromDB);
+            password.setText(passwordFromDB);
 
         }//if
     }//showAllData
@@ -65,8 +67,8 @@ public class ProfileActivity extends AppCompatActivity {
     public void updateUser(View view){
         userName = findViewById(R.id.profileUserNameField);
         password = findViewById(R.id.profilePasswordField);
-        String newUserName = userName.getEditText().getText().toString();
-        String newPassword = password.getEditText().getText().toString();
+        String newUserName = userName.getText().toString();
+        String newPassword = password.getText().toString();
         account.changeUser(new User(newUserName,newPassword));
         Intent intent = new Intent(this, OptionsActivity.class);
         startActivity(intent);
