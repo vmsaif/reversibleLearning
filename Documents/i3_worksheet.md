@@ -51,6 +51,6 @@ Velocity/teamwork
 * https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/milestones/2
 * https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/milestones/3
 
-Just by looking at our time estimates from iteration, you can see that we decided to commit to doing two and a half months of work throughout the iteration. 
+Just by looking at our time estimates from iteration 2, you can see that we decided to commit to doing two and a half months of work throughout the iteration. 
 This was absurd, and while our estimates were obviously generous, in iteration 3 we committed to 1 and a half months of work, which is much more reasonable. 
 Obviously this is still a fair about for students in multiple courses, but just those numbers alone show that we are managing our time estimates more realistically
