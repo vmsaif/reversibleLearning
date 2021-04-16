@@ -90,12 +90,15 @@ public class UpdateProfileTest {
         SystemClock.sleep(sleepTime);
 
         // fill the login form
-        onView(withId(R.id.username)).perform(typeText(user));
+        onView(withId(R.id.username)).perform(typeText(newUser));
         closeSoftKeyboard();
         onView(withId(R.id.password)).perform(typeText(password));
         closeSoftKeyboard();
         onView(withId(R.id.login)).perform(click());
 
+        // checked logged in
+        onView(withId(R.id.profileActivity)).perform(click());
+        onView(allOf(withId(R.id.fullName), withText(user)));
         testUtils.deleteUser();
     }
 }

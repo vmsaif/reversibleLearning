@@ -6,6 +6,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 import androidx.test.orchestrator.instrumentationlistener.OrchestratedInstrumentationListener;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -77,8 +78,11 @@ public class CounterTest {
         onView(withId(R.id.profileActivity)).perform(click());
 
         onView(withId(R.id.cardsCountInt)).check(matches(withText("1")));
-        testUtils.deleteFlashcard(new Flashcard(question, answer, user));
+
     }
 
-
+    @After
+    public void deleteFlashCard() {
+    testUtils.deleteFlashcard(new Flashcard(question, answer, user));
+    }
 }
