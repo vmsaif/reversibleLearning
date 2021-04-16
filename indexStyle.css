@@ -1,0 +1,61 @@
+h1, h2{
+    text-align: center;
+    background-color: blanchedalmond;
+    font-family: DejaVu Sans Mono, monospace;
+    color: black;
+}
+
+h3, h4{
+    text-align: center;
+    font-family: DejaVu Sans Mono, monospace;
+    color: black;
+}
+
+body{
+    font-family: Apple Chancery, cursive;
+}
+
+nav {
+   background-color: #107dac; 
+   color: aliceblue;
+}
+
+.salesPitch{
+    text-align: center;
+    text-decoration: wavy;
+    font-family: URW Chancery L, cursive;
+}
+
+.visionSection {
+    width: 50%;
+    float: left;
+}
+
+.targetAudienceSection{
+    width: 50%;
+    float: right;
+    
+}
+
+.featureSection{
+    float: left;
+    width: 25%;
+}
+
+.videoSection{
+    text-align: center;
+}
+
+.contributors{
+    padding-top: 5%;
+    text-align: center;
+}
+
+.postmortem{
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+footer{
+    background-color: #107dac;
+}
