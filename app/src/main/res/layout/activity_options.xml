@@ -198,24 +198,49 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            >
+
+
+            <RelativeLayout
+                android:id="@+id/AllFolders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:layout_below="@id/imageView9"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/aclonica"
+                    android:text="@string/folders"
+                    android:textAlignment="center"
+                    android:textSize="16sp" />
+
+                <!--
+                    This image below is downloaded from
+                    https://www.vecteezy.com/vector-art/152859-free-educational-vector-collection
+                -->
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:contentDescription="@string/profile"
+                    android:src="@drawable/folders" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/AllFolders"
-        android:layout_width="204dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="30dp"
-        android:backgroundTint="@color/yollowishButtonColor"
-        android:onClick="openFoldersActivity"
-        android:text="@string/folders"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

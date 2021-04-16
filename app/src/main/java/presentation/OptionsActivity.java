@@ -35,6 +35,13 @@ public class OptionsActivity extends Activity {
                 openShelfcardActivity();
             }
         });
+        RelativeLayout folderWidget = findViewById(R.id.AllFolders);
+        folderWidget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openFoldersActivity();
+            }
+        });
 
     }//onCreate
 
@@ -59,7 +66,7 @@ public class OptionsActivity extends Activity {
 
 
     //openFoldersActivity---goes to the activity where a the folders are
-    public void openFoldersActivity(View view){
+    public void openFoldersActivity(){
         Intent intent_folders = new Intent(this, FoldersActivity.class);
         startActivity(intent_folders);
     }//openopenFoldersActivity
