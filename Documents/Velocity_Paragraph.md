@@ -1,0 +1,3 @@
+In iteration 1, we were not quite sure what we could get done or how long it would take us to create an app.\
+Then, in iteration 2, we really focused on what we could complete and made sure we completed all the work we promised to finish, so all our user stories were completed.\
+In iteration 3, our focus was mainly on the testing framework, so while we did focus on a few features, with a few user stories, some implementation was pushed back because we had so many individuals on testing, leaving us with less working hours on the new features and user stories.
