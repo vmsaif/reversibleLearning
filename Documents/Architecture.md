@@ -59,4 +59,4 @@ This package includes:<br>
 
 ## Architecture Diagram 
 
-![architecture](Architecture_i3.pdf)
+![architecture](Architecture_i3.png)
