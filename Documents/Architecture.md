@@ -22,6 +22,10 @@ This package includes: <br>
 [ShelfcardActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/ShelfcardActivity.java) <br>
 [OptionsActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/OptionsActivity.java) <br>
 [ProfileCreationView](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/ProfileCreationView.java) <br>
+[AddFolderActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/AddFolderActivity.java) <br>
+[AddToFolderActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/AddToFolderActivity.java) <br>
+[FolderViewActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/FolderViewActivity.java) <br>
+[FoldersActivity](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/blob/master/app/src/main/java/presentation/FoldersActivity.java) <br>
 </p>
 
 ## Logic Tier
@@ -53,6 +57,6 @@ This package includes:<br>
     *Represents the informations of the user
 </p>
 
-## Iteration 2 Diagram 
+## Architecture Diagram 
 
-![architecture](Architecture_iteration2.png)
+![architecture](Architecture_i3.pdf)
