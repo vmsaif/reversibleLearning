@@ -30,7 +30,7 @@ unlike any of our others would have damaged the quality of the other features.
 Acceptance test/end-to-end
 -----------------
 
-[Link to come later]
+[UpdateProfileTest](https://code.cs.umanitoba.ca/3350-winter-2021-a02/group5/-/commit/bc2330eae644afd687dce7cc8c4fa4f23a7cd4bf#2a6ede2cd6e5b02f0509e3bdd18ead16061d95f0_0_42)
 
 In the UpdateProfileTest, we test the entire process of creating a user profile, and the process of changing 
 a user's profile information. This tests our edit profile feature, while also testing our create profile feature. 
