@@ -3,12 +3,12 @@ Reversible Learning is a study app to help users organize notes for as many clas
 
 Group Members
 
-Scott Isfeld
-Leonardo Warsito
-Chowdhury Abdul Mumin Ishmam
-Saif Mahmud
-Yelizaveta Yashin
-Syed Ali Ahsen Muhammad Jafry
+Scott Isfeld,
+Leonardo Warsito,
+Chowdhury Abdul Mumin Ishmam,
+Saif Mahmud,
+Yelizaveta Yashin,
+Syed Ali Ahsen Muhammad Jafry.
 
 # Document Links
 * [Vision](https://github.com/vmsaif/reversibleLearning/blob/master/VISION.md)
