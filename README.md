@@ -16,3 +16,6 @@ Syed Ali Ahsen Muhammad Jafry.
 
 # How To Run
 The project was developed on the Nexus 7 with API 30, so building the project through android studio on that system and running the build should work fine
+
+## Visual Demonstration
+<img src="reversibleLearning.gif" width="330" height="650"/>
