@@ -1,4 +1,7 @@
 # Reversible Learning
+
+[![Hits](https://hits.sh/github.com/vmsaif/reversibleLearning.svg?label=Visits&color=100b75)](https://hits.sh/github.com/vmsaif/reversibleLearning/)
+
 Reversible Learning is a study app to help users organize notes for as many classes as they need, and provide a place to archive all their past questions, keeping their knowledge directly at their fingertips for years to come.
 
 Group Members
